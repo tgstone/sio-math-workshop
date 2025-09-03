@@ -8,3 +8,5 @@ dependencies:
   - myst-parser
   - nbsphinx
   - ipykernel
+  - sphinx-piccolo-theme
+
