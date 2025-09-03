@@ -24,6 +24,9 @@ jobs:
         run: |
           pip install sphinx sphinx_rtd_theme myst-parser nbsphinx ipykernel piccolo-theme
 
+      - name: Install Pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
       - name: Build HTML
         run: |
           cd docs
