@@ -1,4 +1,4 @@
-name: Build and Deploy Docs
+name: Build and Deploy Sphinx Docs
 
 on:
   push:
@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # full history required for gh-pages push
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -19,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst-parser nbsphinx
+          pip install sphinx sphinx_rtd_theme myst-parser nbsphinx ipykernel
 
       - name: Build HTML
         run: |
@@ -31,3 +34,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs/build/html
+          force_orphan: true
