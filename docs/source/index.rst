@@ -14,6 +14,5 @@ Welcome to the SIO Math Workshop!
    :caption: Workshop Materials 
    
    schedule
-   notebooks/example_notebook
-   about
+   linear_algebra2.ipynb
 
