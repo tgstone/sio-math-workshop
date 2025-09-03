@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme myst-parser nbsphinx ipykernel
+          pip install sphinx sphinx_rtd_theme myst-parser nbsphinx ipykernel sphinx-piccolo-theme
 
       - name: Build HTML
         run: |
