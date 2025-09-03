@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-sio_math_workshop documentation
+Welcome to the SIO Math Workshop!
 ===============================
 
 Add your content using ``reStructuredText`` syntax. See the
