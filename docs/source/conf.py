@@ -30,17 +30,27 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
-
-
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 #html_theme = 'alabaster'
 #html_static_path = ['_static']
 ## Use Read the Docs theme
-html_theme = "sphinx_rtd_theme"
+html_theme = "piccolo_theme"
 html_static_path = ["_static"]
+
+# Optional: customize theme options
+html_theme_options = {
+    "navbar_links": [
+        {"href": "about", "text": "About"},
+        {"href": "notebooks/example_notebook", "text": "Notebooks"},
+        {"href": "https://github.com/USERNAME/REPO", "text": "GitHub"},
+    ],
+    "footer_links": [
+        {"href": "about", "text": "About"},
+        {"href": "notebooks/example_notebook", "text": "Notebooks"},
+    ],
+}
 
 # Allow Markdown
 source_suffix = {
