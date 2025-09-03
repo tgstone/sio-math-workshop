@@ -1,2 +1,13 @@
 # sio-math-workshop
-Created for incoming SIO students as a workshop to review and learn the required material for the first year
+
+# Math Workshop
+
+This repository hosts the website and shared Jupyter notebooks for our Math Workshop.  
+
+The website is published with **GitHub Pages** at:
+👉 https://tgstone.github.io/math-workshop/
+
+## Contributing
+- Add notebooks inside the `notebooks/` folder.  
+- Update `index.md` with a link to your notebook (using nbviewer).  
+- Open a Pull Request!  
