@@ -52,7 +52,7 @@ Day 2 - 09/23
     * - 11:00 - 12:30 
       - Data 1 workshop
     * - 12:30 - 13:30
-      - Lunch
+      - Lunch: $1 Provided by the Dollar Lunch Club
     * - 13:30 - 14:15
       - Linear Algebra 1
     * - 14:15 - 15:00
@@ -64,4 +64,4 @@ Day 2 - 09/23
     * - 16:15 - 17:00
       - Data 2 Workshop
     * - 17:30 - 19:30
-      - Pizza Party! 
+      - Pizza Party at Spiess 330
