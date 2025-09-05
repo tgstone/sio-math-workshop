@@ -9,6 +9,7 @@ This site hosts notebooks and materials shared by workshop participants.
 
 ## 🔗 Available Notebooks
 - [Example Notebook](https://nbviewer.org/github/USERNAME/math-workshop/blob/main/notebooks/example_notebook.ipynb)
+- [Limits & Derivatives](https://npbiewer.org/github/tgstone/sio-math-workshop/blob/main/docs/source/classes/derivatives.ipynb)
 
 ---
 
