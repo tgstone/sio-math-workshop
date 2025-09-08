@@ -9,4 +9,5 @@ dependencies:
   - nbsphinx
   - ipykernel
   - piccolo-theme
+  - ipywidgets
 
