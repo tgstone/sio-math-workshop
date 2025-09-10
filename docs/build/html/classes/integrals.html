@@ -8,12 +8,15 @@
     <title>Integrals &#8212; sio_math_workshop 1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
     <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
     <script src="../_static/jquery.js?v=5d32c60e"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
     <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <script src="../_static/js/petite-vue.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -153,6 +156,165 @@
             
   <section id="Integrals">
 <h1>Integrals<a class="headerlink" href="#Integrals" title="Link to this heading"></a></h1>
+<p><strong>First-Year Math Workshop 2025: Integration</strong></p>
+<p><strong>Instructor:</strong> Sophie Wynn, Climate Science PhD Student (<a class="reference external" href="mailto:srwynn&#37;&#52;&#48;ucsd&#46;edu">srwynn<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This lecture introduces integration and covers, Riemann Sums, the FTC, and integration by parts</p>
+<p>Lecture Notes inspired by Luisa Watkins, and 3Blue1Brown</p>
+<p><strong>Integration</strong></p>
+<p>The <strong>integral</strong> measures the total accumulation of a quantity over time, space etc. For example an integral can compute area, distance, volume, mass, work etc!</p>
+<p><strong>To get an understanding of what this means lets go through the example:</strong></p>
+<p><strong>Traveling in a Car</strong></p>
+<p>Suppose our velocity is given by:</p>
+<div class="math notranslate nohighlight">
+\[v(t) = t(8 - t), \quad 0 \leq t \leq 8\]</div>
+<p>But we were only keeping track of the velocity every second.</p>
+<p>Sampled values of velocity</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time (t) (s)</p></th>
+<th class="head"><p>Velocity (v(t)) (m/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Question: <strong>How far did the car travel between (t = 0) and (t = 8)?</strong></p>
+<p>We’ll compute the <strong>distance traveled</strong> in two ways:</p>
+<ol class="arabic simple">
+<li><p>Using a <strong>table of sampled values</strong> and <strong>Riemann sums</strong>.</p></li>
+<li><p>Using the <strong>exact integral</strong>.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">u</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">time_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">u_samples</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">time_samples</span><span class="p">)</span>
+
+<span class="n">t_cont</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">u_cont</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">t_cont</span><span class="p">)</span>
+
+<span class="c1">#  Left-Riemann sum setup</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t_left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>   <span class="c1"># left endpoints: 0,1,2,...,7</span>
+<span class="n">u_left</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">t_left</span><span class="p">)</span>
+
+<span class="c1"># Compute left Riemann sum</span>
+<span class="n">areas</span> <span class="o">=</span> <span class="n">u_left</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="n">total_left_riemann</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">areas</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+
+<span class="c1"># plot continuous velocity curve</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_cont</span><span class="p">,</span> <span class="n">u_cont</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$u(t) = t(8-t)$&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot left endpoints</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t_left</span><span class="p">,</span> <span class="n">u_left</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Left endpoints&quot;</span><span class="p">)</span>
+
+<span class="c1"># draw rectangles</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_left</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">t_left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">u_left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Left-Riemann Sum (Δt=1)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity $v(t)$ (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/classes_integrals_4_0.png" src="../_images/classes_integrals_4_0.png" />
+</div>
+</div>
+<p><strong>Riemann Sum</strong></p>
+<div class="line-block">
+<div class="line">To compute distance given the velocity graph aove, we can first use <strong>Riemann sums</strong>.</div>
+<div class="line">We approximate the total distance by computing the <strong>area of rectangles</strong> under the curve.</div>
+</div>
+<ul class="simple">
+<li><p>The area of each rectangle is <strong>base × height</strong>.</p></li>
+<li><p>The base is <span class="math notranslate nohighlight">\((\Delta t = 1)\)</span> ie (s).</p></li>
+<li><p>The height is the velocity ie (m/s) at the <strong>left endpoint</strong> of each interval. ** Thus the area will give us meters **</p></li>
+</ul>
+<p>So, we can sum up the areas of all rectangles to get an approximation of the total distance traveled.</p>
+<p>If we divide the interval into equal parts of width <span class="math notranslate nohighlight">\((\Delta t)\)</span>, the <strong>Riemann sum</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[S = \sum_{i=0}^{n-1} v(t_i)\Delta t\]</div>
+<p>where <span class="math notranslate nohighlight">\((t_i)\)</span> is the left endpoint of each interval.</p>
+<p><strong>Example with Δt = 1:</strong></p>
+<div class="line-block">
+<div class="line">Here every change in time is <span class="math notranslate nohighlight">\((\Delta t = 1)\)</span>.</div>
+<div class="line">So the Riemann sum is:</div>
+</div>
+<div class="math notranslate nohighlight">
+\[S = (v(0)\cdot 1 + v(1)\cdot 1 + v(2)\cdot 1 + v(3)\cdot 1 + v(4)\cdot 1 + v(5)\cdot 1 + v(6)\cdot 1 + v(7)\cdot 1)\]</div>
+<p>Substitute <span class="math notranslate nohighlight">\((v(t) = t(8-t))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[S = (0 + 7 + 12 + 15 + 16 + 15 + 12 + 7) = 84\]</div>
+<p>So, the left Riemann sum approximation of the total distance is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{84 \text{ meters}}\]</div>
+<p><strong>Imagine if, instead of using a finite :math:`(Delta t = 1)` second, we could measure the velocity at</strong> <em>every instant in time</em><strong>. Then our rectangles would get smaller and smaller, And the sum of their areas would converge to the exact distance traveled!! This is exactly what</strong> <em>integration</em>** allows us to do.**</p>
+<hr class="docutils" />
+<section id="Introducing-the-Integral">
+<h2>Introducing the Integral<a class="headerlink" href="#Introducing-the-Integral" title="Link to this heading"></a></h2>
+<p>If we let the intervals become <strong>infinitely small</strong> (<span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>), the Riemann sum <strong>converges</strong> to the exact total accumulation, which is written as an <strong>integral</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\text{Accumulated quantity} = \int_a^b f(t) \, dt\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\int\)</span> is the <strong>integration operator</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the <strong>lower and upper bounds</strong> of the interval,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(t)\)</span> is the function being accumulated,</p></li>
+<li><p><span class="math notranslate nohighlight">\(dt\)</span> represents an <strong>infinitesimally small change</strong> in the independent variable.</p></li>
+</ul>
+<p><strong>Applying to our car example</strong></p>
+<p>For the car’s velocity <span class="math notranslate nohighlight">\(v(t)\)</span> from <span class="math notranslate nohighlight">\(t = 0\)</span> to <span class="math notranslate nohighlight">\(t = 8\)</span> s:</p>
+<div class="math notranslate nohighlight">
+\[v(t) = t(8-t)\]</div>
+<p>The <strong>distance traveled</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[\text{Distance} = \int_0^8 v(t) \, dt\]</div>
+<ul class="simple">
+<li><p>Using the <strong>exact integral</strong>, we get:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\int_0^8 t(8-t) \, dt =  85.33 \text{ m}\]</div>
+<p>So, the true of the total distance is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{85.33 \text{ meters}}\]</div>
+<p>This shows how letting <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span> turns the <strong>approximation into the true value</strong>.</p>
+<hr class="docutils" />
+</section>
 </section>
 
 
@@ -160,6 +322,23 @@
           </div>
         </div>
       </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Integrals</a><ul>
+<li><a class="reference internal" href="#Introducing-the-Integral">Introducing the Integral</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
     
 
       <div class="clearer"></div>
