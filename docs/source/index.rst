@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to the SIO Math Workshop!
-===============================
+=================================
 
 The Math Workshop is a student-hosted program designed to welcome and support incoming students as they begin their academic journey. 
 This workshop is offered as a refresher and introduction to mathematical concepts and problems you will encounter in your first year courses.
@@ -23,24 +23,11 @@ By the end of the program, participants will have:
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 5
    :caption: Workshop Materials 
    
+   
    schedule
-   classes/algebra.ipynb
-   classes/geometry_trig.ipynb
-   classes/complex_numbers.ipynb
-   classes/derivatives.ipynb
-   classes/integrals.ipynb
-   classes/vector_calculus.ipynb
-   classes/taylor_expansion.ipynb
-   classes/fourier_analysis.ipynb
-   classes/ode.ipynb
-   classes/intro_to_stats.ipynb
-   classes/distribution_functions.ipynb
-   classes/data_workshop1.ipynb
-   classes/linear_algebra1.ipynb
-   classes/linear_algebra2.ipynb
-   classes/stats_in_practice.ipynb
-   classes/data_workshop2.ipynb
+   day1/index.rst
+   day2/index.rst
 
