@@ -10,4 +10,5 @@ dependencies:
   - ipykernel
   - piccolo-theme
   - ipywidgets
+  - furo
 

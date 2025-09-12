@@ -35,7 +35,8 @@ exclude_patterns = []
 #html_theme = 'alabaster'
 #html_static_path = ['_static']
 ## Use Read the Docs theme
-html_theme = "piccolo_theme"
+## html_theme = "piccolo_theme"
+html_theme = "furo"
 html_static_path = ["_static"]
 html_favicon = '_static/math-workshop-logo.png'
 html_title = "SIO Math Workshop"
