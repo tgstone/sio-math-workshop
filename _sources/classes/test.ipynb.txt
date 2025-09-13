@@ -1,0 +1,45 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "d1d74f94",
+   "metadata": {},
+   "source": [
+    "**Traveling in a Car**\n",
+    "\n",
+    "Suppose our velocity is given by:\n",
+    "\n",
+    "$$\n",
+    "v(t) = t(8 - t), \\quad 0 \\leq t \\leq 8\n",
+    "$$\n",
+    "\n",
+    "But we were only keeping track of the velocity every second. \n",
+    "\n",
+    "Sampled values of velocity\n",
+    "\n",
+    "| Time \\(t\\) (s) | Velocity \\(v(t)\\) (m/s) |\n",
+    "|----------------|--------------------------|\n",
+    "| 0              | 0                        |\n",
+    "| 1              | 7                        |\n",
+    "| ..              | ...                       |\n",
+    "| 4              | 16                       |\n",
+    "| 8              | 0                        |\n",
+    "\n",
+    "Question: **How far did the car travel between \\(t = 0\\) and \\(t = 8\\)?**\n",
+    "\n",
+    "\n",
+    "\n",
+    "We’ll compute the **distance traveled** in two ways:  \n",
+    "1. Using a **table of sampled values** and **Riemann sums**.  \n",
+    "2. Using the **exact integral**.  \n"
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
