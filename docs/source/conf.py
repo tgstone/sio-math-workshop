@@ -26,6 +26,10 @@ extensions = [
     "sphinx_rtd_theme", 
 ]
 
+myst_enable_extensions = [
+    "amsmath"
+]
+
 templates_path = ['_templates']
 exclude_patterns = []
 
