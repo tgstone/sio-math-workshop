@@ -23,7 +23,12 @@ release = '1'
 extensions = [
     "myst_parser", # Markdwon
     "nbsphinx",    # Jupyter Notebooks
+    'sphinx.ext.mathjax',
     "sphinx_rtd_theme", 
+]
+
+myst_enable_extensions = [
+    "amsmath"
 ]
 
 templates_path = ['_templates']
