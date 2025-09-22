@@ -1,8 +1,9 @@
 Schedule
 =========
-All of our courses will be taught in Nierenberg Hall 101 
+All of our courses will be taught in Nierenberg Hall 101. Snacks will be provided on the first day, and lunch and dinner 
+will be provided on the second day. See below for details.
 
-insert directions
+NH101 directions: From the NH parking lot, walk south toward 
 
 Day 1 - 09/22
 -------------
