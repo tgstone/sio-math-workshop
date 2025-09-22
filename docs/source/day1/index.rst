@@ -1,12 +1,13 @@
 Day 1
 ===============================
 
-insert day 1 info, lauren will do this soon
+Welcome to the first day of our math workshop! Check out the schedule page for 
+directions to the classroom and the times/order of classes.
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: First day notes 
+   :caption: Today's Courses 
    
    
    algebra.ipynb
