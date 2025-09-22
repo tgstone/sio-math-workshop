@@ -1,9 +1,10 @@
 Schedule
 =========
-All of our courses will be taught in Nierenberg Hall 101. Snacks will be provided on the first day, and lunch and dinner 
+All of our courses will be taught in Nierenberg Hall 101. Snacks and coffee will be provided on both days, and lunch and dinner 
 will be provided on the second day. See below for details.
 
-NH101 directions: From the NH parking lot, walk south toward 
+NH101 directions: From the NH parking lot, walk south toward the building (past the rose
+garden). Go down the stairs on the right of the building, and you will see the open door of NH101.
 
 Day 1 - 09/22
 -------------
@@ -80,5 +81,5 @@ Day 2 - 09/23
   +--------------------+---------------------------------------------+----------------------+--------------------------+
   | 4:15 - 5:00 PM     | :doc:`day2/data_workshop2`                  | Jared Brzenski       | | Tommy Stone            |
   +--------------------+---------------------------------------------+----------------------+--------------------------+
-  | 5:30 - 7:00 PM     | | **Pizza party!**                                                                            |
+  | 5:30 - 7:00 PM     | | **Pizza party! On the beach below CCS**                                                     |
   +--------------------+---------------------------------------------+----------------------+--------------------------+
