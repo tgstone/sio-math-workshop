@@ -20,3 +20,4 @@ the pier) and walk down the ramp to the beach.
    linear_algebra2.ipynb
    stats_in_practice.ipynb
    data_workshop2.ipynb
+   data_workshop2_pt2.ipynb
