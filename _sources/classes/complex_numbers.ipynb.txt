@@ -1,0 +1,304 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "73ccb247",
+   "metadata": {},
+   "source": [
+    "# Complex Numbers"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d8485c52",
+   "metadata": {},
+   "source": [
+    "**Instructor:** Kayli Matsuyoshi <br>\n",
+    "**TAs:** Argen Smith and Lauren Harvey"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ef54e47d",
+   "metadata": {},
+   "source": [
+    "## Overview\n",
+    "**1 | What are complex numbers?** <br>\n",
+    "&emsp; 1.1 The need for complex numbers <br>\n",
+    "&emsp; 1.2 Definitions <br>\n",
+    "**2 | Visualizing complex numbers**  <br>\n",
+    "&emsp; 2.1 The complex plane <br>\n",
+    "&emsp; 2.2 Polar coordinates <br>\n",
+    "&emsp; 2.3 Euler's formula <br>\n",
+    "**3 | Operating on complex numbers**  <br>\n",
+    "&emsp; 3.1 Addition and Subtraction <br>\n",
+    "&emsp; 3.2 Multiplication <br>\n",
+    "&emsp; 3.3 Division <br>\n",
+    "&emsp; 3.4 Powers <br>\n",
+    "&emsp; 3.5 Roots <br>\n",
+    "**4 | References**  <br>\n",
+    "**5 | Appendix**  <br>\n",
+    "&emsp; 6.1 Comparing complex numbers <br>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0ba100a1",
+   "metadata": {},
+   "source": [
+    "## 1 | What are complex numbers?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0f819cf5",
+   "metadata": {},
+   "source": [
+    "### 1.1 The need for complex numbers\n",
+    "\n",
+    "When solving advanced mathematical problems, we still aim to reduce a problem to a more simple algebraic equation. For these equations, the solutions belong to a set of numbers. <br>\n",
+    "With only the set of **natural numbers** $\\mathbb{N}$ (or counting numbers, $\\mathbb{N} = \\{0, 1, 2, 3,...\\}$), the equations we can solve are limited. For instance, to solve <br> $ x + 2 = 1, $ <br> \n",
+    "\n",
+    "we require the set of **integers**, $\\mathbb{Z} = \\{0, \\pm1, \\pm2, \\pm3,...\\}$. However, we soon run into problems decimals, such as <br> \n",
+    "$3x = 2.$  <br> \n",
+    "\n",
+    "The set of **rational numbers**, $\\mathbb{Q}$, which are numbers expressed as a fraction of two integers, is needed. Once we begin to involve exponents in our equations, such as in \n",
+    "<br> $x^2 = 2,$ <br> \n",
+    "we must loosen the requirement that the numbers are a fraction of integers, thus including repeating/terminating decimals and making use of the set of **real numbers**, $\\mathbb{R}$, to solve these equations. Celebrities in this set include $\\pi$ and $e$. <br> \n",
+    "We have to start using our *imaginations* to solve problems that yield a negative number inside a root, like <br> $x^2 = -1,$ <br> \n",
+    "which is when complex numbers save the day."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2996b24c",
+   "metadata": {},
+   "source": [
+    "### 2 | Definitions \n",
+    "\n",
+    "The **fundamental theorem of algebra** states that, for a complex polynomial $p_n(z)$ of degree n, the equation $p_n(z)$ = 0 has precisely n complex roots. <br>\n",
+    "**Complex numbers**, $\\mathbb{C}$, include all sets of numbers mentioned previously, plus the set of **imaginary numbers**. Therefore, with complex numbers, the set of numbers is *algebraically closed*. <br>\n",
+    "\n",
+    "A complex number is most often written as a sum of a real part and imaginary part,\n",
+    "\n",
+    "$$z = x+iy,$$\n",
+    "\n",
+    "in which $x, y \\in \\mathbb{R}$ and $i = \\sqrt{-1}$ is an **imaginary unit**. \n",
+    "\n",
+    "The **real part** of z is written as $Re\\{z\\} = x$ and the **imaginary part** of z is written as $Im\\{z\\} = y$.\n",
+    "\n",
+    "Each complex number has a **complex conjugate**, in which the imaginary part is negated. The complex conjugate of the complex number z written above is\n",
+    "\n",
+    "$$z^* = x-iy.$$\n",
+    "\n",
+    "What would happen if we were to take powers of $i$? \n",
+    "\n",
+    "| Power of $i$   | in numbers please |\n",
+    "|----------------| ----------------  |\n",
+    "|      $i^{-1}$  |    $-\\sqrt{-1}$   |\n",
+    "|      $i^0$     |        $1$        |\n",
+    "|      $i^1$     |     $\\sqrt{-1}$   |\n",
+    "|      $i^2$     |       $-1$        |\n",
+    "|      $i^3$     |    $-\\sqrt{-1}$   |\n",
+    "|      $i^4$     |        $1$        |\n",
+    "|      $i^5$     |     $\\sqrt{-1}$   |\n",
+    "\n",
+    "<br> With four additional powers, we managed to return right back to the start. This is equivalent to rotating 90º four times on a geometric plane..."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "01852fa8",
+   "metadata": {},
+   "source": [
+    "## 2 | Visualizing complex numbers"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f54187a4",
+   "metadata": {},
+   "source": [
+    "### 2.1 The complex plane\n",
+    "\n",
+    "The real and imaginary parts of a complex number are orthogonal, such that they form a two-dimensional plane refered to as the **complex plane**.\n",
+    "\n",
+    "A complex number is represented as a vector pointed a distance outwards from the origin $(0,0)$, with the real part the distance along the x-axis, and the imaginary part the distance along the y-axis. \n",
+    "\n",
+    "<img src=\"https://matherama.com/Tutorials/Chapter%2004%20-%20Complex%20Numbers%20Basics/img/argand_plane.png\" width=\"400\" height=\"400\">\n",
+    "\n",
+    "### 2.2 Polar coordinates\n",
+    "\n",
+    "Complex numbers can easily be visualized with both cartesian and polar coordinates. The magnitude of the vector formed by a complex number z in the complex plane, or the **modulus** of the complex number, is \n",
+    "\n",
+    "$$|z| = \\sqrt{x^2 + y^2} = r,$$\n",
+    "\n",
+    "and the angle from the real axis (counterclockwise) is the **argument** of the complex number, \n",
+    "\n",
+    "$$arg(z) = \\tan^{-1} \\frac{y}{x} = \\theta.$$\n",
+    "\n",
+    "Therefore, a complex number can be represented with a radius $r$ and an angle $\\theta$, called **polar form**, instead of two distances, $x$ and $y$, called **cartesian form**, like\n",
+    "\n",
+    "$$z = x+iy = r\\cos(\\theta) + ir\\sin(\\theta).$$\n",
+    "\n",
+    "The argument is actually infinitely many values, as it includes a principal argument plus any integer multiplied by $2\\pi$, \n",
+    "\n",
+    "$$arg(z) = Arg(z) + 2 \\pi n,$$\n",
+    "\n",
+    "where $n = \\{0, \\pm1, \\pm2, \\pm3,...\\}$. The principal argument $Arg(z)$ is the value defined within some specified bounds, such as $-\\pi<\\theta<\\pi$ or $0<\\theta<2\\pi$.\n",
+    "\n",
+    "### 2.3 Euler's formula\n",
+    "\n",
+    "Essential to operating on complex numbers is **Euler's formula**: \n",
+    "\n",
+    "$$e^{i\\theta} = \\cos(\\theta) + i\\sin(\\theta).$$\n",
+    "\n",
+    "We now have three ways to write the same complex number:\n",
+    "\n",
+    "$$z = re^{i\\theta} = r\\cos(\\theta) + ir\\sin(\\theta) = x+iy.$$\n",
+    "\n",
+    "The different forms have different benefits that will be explored in the following sections. \n",
+    "\n",
+    "The **unit circle** becomes a very helpful tool when solving problems involving complex numbers. \n",
+    "\n",
+    "<img src=\"https://mathcenter.oxford.emory.edu/site/math100/unitCircle/511-04.gif\" width=\"500\" height=\"500\">"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "204d31dd",
+   "metadata": {},
+   "source": [
+    "## 3 | Operating on complex numbers"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "243f2de8",
+   "metadata": {},
+   "source": [
+    "### 3.1 Addition and Subtraction\n",
+    "\n",
+    "To add or subtract two complex numbers, it is best to add their real and imaginary parts separately, like\n",
+    "\n",
+    "$$z_1 + z_2 = (x_1 + iy_1) + (x_2 + iy_2) = (x_1 + x_2) + i(y_1 + y_2),$$\n",
+    "\n",
+    "or\n",
+    "\n",
+    "$$z_1 - z_2 = (x_1 + iy_1) - (x_2 + iy_2) = (x_1 - x_2) + i(y_1 - y_2).$$\n",
+    "\n",
+    "### 3.2 Multiplication\n",
+    "\n",
+    "To multiply two complex numbers, use FOIL (first outer inner last) on two numbers in cartesian form to multiply each pair:\n",
+    "\n",
+    "$$z_1 + z_2 = (x_1 + iy_1)(x_2 + iy_2) = x_1 x_2 + i x_1 y_2 + i y_1 x_2 - y_1 y_2.$$\n",
+    "\n",
+    "Alternatively, complex numbers in exponential polar form can be multiplied when both their moduli are multiplied and their arguments are added together:\n",
+    "\n",
+    "$$z_1 + z_2 = (r_1 e^{i\\theta_1})(r_2 e^{i\\theta_2}) = r_1 r_2 e^{i \\theta_1 + \\theta_2}.$$\n",
+    "\n",
+    "### 3.3 Division \n",
+    "\n",
+    "To divide one complex number by another, multiply the numerator and denominator by the complex number of the divisor. \n",
+    "\n",
+    "$$\\frac{z_1}{z_2} = \\frac{z_1 z_2^*}{z_2 z_2^*} = \\frac{(x_1 + iy_1)(x_2 - iy_2)}{(x_2 + iy_2)(x_2 - iy_2)}.$$\n",
+    "\n",
+    "This avoids having a complex number in the denominator.\n",
+    "\n",
+    "Alternatively, complex numbers in exponential polar form can be divided when the modulus of the dividend is divided by that of the divisor and the argument of the divisor is subtracted from that of the dividend:\n",
+    "\n",
+    "$$\\frac{z_1}{z_2} = \\frac{r_1 e^{i\\theta_1}}{r_2 e^{i\\theta_2}} = \\frac{r_1}{r_2} e^{i \\theta_1 - \\theta_2}.$$\n",
+    "\n",
+    "### 3.4 Powers\n",
+    "\n",
+    "It is easiest to take powers of complex numbers when they are in exponential polar form. The $n$th power of a complex number is\n",
+    "\n",
+    "$$z^n = re^{in\\theta}.$$\n",
+    "\n",
+    "### 3.5 Roots \n",
+    "\n",
+    "Taking the $n$th root of a complex number is a little trickier. The finding the modulus is light work, as $|z^{\\frac{1}{n}}| = r^{\\frac{1}{n}}$. But there are $n$ distinct roots of a complex number, forming a polynomial with $n$ vertices, each a distance of $r^{\\frac{1}{n}}$ from the origin. \n",
+    "\n",
+    "First, define the range of values for the arguments. Then, find the $n$ distinct roots by adding multiples of $2\\pi$ divided by $n$ to the prinicpal argument.\n",
+    "\n",
+    "$$arg(z^{\\frac{1}{n}}) = Arg(z^{\\frac{1}{n}}) + \\frac{1}{n} 2 \\pi k,$$\n",
+    "\n",
+    "where $k = \\{0, \\pm1, \\pm2, \\pm3,...\\}$."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fb6ba3de",
+   "metadata": {},
+   "source": [
+    "## 4 | References\n",
+    "\n",
+    "- Riley Hobson and Bence (2006). Mathematical Methods for Physics and Engineering, 3rd Edition. \n",
+    "- MATH 120A notes by Professor Rabin\n",
+    "- Ashton Domi's 2024 Complex Numbers Lecture\n",
+    "- Merino, O. (2006). \"A Short History of Complex Numbers.\" University of Rhode Island."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "92cba11c",
+   "metadata": {},
+   "source": [
+    "## 5 | Appendix\n",
+    "\n",
+    "\n",
+    "### 5.1 Comparing complex numbers\n",
+    "\n",
+    "There is no method to compare two complex numbers directly. For example, if $z_1$ and $z_2$ are complex numbers and $z_1 \\neq z_2$, then $z_1 < z_2$ or $z_1 > z_2$ cannot be defined ($i<0$ and $i<0$ are both untrue statements when squared). \n",
+    "\n",
+    "The **triangle inequality** avoids this complication by comparing the moduli of two complex numbers, and is true for n complex numbers:\n",
+    "\n",
+    "$$ ||z_1|-|z_2|| \\leq |z_1 + z_2| \\leq |z_1| + |z_2|.$$\n",
+    "\n",
+    "The **law of cosines** only applies to two complex numbers: \n",
+    "\n",
+    "$$ |z_1 + z_2|^2 = |z_1|^2 + |z_2|^2 + 2|z_1||z_2|\\cos(\\phi).$$\n",
+    "\n",
+    "Here, $\\cos(\\phi)$ is bounded by -1 and +1. \n",
+    "\n",
+    "### 5.2 A brief history of complex numbers\n",
+    "\n",
+    "According to a review by **Orlando Merino, \"A Short History of Complex Numbers\" (2006)**, the need for complex numbers arose from solving cubic equations, instead of quadratic equations. <br>\n",
+    "Al-Khwarizmi (780-850), a scientist of Baghdad, was one of the first to find geometric-based solutions to quadratics, but would only consider the positive roots.  When Arabic methods traveled to Italy, Leonardo da Pisa (streetname Fibonacci, 1170-1250), was able to perform for the emperor the solutions to many cubic equations.  <br>\n",
+    "Gerolamo Cardano's friend Antonio Maria Fiore wins a math battle and shares his secrets from his teacher Scipione del Ferro with him. Cardano was able to back out the winning formula and published it in \"Ars Magna\" (1545). The book featured complex numbers of the form $a + \\sqrt{-b}$, of which Cardano wrote as being \"mental tortures\" to deal with.  <br>\n",
+    "Later, Rafael Bombelli finds the imaginary unit, $\\sqrt{-1}$ in \"l'Algebra\" (1572, 1579) and calles it \"più di meno.\" <br>\n",
+    "René Descarts (1596-1650) coins the term imaginary, John Wallis (1616-1703) comes later with the geometric interpretation of i, and Euler (1707-1783) drops the banger \n",
+    "$z = x+iy= \\cos(\\theta) + i\\sin(\\theta)$."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "42e27bdf",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,659 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Complex Numbers" href="complex_numbers.html"><link rel="prev" title="Algebra" href="algebra.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Units/Geometry/Trig - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algebra.html">Algebra</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day2/index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day2/intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day1/geometry_trig.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Units/Geometry/Trig">
+<h1>Units/Geometry/Trig<a class="headerlink" href="#Units/Geometry/Trig" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Lauren Harvey (<a class="reference external" href="mailto:lrharvey&#37;&#52;&#48;ucsd&#46;edu">lrharvey<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Kathryn Chen (<a class="reference external" href="mailto:ksc005&#37;&#52;&#48;ucsd&#46;edu">ksc005<span>&#64;</span>ucsd<span>&#46;</span>edu</a>) and Joey Carter (<a class="reference external" href="mailto:j6carter&#37;&#52;&#48;ucsd&#46;edu">j6carter<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This lesson will review units and dimensional analysis (specifically applications to Earth sciences), and trigonometry (the unit circle; trig functions). <strong>Sections to be covered based on attendees’ interest.</strong></p>
+<p>Lecture notes inspired by Wikipedia and Ishwari Mulkalwar’s 2024 Geometry notes.</p>
+<section id="1-|-Dimensional-Analysis">
+<h2>1 | Dimensional Analysis<a class="headerlink" href="#1-|-Dimensional-Analysis" title="Link to this heading"></a></h2>
+<p>Dimensional analysis is the process of tracking the base dimensions and their units in the different quantities in a mathematical expression as we do calculations with them. This can be as simple as converting a quantity from one unit to another, but gets more complicated when we have multiple quantities, sometimes in uncompatible units, within an expression.</p>
+<section id="1.1-Base-Quantities-and-Units">
+<h3>1.1 Base Quantities and Units<a class="headerlink" href="#1.1-Base-Quantities-and-Units" title="Link to this heading"></a></h3>
+<p>There are <a class="reference external" href="https://www.bipm.org/en/measurement-units/si-base-units">7 base quantites</a> in the International System of Units (SI). <strong>Time</strong>, <strong>length</strong>, and <strong>mass</strong> are likely the most familiar and show up frequently in Earth Sciences, along with <strong>temperature</strong>, and <strong>amount of substance</strong> (more for biology and chemistry applications)</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Base quantity</p></th>
+<th class="head"><p>Typical symbol</p></th>
+<th class="head"><p>Base unit</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Alternate Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>time</p></td>
+<td><p><em>t</em></p></td>
+<td><p>second</p></td>
+<td><p>s</p></td>
+<td><p>minute, hour, day, year</p></td>
+</tr>
+<tr class="row-odd"><td><p>length</p></td>
+<td><p><em>l, x, r, etc.</em></p></td>
+<td><p>meter</p></td>
+<td><p>m</p></td>
+<td><p>foot, mile</p></td>
+</tr>
+<tr class="row-even"><td><p>mass</p></td>
+<td><p><em>m</em></p></td>
+<td><p>kilogram</p></td>
+<td><p>kg</p></td>
+<td><p>pound</p></td>
+</tr>
+<tr class="row-odd"><td><p>electric current</p></td>
+<td><p><em>I, i</em></p></td>
+<td><p>ampere</p></td>
+<td><p>A</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>thermodynamic temperature</p></td>
+<td><p><em>T</em></p></td>
+<td><p>kelvin</p></td>
+<td><p>K</p></td>
+<td><p>celcius (ºC), fahrenheit (ºF)</p></td>
+</tr>
+<tr class="row-odd"><td><p>amount of substance</p></td>
+<td><p><em>n</em></p></td>
+<td><p>mole</p></td>
+<td><p>mol</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>luminous intensity</p></td>
+<td><p><em>Iᵥ</em></p></td>
+<td><p>candela</p></td>
+<td><p>cd</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="1.1.1-SI-Prefixes">
+<h4>1.1.1 SI Prefixes<a class="headerlink" href="#1.1.1-SI-Prefixes" title="Link to this heading"></a></h4>
+<p>The SI system has a helpful system of prefixes that expands upon base units (and others), allowing us to easily express something like “thousands of meters” without having to pull out scientific notation or extra words. You are likely familiar with a few common ones: “kilo-” for thousands (a kilometer is a thousand meters, a kilogram is a thousand grams), “centi-” for hundredths (a centimeter is a hundredth of a meter), etc. Below is a shortened version of <a class="reference external" href="https://www.nist.gov/pml/owm/metric-si-prefixes">this
+table</a> with the prefixes I’ve seen in Earth sciences, but the table extends on both sides if you need very small or very large units.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Factor</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Symbol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(10^{12})</p></td>
+<td><p>tera</p></td>
+<td><p>T</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{9})</p></td>
+<td><p>giga</p></td>
+<td><p>G</p></td>
+</tr>
+<tr class="row-even"><td><p>(10^{6})</p></td>
+<td><p>mega</p></td>
+<td><p>M</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{3})</p></td>
+<td><p>kilo</p></td>
+<td><p>k</p></td>
+</tr>
+<tr class="row-even"><td><p>(10^{2})</p></td>
+<td><p>hecto</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{1})</p></td>
+<td><p>deca</p></td>
+<td><p>da</p></td>
+</tr>
+<tr class="row-even"><td><p>(10^{-1})</p></td>
+<td><p>deci</p></td>
+<td><p>d</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{-2})</p></td>
+<td><p>centi</p></td>
+<td><p>c</p></td>
+</tr>
+<tr class="row-even"><td><p>(10^{-3})</p></td>
+<td><p>milli</p></td>
+<td><p>m</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{-6})</p></td>
+<td><p>micro</p></td>
+<td><p>µ</p></td>
+</tr>
+<tr class="row-even"><td><p>(10^{-9})</p></td>
+<td><p>nano</p></td>
+<td><p>n</p></td>
+</tr>
+<tr class="row-odd"><td><p>(10^{-12})</p></td>
+<td><p>pico</p></td>
+<td><p>p</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="1.1.2-Time">
+<h4>1.1.2 Time<a class="headerlink" href="#1.1.2-Time" title="Link to this heading"></a></h4>
+<p>Time conversions are the simplest, as people typically have the relationship between different units memorized. We know there are 60 seconds in a minute, 60 minutes in an hour, 24(ish) hours in a day, and 365 (ish) days in a year. Be aware that it gets more complicated when we work with data and need to be more exact in our conversions (not ignoring leap years and such). Programming languages typically have built-in functions to help with working with date/time data, as described <a class="reference external" href="https://www.mathworks.com/help/matlab/date-and-time-operations.html">here for
+Matlab</a> and <a class="reference external" href="https://docs.python.org/3/library/datetime.html">here for Python</a></p>
+<section id="1.1.2a-Some-Common-Considerations">
+<h5>1.1.2a Some Common Considerations<a class="headerlink" href="#1.1.2a-Some-Common-Considerations" title="Link to this heading"></a></h5>
+<p>Depending on when the data was recorded and what instrament it comes from, the <strong>epoch</strong>, aka the time that is considered “time 0” in your timeseries, can vary. It is easiest if you are given this information with the dataset, but in a worst-case scenario you can do some quick calculations or try a few common epochs in your data analysis to see which produces the correct result.</p>
+</section>
+</section>
+<section id="1.1.3-Length">
+<h4>1.1.3 Length<a class="headerlink" href="#1.1.3-Length" title="Link to this heading"></a></h4>
+<p>In science, length is almost always measured in meters or some order of meters (millimeters, kilometers) which makes our lives easier! However, we sometimes need to convert/estimate distances in kilometers from latitude or longitude, which we will discuss later.</p>
+</section>
+<section id="1.1.4-Temperature">
+<h4>1.1.4 Temperature<a class="headerlink" href="#1.1.4-Temperature" title="Link to this heading"></a></h4>
+<p>The base SI unit is Kelvin, which is measured in the same increments as degrees Celsius, but with 0 K as absolute zero (no thermal energy). Because it is an absolute scale, we don’t say “degrees Kelvin” or “ºK” as we do with ºC or ºF. Despite K being the base SI unit, Celsius is used more frequently in many fields.</p>
+<p>To convert between Celsius and Kelvin, we simply add or subtract 273.15: <strong>temp_C = temp_K - 273.25</strong></p>
+<p>Fahrenheit is a bit more complicated since 100ºF was defined approximately at human body temperature (making it good for day to day use, but messy for science), instead of Celsius’ more concrete 0ºC and 100ºC as where water melts and evaporates.</p>
+<p>However, we still have an exact conversion: <strong>temp_C = 5/9 * (temp_F - 32)</strong></p>
+<p>If you’re from the US or another Fahrenheit-using country, you may find it difficult to conceptualize what temperatures in Celcius mean. I find it useful to look at plots where temperature is labeled in both units, such as the one below of Scripps Pier water temperature in 2025.</p>
+<p><img alt="Scripps Pier 2025 Surface Temp" class="no-scaled-link" src="https://shorestations.ucsd.edu/plots/SIO_surf_daily.png" style="width: 800px;" /></p>
+</section>
+</section>
+<section id="1.2-Derived-Quanities">
+<h3>1.2 Derived Quanities<a class="headerlink" href="#1.2-Derived-Quanities" title="Link to this heading"></a></h3>
+<p>Derived quantities are formed from combinations of the base quantities. Some common ones are:</p>
+<p><strong>Geometric Quantities: Only length</strong></p>
+<p>[Area] = length^2 = <span class="math notranslate nohighlight">\(m^2\)</span></p>
+<p>[Volume] = length^3 = <span class="math notranslate nohighlight">\(m^3\)</span></p>
+<p><strong>Kinematic Quantities: Only length and time</strong></p>
+<p>[Velocity/Speed] = length / time = <span class="math notranslate nohighlight">\(m/s\)</span></p>
+<p>[Acceleration] = length / time^2 = <span class="math notranslate nohighlight">\(m/s^2\)</span></p>
+<p><strong>Dynamic Quantites: Only length, time, and mass</strong></p>
+<p>[Force] = mass * length / time^2 = <span class="math notranslate nohighlight">\(kg*m/s^2\)</span> = <span class="math notranslate nohighlight">\(N\)</span> (Newtons)</p>
+<p>[Pressure] = force / area = <span class="math notranslate nohighlight">\(N / m^2\)</span> = <span class="math notranslate nohighlight">\(Pa\)</span> (Pascals)</p>
+<p><em>(In this notation, the brackets [ ] in [quantity] means “units of” or “dimensions of” that quantity. Use of this notation varies, see</em> <a class="reference external" href="https://physics.stackexchange.com/a/77691">here</a> <em>for an in-depth discussion and examples of other ways you may see dimensions indicated in your courses)</em></p>
+</section>
+<section id="1.3-Common-Quanitities-in-Earth-Sciences">
+<h3>1.3 Common Quanitities in Earth Sciences<a class="headerlink" href="#1.3-Common-Quanitities-in-Earth-Sciences" title="Link to this heading"></a></h3>
+<p>Here we’ll discuss some quantities you’ll run into in Earth sciences and their units. You will be introduced to all of these in SIO 210.</p>
+<section id="1.3.1-Density">
+<h4>1.3.1 Density<a class="headerlink" href="#1.3.1-Density" title="Link to this heading"></a></h4>
+<p>Density is defined as mass per unit volume, typically written as <span class="math notranslate nohighlight">\(\rho\)</span> (rho) and given in <span class="math notranslate nohighlight">\(kg/m^3\)</span>. It is highly relevant in atmosphere and ocean dynamics, and will be discussed at length in SIO 210. Density can be calculated from an empirical “equation of state” (EOS), which looks something like this: <span class="math notranslate nohighlight">\(\rho = \rho (S,T,p)\)</span> (aka density is a function of the quantites in parenthesis).</p>
+<p>For oceanography, seawater density typically has values ranging from <span class="math notranslate nohighlight">\(1020\)</span> to <span class="math notranslate nohighlight">\(1030\)</span> <span class="math notranslate nohighlight">\(kg/m^3\)</span> (freshwater has density <span class="math notranslate nohighlight">\(1000 kg/m^3\)</span> at <span class="math notranslate nohighlight">\(4ºC\)</span> by definition, and dissolved salts in the ocean increase density slightly). You may also see density values ranging from 20 to 30 instead, when the density of freshwater (1000) has been subtracted. Density in the ocean is a function of salinity, temperature, and pressure (<span class="math notranslate nohighlight">\(\rho = \rho (S,T,p)\)</span>).</p>
+<p>For atmospheric science, density near sea level is around <span class="math notranslate nohighlight">\(1 kg/m^3\)</span>, and falls off with increasing altitude. Density in the atmosphere is a function of salinity, temperature, pressure, and moisture.</p>
+</section>
+<section id="1.3.2-Pressure">
+<h4>1.3.2 Pressure<a class="headerlink" href="#1.3.2-Pressure" title="Link to this heading"></a></h4>
+<p>Pressure, as mentioned above, is force per unit area.</p>
+</section>
+</section>
+<section id="Unit-Conversion-Examples">
+<h3>Unit Conversion Examples<a class="headerlink" href="#Unit-Conversion-Examples" title="Link to this heading"></a></h3>
+<section id="A-Common-Distance-Approximation">
+<h4>A Common Distance Approximation<a class="headerlink" href="#A-Common-Distance-Approximation" title="Link to this heading"></a></h4>
+<p>It is very useful to be able to calculate, or at least approximate, distance in kilometers in a plot showing latitude (north-south) and longitude (east-west), as you will see in SIO 210 and beyond. A complication is that, while longitude circles are always the same size, latitude circles get smaller as you move away from the equator, as seen below.</p>
+<p><img alt="Latitude and longitude diagram and explanation" class="no-scaled-link" src="https://sciencenotes.org/wp-content/uploads/2022/06/Latitude-and-Longitude-1024x683.png" style="width: 400px;" /></p>
+<p>We’ll handle this complication later when we discuss trigonometry, but a decent approximation for your 210 homework problems (or whenever a quick approximation is helpful) is that <strong>one degree in latitude or longitude is about 111 km.</strong> This is the value for all longitude circles and the 0º latitude circle (aka the equator) (we’ll actually do this calculation shortly!) but is a decent approximation anywhere.</p>
+<p><strong>Example:</strong> Convert 2º to kilometers.</p>
+</section>
+</section>
+<section id="1.4-Dimensionless-Numbers">
+<h3>1.4 Dimensionless Numbers<a class="headerlink" href="#1.4-Dimensionless-Numbers" title="Link to this heading"></a></h3>
+<p>In several courses, you will come across so called “dimensionless numbers”. These are important ratios who’s values can tell us about a system we are looking at. A common example is the Rossby number.</p>
+</section>
+</section>
+<section id="2-|-Trigonometry">
+<h2>2 | Trigonometry<a class="headerlink" href="#2-|-Trigonometry" title="Link to this heading"></a></h2>
+<p>Trigonometry deals with the relationships between sides and angles in a triangle. As a reminder, we commonly measure angles in either radians or degrees, and the relationship between them is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[180º= \pi \text{ radians}\]</div>
+</div>
+<p>So, for example, (in the style of our dimensional analysis/unit conversion problems):</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\frac{3\pi}{2} \text{ radians} * \frac{180º}{\pi \text{ radians}} = 270º\]</div>
+</div>
+<section id="2.1-Right-Triangles-and-Trigonometric-Functions">
+<h3>2.1 Right Triangles and Trigonometric Functions<a class="headerlink" href="#2.1-Right-Triangles-and-Trigonometric-Functions" title="Link to this heading"></a></h3>
+<p>We define our trig functions using the ratios in a right triangle (a triangle with one 90º angle).</p>
+<p>A useful mnemonic for remembering which side ratios correspond to which trig function of an angle is <strong>SOH CAH TOA</strong>:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\textbf{s}\text{in}(\theta) = \frac{\textbf{O}\text{pposite}}{\textbf{H}\text{ypotenuse}}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\textbf{c}\text{os}(\theta) = \frac{\textbf{A}\text{djacent}}{\textbf{H}\text{ypotenuse}}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\textbf{t}\text{an}(\theta) = \frac{\textbf{O}\text{pposite}}{\textbf{A}\text{djacent}}\]</div>
+</div>
+<p>The other three basic trig functions, cosecant, secant, and cotangent, are defined by the reciprocals of these ratios:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\text{csc}(\theta) = \frac{\text{Hypotenuse}}{\text{Opposite}}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\text{sec}(\theta) = \frac{\text{Hypotenuse}}{\text{Adjacent}}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\text{cot}(\theta) = \frac{\text{Adjacent}}{\text{Opposite}}\]</div>
+</div>
+<section id="2.1.1-Trigonometric-Ratios-Example">
+<h4>2.1.1 Trigonometric Ratios Example<a class="headerlink" href="#2.1.1-Trigonometric-Ratios-Example" title="Link to this heading"></a></h4>
+<p>What are sine, cosine, and tangent of <span class="math notranslate nohighlight">\(\theta\)</span> in a 3-4-5 triangle?</p>
+</section>
+</section>
+<section id="2.1.2-Inverse-Trig-Functions">
+<h3>2.1.2 Inverse Trig Functions<a class="headerlink" href="#2.1.2-Inverse-Trig-Functions" title="Link to this heading"></a></h3>
+<p>All 6 of these trig functions have an inverse function, typically written either as <span class="math notranslate nohighlight">\(\text{arcsin} \theta\)</span> or <span class="math notranslate nohighlight">\(\sin^{-1} \theta\)</span> . We use these when we know the value of the trig function and need to find the angle at which this value occurs. The inverse functions have agreed-upon ranges, since otherwise they would repeat:</p>
+<p><img alt="4a2830925854419a9e28d5f5818e0fa4" src="https://mathmonks.com/wp-content/uploads/2025/03/Domain-and-Range-of-Inverse-Trigonometric-Functions.jpg" /></p>
+</section>
+<section id="2.2-The-Unit-Circle">
+<h3>2.2 The Unit Circle<a class="headerlink" href="#2.2-The-Unit-Circle" title="Link to this heading"></a></h3>
+<p>The unit circle is a circle with radius 1 (hence “unit”) centered at the origin (0,0). It is very helpful for basic usage of trig ratios (and beyond) because any triangle drawn in the unit circle:</p>
+<p><img alt="37af9d4ddcb64544bdf46d0913ac534f" src="https://content.nroc.org/DevelopmentalMath/COURSE_TEXT2_RESOURCE/U19_L1_T3_text_final_3_files/image022.gif" /></p>
+<p>will have a hypotenuse of length 1, so the values of cosine and sine are equal to the x and y coordinates. As you may remember, there are a range of angles’ trig function values you probably had to memorize at some point; those shown in the image below.</p>
+<p><img alt="19c48a42b01f4ba5b2f118403e72c49a" src="https://blog.collegevine.com/wp-content/uploads/2019/06/UC2.png" /></p>
+<p>If you need to re-memorize these (which is rarely necessary but often helpful, like in our next section), it helps to notice that the values for 30º and 60º (and equivalents) are the same except with x and y flipped, and that the only change between quadrants is the signs.</p>
+</section>
+<section id="2.3-Trig-Function-Graphs">
+<h3>2.3 Trig Function Graphs<a class="headerlink" href="#2.3-Trig-Function-Graphs" title="Link to this heading"></a></h3>
+<p>Let’s put our unit circle to use to graph sine:</p>
+<p><img alt="2dd5d1b991ac481f894260aab4d28078" src="https://media.opencurriculum.org/articles_manual/michael_corral_trigonometry/graphic-the-trigonometric-functions/3.png" /></p>
+<p>Here are the graphs of all 6 trig functions:</p>
+<p><img alt="d6b38b68397845c486aec217dfc9ce26" src="https://cdn1.byjus.com/wp-content/uploads/2020/09/Trigonometry-functions-graphs.png" /></p>
+<section id="2.3.1-Problems:-Working-with-Trig-Functions">
+<h4>2.3.1 Problems: Working with Trig Functions<a class="headerlink" href="#2.3.1-Problems:-Working-with-Trig-Functions" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Plot <span class="math notranslate nohighlight">\(\eta = 3 \cos(2 \theta)\)</span></p></li>
+<li><p>A time series: Plot <span class="math notranslate nohighlight">\(\eta = \cos(\omega t)\)</span> for <span class="math notranslate nohighlight">\(\omega = 1, \pi\)</span></p></li>
+<li><p>Space and time: Plot <span class="math notranslate nohighlight">\(\eta = \cos(kx- \omega t)\)</span> at $t=0 with <span class="math notranslate nohighlight">\(k= \pi\)</span></p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="3-|-Vectors">
+<h2>3 | Vectors<a class="headerlink" href="#3-|-Vectors" title="Link to this heading"></a></h2>
+<p>Vectors are quantities with both magnitude and direction.</p>
+<section id="3.1-Vector-Addition">
+<h3>3.1 Vector Addition<a class="headerlink" href="#3.1-Vector-Addition" title="Link to this heading"></a></h3>
+<p><img alt="bd7388beb068453b9203c1255846e30e" src="https://www.grc.nasa.gov/WWW/K-12/airplane/Images/vectadd.gif" /></p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="complex_numbers.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Complex Numbers</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="algebra.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Algebra</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Units/Geometry/Trig</a><ul>
+<li><a class="reference internal" href="#1-|-Dimensional-Analysis">1 | Dimensional Analysis</a><ul>
+<li><a class="reference internal" href="#1.1-Base-Quantities-and-Units">1.1 Base Quantities and Units</a><ul>
+<li><a class="reference internal" href="#1.1.1-SI-Prefixes">1.1.1 SI Prefixes</a></li>
+<li><a class="reference internal" href="#1.1.2-Time">1.1.2 Time</a><ul>
+<li><a class="reference internal" href="#1.1.2a-Some-Common-Considerations">1.1.2a Some Common Considerations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#1.1.3-Length">1.1.3 Length</a></li>
+<li><a class="reference internal" href="#1.1.4-Temperature">1.1.4 Temperature</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#1.2-Derived-Quanities">1.2 Derived Quanities</a></li>
+<li><a class="reference internal" href="#1.3-Common-Quanitities-in-Earth-Sciences">1.3 Common Quanitities in Earth Sciences</a><ul>
+<li><a class="reference internal" href="#1.3.1-Density">1.3.1 Density</a></li>
+<li><a class="reference internal" href="#1.3.2-Pressure">1.3.2 Pressure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Unit-Conversion-Examples">Unit Conversion Examples</a><ul>
+<li><a class="reference internal" href="#A-Common-Distance-Approximation">A Common Distance Approximation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#1.4-Dimensionless-Numbers">1.4 Dimensionless Numbers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#2-|-Trigonometry">2 | Trigonometry</a><ul>
+<li><a class="reference internal" href="#2.1-Right-Triangles-and-Trigonometric-Functions">2.1 Right Triangles and Trigonometric Functions</a><ul>
+<li><a class="reference internal" href="#2.1.1-Trigonometric-Ratios-Example">2.1.1 Trigonometric Ratios Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#2.1.2-Inverse-Trig-Functions">2.1.2 Inverse Trig Functions</a></li>
+<li><a class="reference internal" href="#2.2-The-Unit-Circle">2.2 The Unit Circle</a></li>
+<li><a class="reference internal" href="#2.3-Trig-Function-Graphs">2.3 Trig Function Graphs</a><ul>
+<li><a class="reference internal" href="#2.3.1-Problems:-Working-with-Trig-Functions">2.3.1 Problems: Working with Trig Functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3-|-Vectors">3 | Vectors</a><ul>
+<li><a class="reference internal" href="#3.1-Vector-Addition">3.1 Vector Addition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

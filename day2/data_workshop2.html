@@ -1,0 +1,1478 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Data Workshop 2 - Part 2" href="data_workshop2_pt2.html"><link rel="prev" title="Statistics in Practice" href="stats_in_practice.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Data Workshop 2 - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day1/index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day1/algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day2/data_workshop2.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Data-Workshop-2">
+<h1>Data Workshop 2<a class="headerlink" href="#Data-Workshop-2" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Jared Brzenski (<a class="reference external" href="mailto:jabrzenski&#37;&#52;&#48;ucsd&#46;edu">jabrzenski<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Tommy Stone (<a class="reference external" href="mailto:thstone&#37;&#52;&#48;ucsd&#46;edu">thstone<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This script reviews how to:</p>
+<ul class="simple">
+<li><p>import text data</p></li>
+<li><p>clean data (remove NaNs, fill missing values, evenly space values)</p></li>
+<li><p>Do spectral analysis on the cleaned data</p></li>
+</ul>
+<p>This can be run as MATLAB or Python, depending on the environment chosen.</p>
+<p><a class="reference internal" href="#MATLAB"><span class="std std-ref">MATLAB</span></a> is shown first, with MATLAB code blocks starting with the <strong>% MATLAB</strong> header.</p>
+<p><a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> is shown second, starting from the <a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> header and has <strong># Python</strong> at the beginning of the code blocks. If you want to skip to Python, scroll down to the <a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> header!</p>
+<p>For MATLAB, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-matlab-proxy</span></code> in your environment and activate MATLAB in the upper right corner.</p>
+<section id="MATLAB">
+<h2>MATLAB<a class="headerlink" href="#MATLAB" title="Link to this heading"></a></h2>
+<section id="Import-Raw-Data">
+<h3>Import Raw Data<a class="headerlink" href="#Import-Raw-Data" title="Link to this heading"></a></h3>
+<p>Lets say we are given the task of analyzing the hsitorical data fro mthe water gauge station at the <a class="reference external" href="https://waterdata.usgs.gov/monitoring-location/USGS-11074000/#dataTypeId=continuous-00065-0&amp;period=P7D">Prado Dam in Los Angeles</a>.</p>
+<p>We want to download the <a class="reference external" href="data/PradoDam.txt">data</a>, clean it, and do some spectral analysis on it to see if there is anything interesting.</p>
+</section>
+<section id="Reading-in-the-data">
+<h3>Reading in the data<a class="headerlink" href="#Reading-in-the-data" title="Link to this heading"></a></h3>
+<p>If we do a quick check of the file, we note there is a giant header, then some columns of data.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ---------------------------------- WARNING ----------------------------------------
+# Some of the data that you have obtained from this U.S. Geological Survey database
+# may not have received Director&#39;s approval. Any such data values are qualified
+# as provisional and are subject to revision. Provisional data are released on the
+# condition that neither the USGS nor the United States Government may be held liable
+# for any damages resulting from its use.
+#
+# Additional info: https://help.waterdata.usgs.gov/policies/provisional-data-statement
+#
+# File-format description:  https://help.waterdata.usgs.gov/faq/about-tab-delimited-output
+# Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals
+#
+# Contact:   gs-w_support_nwisweb@usgs.gov
+# retrieved: 2020-04-29 18:30:02 EDT       (caww01)
+#
+# Data for the following 1 site(s) are contained in this file
+#    USGS 11074000 SANTA ANA R BL PRADO DAM CA
+# -----------------------------------------------------------------------------------
+#
+# Data provided for site 11074000
+#            TS   parameter     statistic     Description
+#          8183       00060     00003     Discharge, cubic feet per second (Mean)
+#
+# Data-value qualification codes included in this output:
+#     A  Approved for publication -- Processing and review completed.
+#     P  Provisional data subject to revision.
+#     e  Value has been estimated.
+#
+agency_cd   site_no datetime    8183_00060_00003    8183_00060_00003_cd
+5s  15s 20d 14n 10s
+USGS    11074000    1940-09-30  51.0    A
+USGS    11074000    1940-10-01  47.0    A
+USGS    11074000    1940-10-02  47.0    A
+USGS    11074000    1940-10-03  47.0    A
+</pre></div>
+</div>
+<p>This tells us the pertinent information about the file, where it came from, and what format the data displayed is in.</p>
+<p>In MATLAB, we can load this data in by giving the filename of the data location, and using readtable.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="c">% read in a text file</span>
+
+<span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&#39;data/PradoDam.txt&#39;</span><span class="p">;</span>
+
+<span class="c">% Offer a helpful hint if we cant find the file</span>
+<span class="p">[</span><span class="nb">path</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fileparts</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="n">ext</span><span class="w"> </span><span class="o">~=</span><span class="w"> </span><span class="s">&#39;.txt&#39;</span>
+<span class="w">    </span><span class="n">fprint</span><span class="p">(</span><span class="s">&quot;Wrong file extension given.\n&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="k">end</span>
+
+<span class="c">% We could read in the data raw with</span>
+<span class="c">% ff = importdata(filename);</span>
+
+<span class="c">% Or, read it in as a table with</span>
+<span class="n">f</span><span class="w"> </span><span class="p">=</span><span class="w">  </span><span class="nb">readtable</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Warning: Column headers from the file were modified to make them valid MATLAB identifiers before creating variable names for the table. The original column headers are saved in the VariableDescriptions property.
+Set &#39;VariableNamingRule&#39; to &#39;preserve&#39; to use the original column headers as table variable names.
+</pre></div></div>
+</div>
+<p>WE can examine the data by viewing the <code class="docutils literal notranslate"><span class="pre">f</span></code> variable, and note it is in columns already. we are interested in column 3 and 4, the date and measurements.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="nb">date</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">f</span><span class="p">{:,</span><span class="mi">3</span><span class="p">};</span>
+<span class="nb">flow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">f</span><span class="p">{:,</span><span class="mi">4</span><span class="p">};</span>
+<span class="c">% Convert the date from a string into datenum object so MATLAB can do date specific work.</span>
+<span class="nb">date</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="w"> </span><span class="n">f</span><span class="p">{:,</span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Find-Monthly-Average">
+<h3>Find Monthly Average<a class="headerlink" href="#Find-Monthly-Average" title="Link to this heading"></a></h3>
+<p>We can find a monthly average of our data really roughly using indexes, looping over the months.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">%MATLAB</span>
+<span class="c">% Let&#39;s say we need a monthly average, we can do that with indexing ?!?</span>
+<span class="n">months</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">month</span><span class="p">(</span><span class="nb">date</span><span class="p">);</span>
+
+<span class="k">for</span><span class="w"> </span><span class="n">ii</span><span class="p">=</span><span class="w">  </span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span>
+<span class="w">    </span><span class="n">indexes</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="n">months</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ii</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Total</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sum</span><span class="p">(</span><span class="w"> </span><span class="nb">flow</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">Average</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Total</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="n">indexes</span><span class="p">);</span>
+<span class="k">end</span>
+
+<span class="nb">date</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;datenum&#39;</span><span class="w"> </span><span class="p">);</span>
+
+<span class="c">% For plotting, we just need the month numbers, 1-12, and some</span>
+<span class="c">% labels for them. MATLAB wouldn&#39;t understand where &#39;Jun&#39; will</span>
+<span class="c">% go unless we assign 6, then label 6 &#39;Jun&#39;.</span>
+<span class="n">month_num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">];</span>
+<span class="n">month_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">{</span><span class="s">&#39;Jan&#39;</span><span class="w"> </span><span class="s">&#39;Feb&#39;</span><span class="w"> </span><span class="s">&#39;Mar&#39;</span><span class="w"> </span><span class="s">&#39;Apr&#39;</span><span class="w"> </span><span class="s">&#39;May&#39;</span><span class="w"> </span><span class="s">&#39;Jun&#39;</span><span class="k">...</span>
+<span class="w">              </span><span class="s">&#39;Jul&#39;</span><span class="w"> </span><span class="s">&#39;Aug&#39;</span><span class="w"> </span><span class="s">&#39;Sep&#39;</span><span class="w"> </span><span class="s">&#39;Oct&#39;</span><span class="w"> </span><span class="s">&#39;Nov&#39;</span><span class="w"> </span><span class="s">&#39;Dec&#39;</span><span class="p">};</span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="w"> </span><span class="n">month_num</span><span class="p">,</span><span class="w"> </span><span class="n">Average</span><span class="p">);</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Monthly Average&#39;</span><span class="p">);</span>
+<span class="nb">xticks</span><span class="p">(</span><span class="n">month_num</span><span class="p">);</span><span class="w">       </span><span class="c">% set the ticks to the numbers</span>
+<span class="nb">xticklabels</span><span class="p">(</span><span class="n">month_name</span><span class="p">);</span><span class="w"> </span><span class="c">% label the numbers with the names!</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Month&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Average [in]&#39;</span><span class="p">);</span>
+<span class="nb">ylim</span><span class="p">([</span><span class="mi">0</span><span class="w"> </span><span class="mi">500</span><span class="p">]);</span>
+<span class="c">%save (&#39;save_data.mat&#39;, &#39;date&#39;, &#39;flow&#39; );</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+months =
+
+     9
+    10
+    10
+    10
+     2
+     2
+     2
+     3
+     3
+     3
+     3
+     3
+     3
+     3
+     3
+     3
+     3
+     4
+    ...
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+     4
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_9_1.png" src="../_images/day2_data_workshop2_9_1.png" />
+</div>
+</div>
+</section>
+<section id="Removing-NaNs">
+<h3>Removing NaNs<a class="headerlink" href="#Removing-NaNs" title="Link to this heading"></a></h3>
+<p>If you scrolled through the data, you noticed there were some missing values, dates, etc. WE need to remove those from our data set. Maybe when we did our average, there was a date with no value, or a NaN. How does averaging work if I add a NaN? How can we find them efficiently?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="c">% clean NaNs</span>
+<span class="n">inan</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="nb">isnan</span><span class="p">(</span><span class="nb">flow</span><span class="p">));</span>
+<span class="nb">flow</span><span class="p">(</span><span class="n">inan</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w">           </span><span class="c">% This effectively removes the entry</span>
+<span class="nb">date</span><span class="p">(</span><span class="n">inan</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[];</span><span class="w">           </span><span class="c">% Do not forget the dates as well</span>
+
+<span class="c">% Other equivalent ways of finding nans in dates</span>
+<span class="c">% isnat == is not a time</span>
+<span class="c">% if date is a date string</span>
+
+<span class="c">% If we did everything correct, then this should be equal to zero</span>
+<span class="n">inad</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">find</span><span class="p">(</span><span class="nb">isnat</span><span class="p">(</span><span class="nb">date</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+inad =
+
+  0x1 empty double column vector
+
+</pre></div></div>
+</div>
+</section>
+<section id="Interpolation">
+<h3>Interpolation<a class="headerlink" href="#Interpolation" title="Link to this heading"></a></h3>
+<p>We look at the data, and there may be time gaps, holes, etc. But we want a nice, steady time series, especially for spectral analysis. We need to give a continuous, constant, spaced time series. Currently, we have holes, as well as temporally inconsistent measurements.</p>
+<p>To fix this, we are going to make another data set. This one will have perfectly spaced readings, each an hour apart, and we will use our original data to interpolate to the perfectly spaced uniform data set.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% Interpolate for hourly times</span>
+<span class="c">% using interp1</span>
+
+<span class="n">firstday</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w">    </span><span class="c">% first time</span>
+<span class="n">lastday</span><span class="w">  </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="k">end</span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c">% last time</span>
+<span class="n">xq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">firstday</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">lastday</span><span class="p">;</span><span class="w">   </span><span class="c">% make a vector with perfect hour spacing</span>
+
+<span class="c">% Interpolate flow to that perfectly spaced vector xq</span>
+<span class="n">yq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">interp1</span><span class="p">(</span><span class="nb">datenum</span><span class="p">(</span><span class="nb">date</span><span class="p">),</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="n">xq</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;pchip&#39;</span><span class="p">);</span>
+<span class="n">close</span><span class="w"> </span><span class="s">all</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">xq_datetime</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datetime</span><span class="p">(</span><span class="w"> </span><span class="n">xq</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="s">&#39;ConvertFrom&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;datenum&#39;</span><span class="w"> </span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xq_datetime</span><span class="p">,</span><span class="n">yq</span><span class="p">);</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Interpolated Data&#39;</span><span class="p">);</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">);</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Original Data&#39;</span><span class="p">);</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_13_0.png" src="../_images/day2_data_workshop2_13_0.png" />
+</div>
+</div>
+</section>
+<section id="Filtering-Data">
+<h3>Filtering Data<a class="headerlink" href="#Filtering-Data" title="Link to this heading"></a></h3>
+<p>Sometimes data is noisy. There could be measurement errors, transcription errors, calibration errors, etc. Most data has some natural noise, and to get a clearer picture of any frequencys, you can filter the data.</p>
+<p>We can create a filter, a moving window, which will smooth our data out. Imagine a 6-hour moving window, where any reading in that window is averaged together. This does that, more technical and mathy, and moves the window in both directions, to prevent any phase shifting effect of our smoothing.</p>
+<p>Here is a simple example, where we create some noisy data around a known signal (sin), and then pass a filter over it. We can recover most of the underlying signal from the noise!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="c">%% Filters</span>
+<span class="c">% deciding what filter to use on your data. This is personal, decide what</span>
+<span class="c">% is the best option. This uses the Butterworth filter &quot;butter&quot;</span>
+
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="mi">3600</span><span class="p">;</span><span class="w">                       </span><span class="c">% Time, maybe when measurements were taken</span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">3600</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">randn</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">t</span><span class="p">));</span><span class="w">    </span><span class="c">% Nice cyclic data, with noise added</span>
+
+<span class="c">% Setup some values for our filters</span>
+<span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">   </span><span class="c">% 1 second</span>
+<span class="n">samplingf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="n">T</span><span class="p">;</span><span class="w">   </span><span class="c">% 1 Hz</span>
+<span class="n">cutoff</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span><span class="w">   </span><span class="c">% 1/60 Hz, 1/1 min cutoof frequencies higher than this</span>
+
+<span class="c">% First have to setup filter, with parameters A,B</span>
+<span class="p">[</span><span class="n">B</span><span class="w"> </span><span class="n">A</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">cutoff</span><span class="o">/</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">samplingf</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;low&#39;</span><span class="p">);</span>
+<span class="c">% Filter the y data, save is as fy</span>
+<span class="n">fy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">filtfilt</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+
+<span class="c">%% Plot the results</span>
+<span class="c">% Original noisy data</span>
+<span class="nb">figure</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b-x&#39;</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="c">% Filtered data, (red line)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">fy</span><span class="p">,</span><span class="s">&#39;r-o&#39;</span><span class="p">);</span>
+<span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="c">% Original, non-noisy function (yellow line)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="o">/</span><span class="mi">3600</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;y&#39;</span><span class="p">);</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_15_0.png" src="../_images/day2_data_workshop2_15_0.png" />
+</div>
+</div>
+<p>Now we can try it with our data</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="nb">figure</span>
+
+<span class="n">cutoff</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">;</span><span class="w">  </span><span class="c">% (less than weekly )</span>
+<span class="c">% Compute sampling interval T based on datetime array</span>
+<span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="nb">date</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
+
+<span class="c">% Design Butterworth low-pass filter</span>
+<span class="c">% The 0.5 adjusts what the window is.</span>
+<span class="p">[</span><span class="n">B</span><span class="w"> </span><span class="n">A</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">cutoff</span><span class="o">/</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">T</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;low&#39;</span><span class="p">);</span>
+
+<span class="c">% Apply the filter forwards and backwards, to try to prevent phase shifting</span>
+<span class="n">fx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">filtfilt</span><span class="p">(</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="nb">flow</span><span class="p">);</span>
+
+
+<span class="nb">tiledlayout</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">nexttile</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b-&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Filtered Data&#39;</span><span class="p">);</span>
+
+<span class="n">nexttile</span>
+<span class="s">plot(date,fx,</span><span class="w"> </span><span class="s">&#39;b-&#39;,</span><span class="w"> </span><span class="s">&#39;LineWidth&#39;,3)</span><span class="p">;</span><span class="w"> </span><span class="n">hold</span><span class="w"> </span><span class="s">on</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Zoom in Filtered Data&#39;</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="nb">date</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="nb">date</span><span class="p">(</span><span class="mi">1500</span><span class="p">)]);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_17_0.png" src="../_images/day2_data_workshop2_17_0.png" />
+</div>
+</div>
+</section>
+<section id="Spectral-Analysis---Fourier-Space">
+<h3>Spectral Analysis - Fourier Space<a class="headerlink" href="#Spectral-Analysis---Fourier-Space" title="Link to this heading"></a></h3>
+<p>Now, we can take out filtered data, and analyze it in Fourier (frequency) space</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+<span class="c">% % Make date back into a number</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="nb">date</span><span class="p">);</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">L</span><span class="p">=</span><span class="nb">length</span><span class="p">(</span><span class="nb">date</span><span class="p">);</span>
+<span class="n">n</span><span class="p">=</span><span class="mi">2</span><span class="o">^</span><span class="nb">nextpow2</span><span class="p">(</span><span class="n">L</span><span class="p">);</span>
+<span class="n">dim</span><span class="p">=</span><span class="mi">1</span>
+
+<span class="c">% Take the Fast-Fourier-Transform to put in phase space</span>
+<span class="n">orig</span><span class="p">=</span><span class="nb">fft</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">dim</span><span class="p">);</span>
+
+<span class="n">figure</span>
+<span class="s">plot(d,</span><span class="w"> </span><span class="s">orig(1:length(d)))</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+
+dim =
+
+     1
+
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_19_1.png" src="../_images/day2_data_workshop2_19_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB</span>
+
+<span class="n">P2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">orig</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">L</span><span class="p">);</span>
+
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P2</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="n">P1</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">P1</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">(</span><span class="nb">date</span><span class="p">);</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="n">figure</span>
+<span class="s">plot(d(1:500),</span><span class="w"> </span><span class="s">P1(1:500),</span><span class="w"> </span><span class="s">&#39;b-&#39;)</span><span class="p">;</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Single-Sided Amplitude Spectrum of flow&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (days since start)&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;|Amplitude|&#39;</span><span class="p">);</span>
+
+<span class="n">figure</span>
+<span class="s">tiledlayout(3,1)</span>
+<span class="nb">nexttile</span>
+<span class="c">% Original Transformed Data</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">86400</span><span class="p">,</span><span class="w"> </span><span class="n">orig</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">d</span><span class="p">)));</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Original Transform&#39;</span><span class="p">);</span>
+<span class="n">nexttile</span>
+<span class="s">%</span><span class="w"> </span><span class="s">All</span><span class="w"> </span><span class="s">Positive</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">P2</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">d</span><span class="p">)));</span><span class="w"> </span><span class="nb">title</span><span class="p">(</span><span class="s">&#39;Positive Transform&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Time (days since start)&#39;</span><span class="p">);</span>
+<span class="n">nexttile</span>
+<span class="s">%</span><span class="w"> </span><span class="s">MATLAB</span><span class="w"> </span><span class="s">has</span><span class="w"> </span><span class="s">built-in</span><span class="w"> </span><span class="s">functions</span><span class="w"> </span><span class="s">or</span><span class="w"> </span><span class="s">other</span><span class="w"> </span><span class="s">stuff</span>
+<span class="n">pwelch</span><span class="p">(</span><span class="nb">flow</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Warning: Imaginary parts of complex X and/or Y arguments ignored.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_20_1.png" src="../_images/day2_data_workshop2_20_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_20_2.png" src="../_images/day2_data_workshop2_20_2.png" />
+</div>
+</div>
+</section>
+<section id="Alternate-Data-Read-for-MATLAB">
+<h3>Alternate Data Read for MATLAB<a class="headerlink" href="#Alternate-Data-Read-for-MATLAB" title="Link to this heading"></a></h3>
+<p>Alternate MATLAB note: We can import and text file, and manually extract the data. The script below does that with pattern matching. It is REALLY slow, but a more robust way of explicitly grabbing data from a file, not relying on MATLAB to find the columns of data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB - Not necessary to run, also SUPER SLOW!!!!!!</span>
+<span class="c">%raw_data = importdata(filename);</span>
+<span class="c">%[nr nc] = size(raw_data);</span>
+<span class="c">%date = zeros(nr,1);</span>
+<span class="c">%Flow = zeros(nr,1);</span>
+
+<span class="c">% Scan the rows for a string, string, string, float, and a string</span>
+
+<span class="c">%for ii = 1:nr</span>
+<span class="w">  </span><span class="c">%  row = textscan( raw_data{ii}, &#39;%s%s%s%f%s&#39;);</span>
+<span class="w">  </span><span class="c">%  agency = row{1};</span>
+<span class="w"> </span><span class="c">%   % Check if the first string says USGS, we know we in the data!</span>
+<span class="c">%    if strcmp(agency, &#39;USGS&#39;)</span>
+<span class="c">%        date(ii) = datenum(row{3});</span>
+<span class="c">%        flow(ii) = row{4};</span>
+<span class="c">%    end</span>
+<span class="c">%end</span>
+
+<span class="c">%[nr nc] = size(f);</span>
+<span class="c">%date = zeros( nr, 1);</span>
+<span class="c">%Q = zeros( nr, 1);</span>
+
+<span class="c">% Import the date and time and plot</span>
+
+<span class="c">%date =  f{:,3} ;</span>
+<span class="c">%flow =  f{:,4};</span>
+
+<span class="c">%figure</span>
+<span class="c">%plot(date, flow)</span>
+<span class="c">%xtickformat(&#39;dd-MMM-yyyy&#39;);</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Python">
+<h2>Python<a class="headerlink" href="#Python" title="Link to this heading"></a></h2>
+<section id="Raw-Data">
+<h3>Raw Data<a class="headerlink" href="#Raw-Data" title="Link to this heading"></a></h3>
+<p>Lets say we are given the task of analyzing the hsitorical data fro mthe water gauge station at the <a class="reference external" href="https://waterdata.usgs.gov/monitoring-location/USGS-11074000/#dataTypeId=continuous-00065-0&amp;period=P7D">Prado Dam in Los Angeles</a>.</p>
+<p>We want to download the <a class="reference external" href="data/PradoDam.txt">data</a>, clean it, and do some spectral analysis on it to see if there is anything interesting.</p>
+</section>
+<section id="id1">
+<h3>Reading in the data<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>If we do a quick check of the file, we note there is a giant header, then some columns of data.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ---------------------------------- WARNING ----------------------------------------
+# Some of the data that you have obtained from this U.S. Geological Survey database
+# may not have received Director&#39;s approval. Any such data values are qualified
+# as provisional and are subject to revision. Provisional data are released on the
+# condition that neither the USGS nor the United States Government may be held liable
+# for any damages resulting from its use.
+#
+# Additional info: https://help.waterdata.usgs.gov/policies/provisional-data-statement
+#
+# File-format description:  https://help.waterdata.usgs.gov/faq/about-tab-delimited-output
+# Automated-retrieval info: https://help.waterdata.usgs.gov/faq/automated-retrievals
+#
+# Contact:   gs-w_support_nwisweb@usgs.gov
+# retrieved: 2020-04-29 18:30:02 EDT       (caww01)
+#
+# Data for the following 1 site(s) are contained in this file
+#    USGS 11074000 SANTA ANA R BL PRADO DAM CA
+# -----------------------------------------------------------------------------------
+#
+# Data provided for site 11074000
+#            TS   parameter     statistic     Description
+#          8183       00060     00003     Discharge, cubic feet per second (Mean)
+#
+# Data-value qualification codes included in this output:
+#     A  Approved for publication -- Processing and review completed.
+#     P  Provisional data subject to revision.
+#     e  Value has been estimated.
+#
+agency_cd   site_no datetime    8183_00060_00003    8183_00060_00003_cd
+5s  15s 20d 14n 10s
+USGS    11074000    1940-09-30  51.0    A
+USGS    11074000    1940-10-01  47.0    A
+USGS    11074000    1940-10-02  47.0    A
+USGS    11074000    1940-10-03  47.0    A
+</pre></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">os</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">pandas</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">pd</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">numpy</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">np</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">scipy</span><span class="p">.</span><span class="n">io</span>
+<span class="nb">import</span><span class="w"> </span><span class="nb">datetime</span>
+<span class="n">from</span><span class="w"> </span><span class="s">scipy.interpolate</span><span class="w"> </span><span class="s">import</span><span class="w"> </span><span class="s">PchipInterpolator</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">matplotlib</span><span class="p">.</span><span class="n">pyplot</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">plt</span>
+<span class="n">from</span><span class="w"> </span><span class="s">scipy.signal</span><span class="w"> </span><span class="s">import</span><span class="w"> </span><span class="s">butter,</span><span class="w"> </span><span class="s">filtfilt</span>
+<span class="nb">import</span><span class="w"> </span><span class="n">matplotlib</span><span class="p">.</span><span class="n">dates</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">mdates</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="o">==</span><span class="p">=</span><span class="w"> </span><span class="n">Load</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="p">(</span><span class="n">equivalent</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nb">readtable</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="p">=</span>
+<span class="n">filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;data/PradoDam.txt&quot;</span>
+<span class="nb">path</span><span class="p">,</span><span class="w"> </span><span class="n">full_filename</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">split</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">full_filename</span><span class="p">)</span>
+
+<span class="k">if</span><span class="w"> </span><span class="n">ext</span><span class="p">.</span><span class="n">lower</span><span class="p">()</span><span class="w"> </span>!<span class="p">=</span><span class="w"> </span><span class="s">&quot;.txt&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="s">&quot;Wrong file extension given.&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">raise</span><span class="w"> </span><span class="n">SystemExit</span>
+
+#<span class="w"> </span><span class="n">Read</span><span class="w"> </span><span class="n">file</span><span class="p">,</span><span class="w"> </span><span class="n">skipping</span><span class="w"> </span><span class="nb">lines</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="s">&#39;#&#39;</span>
+<span class="n">raw</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pd</span><span class="p">.</span><span class="n">read_csv</span><span class="p">(</span>
+<span class="w">    </span><span class="n">filename</span><span class="p">,</span>
+<span class="w">    </span><span class="n">comment</span><span class="p">=</span><span class="s">&quot;#&quot;</span><span class="p">,</span><span class="w">           </span>#<span class="w"> </span><span class="n">ignore</span><span class="w"> </span><span class="nb">all</span><span class="w"> </span><span class="nb">lines</span><span class="w"> </span><span class="n">starting</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="s">&#39;#&#39;</span>
+<span class="w">    </span><span class="n">sep</span><span class="p">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span><span class="w">              </span>#<span class="w"> </span><span class="n">tab</span><span class="o">-</span><span class="n">delimited</span>
+<span class="w">    </span><span class="n">header</span><span class="p">=</span><span class="n">None</span><span class="p">,</span><span class="w">              </span>#<span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">comment</span><span class="w"> </span><span class="nb">line</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">header</span>
+<span class="w">    </span><span class="n">dtype</span><span class="p">=</span><span class="n">str</span><span class="w">              </span>#<span class="w"> </span><span class="nb">read</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="nb">strings</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="p">(</span><span class="n">safe</span><span class="p">)</span>
+<span class="p">)</span>
+
+#<span class="w"> </span><span class="n">First</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="n">becomes</span><span class="w"> </span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="n">drop</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">(</span><span class="nb">format</span><span class="w"> </span><span class="n">specifiers</span><span class="p">)</span>
+<span class="n">raw</span><span class="p">.</span><span class="n">columns</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">raw</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w">       </span>#<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="n">names</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">row</span>
+<span class="n">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">raw</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="p">=</span><span class="mi">0</span><span class="p">).</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="p">=</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="nb">remove</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="nb">second</span><span class="w"> </span><span class="n">row</span>
+<span class="n">f</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="p">=</span><span class="n">True</span><span class="p">)</span><span class="w">    </span>#<span class="w"> </span><span class="n">reindex</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">dropping</span>
+<span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>agency_cd</th>
+      <th>site_no</th>
+      <th>datetime</th>
+      <th>8183_00060_00003</th>
+      <th>8183_00060_00003_cd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>1940-09-30</td>
+      <td>51.0</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>1940-10-01</td>
+      <td>47.0</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>1940-10-02</td>
+      <td>47.0</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>1940-10-03</td>
+      <td>47.0</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>1940-10-04</td>
+      <td>55.0</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>29061</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>2020-04-24</td>
+      <td>140</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <th>29062</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>2020-04-25</td>
+      <td>124</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <th>29063</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>2020-04-26</td>
+      <td>120</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <th>29064</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>2020-04-27</td>
+      <td>137</td>
+      <td>P</td>
+    </tr>
+    <tr>
+      <th>29065</th>
+      <td>USGS</td>
+      <td>11074000</td>
+      <td>2020-04-28</td>
+      <td>156</td>
+      <td>P</td>
+    </tr>
+  </tbody>
+</table>
+<p>29066 rows × 5 columns</p>
+</div></div>
+</div>
+<p>WE can examine the data by viewing the <code class="docutils literal notranslate"><span class="pre">f</span></code> variable, and note it is in columns already. we are interested in column 3 and 4, the date and measurements.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+<span class="n">f</span><span class="p">[</span><span class="s">&#39;datetime&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="n">f</span><span class="p">[</span><span class="s">&#39;8183_00060_00003&#39;</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pd</span><span class="p">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s">&#39;8183_00060_00003&#39;</span><span class="p">],</span><span class="w"> </span><span class="n">errors</span><span class="p">=</span><span class="s">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Extract</span><span class="w"> </span><span class="n">relevant</span><span class="w"> </span><span class="n">data</span>
+<span class="n">dates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="s">&#39;datetime&#39;</span><span class="p">]</span>
+<span class="nb">flow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">f</span><span class="p">[</span><span class="s">&#39;8183_00060_00003&#39;</span><span class="p">].</span><span class="n">to_numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Find Monthly Average<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>We can find a monthly average of our data realyl roughly using indexes, looping over the months.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+#<span class="w"> </span><span class="o">==</span><span class="p">=</span><span class="w"> </span><span class="n">Monthly</span><span class="w"> </span><span class="n">Averaging</span><span class="w"> </span><span class="o">==</span><span class="p">=</span>
+<span class="n">months</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">month</span>
+<span class="n">totals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="n">averages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="k">for</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">):</span>
+<span class="w">    </span><span class="n">idx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">where</span><span class="p">(</span><span class="n">months</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">ii</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span>
+<span class="w">        </span><span class="n">totals</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">sum</span><span class="p">(</span><span class="nb">flow</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span>
+<span class="w">        </span><span class="n">averages</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">mean</span><span class="p">(</span><span class="nb">flow</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span>
+<span class="w">    </span><span class="k">else</span><span class="p">:</span>
+<span class="w">        </span><span class="n">totals</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="w">        </span><span class="n">averages</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">nan</span><span class="p">)</span>
+
+<span class="n">totals</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">totals</span><span class="p">)</span>
+<span class="n">averages</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">averages</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">Data</span>
+#<span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">plotting</span><span class="p">,</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nb">month</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">some</span>
+#<span class="w"> </span><span class="n">labels</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">them</span><span class="p">.</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">wouldn</span><span class="o">&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">understand</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="s">&#39;Jun&#39;</span><span class="w"> </span><span class="n">will</span>
+#<span class="w"> </span><span class="n">go</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">assign</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="s">&#39;Jun&#39;</span><span class="p">.</span>
+<span class="n">month_num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">12</span>
+<span class="n">month_name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="s">&#39;Jan&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Feb&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Mar&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Apr&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;May&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Jun&#39;</span><span class="p">,</span>
+<span class="w">              </span><span class="s">&#39;Jul&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Aug&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Sep&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Oct&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Nov&#39;</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;Dec&#39;</span><span class="p">]</span>
+
+#<span class="w"> </span><span class="n">Plot</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="p">=(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">month_num</span><span class="p">,</span><span class="w"> </span><span class="n">averages</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;-o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">month_num</span><span class="p">,</span><span class="w"> </span><span class="n">month_name</span><span class="p">)</span><span class="w"> </span>#<span class="w"> </span><span class="n">Use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">numbers</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">label</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">names</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Monthly Average&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Month&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Average&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">grid</span><span class="p">(</span><span class="n">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_31_0.png" src="../_images/day2_data_workshop2_31_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0       1940-09-30
+1       1940-10-01
+2       1940-10-02
+3       1940-10-03
+4       1940-10-04
+           ...
+29061   2020-04-24
+29062   2020-04-25
+29063   2020-04-26
+29064   2020-04-27
+29065   2020-04-28
+Name: datetime, Length: 29066, dtype: datetime64[ns]
+</pre></div></div>
+</div>
+</section>
+<section id="id3">
+<h3>Removing NaNs<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>If you scrolled through the data, you noticed there were some missing values, dates, etc. WE need to remove those from our data set. Maybe when we did our average, there was a date with no value, or a NaN. How does averaging work if I add a NaN? How can we find them efficiently?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+#<span class="w"> </span><span class="n">Clean</span><span class="w"> </span><span class="n">NaNs</span>
+<span class="n">nan_mask</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">flow</span><span class="p">)</span>
+<span class="n">dates</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dates</span><span class="p">[</span><span class="o">~</span><span class="n">nan_mask</span><span class="p">]</span>
+<span class="nb">flow</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">flow</span><span class="p">[</span><span class="o">~</span><span class="n">nan_mask</span><span class="p">]</span>
+
+#<span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="nb">all</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">NaNs</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">gone</span><span class="p">,</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">zero</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">flow</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+np.int64(0)
+</pre></div></div>
+</div>
+</section>
+<section id="id4">
+<h3>Interpolation<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>We look at the data, and there may be time gaps, holes, etc. But we want a nice, steady time series, especially for spectral analysis. We need to give a continuous, constant, spaced time series. Currently, we have holes, as well as temporally inconsistent measurements.</p>
+<p>To fix this, we are going to make another data set. This one will have perfectly spaced readings, each an hour apart, and we will use our original data to interpolate to the perfectly spaced uniform data set.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="o">==</span><span class="p">=</span><span class="w"> </span><span class="n">Interpolation</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">hourly</span><span class="w"> </span><span class="o">==</span><span class="p">=</span>
+#<span class="w"> </span><span class="n">Convert</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="nb">days</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">epoch</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">interpolation</span>
+#<span class="w"> </span><span class="n">Is</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">nicer</span><span class="w"> </span><span class="n">way</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">this</span>?
+
+<span class="nb">datenum</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">dates</span><span class="p">.</span><span class="n">map</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">Timestamp</span><span class="p">.</span><span class="n">toordinal</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">hour</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">minute</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1440</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dates</span><span class="p">.</span><span class="n">dt</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">86400</span>
+<span class="p">)</span>
+
+<span class="n">firstday</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lastday</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">datenum</span><span class="p">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">xq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="n">firstday</span><span class="p">,</span><span class="w"> </span><span class="n">lastday</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">24</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">Creaet</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">interpolator</span>
+<span class="n">pchip_interp</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">PchipInterpolator</span><span class="p">(</span><span class="nb">datenum</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">)</span>
+#<span class="w"> </span><span class="n">Interpolate</span><span class="w"> </span><span class="nb">flow</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">perfect</span><span class="w"> </span><span class="n">vector</span><span class="w"> </span><span class="n">xq</span>
+<span class="n">yq</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pchip_interp</span><span class="p">(</span><span class="n">xq</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">Plotting</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">close</span><span class="p">(</span><span class="s">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">axs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">figsize</span><span class="p">=(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
+<span class="n">xq_datetime</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">xq</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nb">datetime</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">plotting</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">xq_datetime</span><span class="p">,</span><span class="w"> </span><span class="n">yq</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;Interpolated Data (Hourly)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&quot;Original Data (Daily)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_36_0.png" src="../_images/day2_data_workshop2_36_0.png" />
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Filtering Data<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Sometimes data is noisy. There could be measurement errors, transcription errors, calibration errors, etc. Most data has some natural noise, and to get a clearer picture of any frequencys, you can filter the data.</p>
+<p>We can create a filter, a moving window, which will smooth our data out. Imagine a 6-hour moving window, where any reading in that window is averaged together. This does that, more technical and mathy, and moves the window in both directions, to prevent any phase shifting effect of our smoothing.</p>
+<p>Here is a simple example, where we create some noisy data around a known signal (sin), and then pass a filter over it. We can recover most of the underlying signal from the noise!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+#<span class="w"> </span><span class="n">Filters</span>
+#<span class="w"> </span><span class="n">deciding</span><span class="w"> </span><span class="nb">what</span><span class="w"> </span><span class="nb">filter</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">data</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">personal</span><span class="p">,</span><span class="w"> </span><span class="n">decide</span><span class="w"> </span><span class="nb">what</span>
+#<span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">option</span><span class="p">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Butterworth</span><span class="w"> </span><span class="nb">filter</span><span class="w"> </span><span class="s">&quot;butter&quot;</span>
+<span class="n">t</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="mi">3600</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="nb">hours</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">-</span><span class="nb">second</span><span class="w"> </span><span class="n">intervals</span>
+
+#<span class="w"> </span><span class="n">Nice</span><span class="w"> </span><span class="n">cyclic</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">noise</span><span class="w"> </span><span class="n">added</span>
+<span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3600</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="n">randn</span><span class="p">(</span><span class="n">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+#<span class="w"> </span><span class="n">Setup</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="nb">values</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">our</span><span class="w"> </span><span class="n">filters</span>
+<span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w">          </span>#<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nb">second</span>
+<span class="n">samplingf</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">T</span><span class="w">        </span>#<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Hz</span>
+<span class="n">cutoff</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">60</span><span class="w">          </span>#<span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="mi">60</span><span class="w"> </span><span class="n">Hz</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nb">minute</span><span class="w"> </span><span class="n">cutoff</span><span class="w"> </span><span class="n">frequency</span>
+
+#<span class="w"> </span><span class="n">Design</span><span class="w"> </span><span class="n">Butterworth</span><span class="w"> </span><span class="n">low</span><span class="o">-</span><span class="n">pass</span><span class="w"> </span><span class="nb">filter</span>
+<span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">cutoff</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">0.5</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">samplingf</span><span class="p">),</span><span class="w"> </span><span class="n">btype</span><span class="p">=</span><span class="s">&#39;low&#39;</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">both</span><span class="w"> </span><span class="n">ways</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">ptry</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">prevent</span><span class="w"> </span><span class="n">phase</span><span class="w"> </span><span class="n">shift</span><span class="p">,</span><span class="w"> </span><span class="n">also</span>
+#<span class="w"> </span><span class="n">called</span><span class="w"> </span><span class="n">zero</span><span class="o">-</span><span class="n">phase</span><span class="w"> </span><span class="n">filtering</span>
+<span class="n">fy</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Plot</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="o">---</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="p">=(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">))</span>
+#<span class="w"> </span><span class="n">Plot</span><span class="w"> </span><span class="n">every</span><span class="w"> </span>10<span class="n">th</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">see</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">outliers</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[::</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="n">y</span><span class="p">[::</span><span class="mi">10</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;b-x&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Noisy Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">fy</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r-o&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Filtered Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">pi</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3600</span><span class="p">),</span><span class="w"> </span><span class="s">&#39;y&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Original Signal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">&#39;Butterworth Low-Pass Filter Example&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_38_0.png" src="../_images/day2_data_workshop2_38_0.png" />
+</div>
+</div>
+<p>Now we can try it with our data!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Filter</span><span class="w"> </span><span class="nb">setup</span><span class="w"> </span><span class="o">---</span>
+<span class="n">cutoff</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">7</span><span class="w">  </span>#<span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">weekly</span>
+
+#<span class="w"> </span><span class="n">Compute</span><span class="w"> </span><span class="n">sampling</span><span class="w"> </span><span class="n">interval</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="nb">datetime</span><span class="w"> </span><span class="n">array</span>
+#<span class="w"> </span><span class="n">Convert</span><span class="w"> </span><span class="nb">datetime</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">matplotlib</span><span class="o">&#39;</span><span class="n">s</span><span class="w"> </span><span class="n">float</span><span class="w"> </span><span class="nb">days</span>
+<span class="n">date_num</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mdates</span><span class="p">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">converts</span><span class="w"> </span><span class="nb">datetime</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">float</span><span class="w"> </span><span class="nb">days</span>
+<span class="n">T</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">date_num</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">date_num</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w">  </span>#<span class="w"> </span><span class="n">sampling</span><span class="w"> </span><span class="n">frequency</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="mi">1</span><span class="o">/</span><span class="nb">days</span>
+
+#<span class="w"> </span><span class="n">Design</span><span class="w"> </span><span class="n">Butterworth</span><span class="w"> </span><span class="n">low</span><span class="o">-</span><span class="n">pass</span><span class="w"> </span><span class="nb">filter</span>
+#<span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="n">adjusts</span><span class="w"> </span><span class="nb">what</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">window</span><span class="w"> </span><span class="n">is</span><span class="p">.</span>
+<span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">butter</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">cutoff</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="mf">0.9</span><span class="o">*</span><span class="w"> </span><span class="n">T</span><span class="p">),</span><span class="w"> </span><span class="n">btype</span><span class="p">=</span><span class="s">&#39;low&#39;</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">Apply</span><span class="w"> </span><span class="nb">filter</span><span class="w"> </span><span class="n">forwards</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">backwards</span><span class="w"> </span><span class="p">(</span><span class="n">zero</span><span class="o">-</span><span class="n">phase</span><span class="p">)</span>
+<span class="n">fx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">filtfilt</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Plotting</span><span class="w"> </span><span class="o">---</span>
+<span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">axs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">figsize</span><span class="p">=(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">),</span><span class="w"> </span><span class="n">constrained_layout</span><span class="p">=</span><span class="n">True</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">First</span><span class="w"> </span><span class="nb">plot</span><span class="p">:</span><span class="w"> </span><span class="nb">full</span><span class="w"> </span><span class="n">series</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b-&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linewidth</span><span class="p">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Filtered&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Filtered Data&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">xaxis</span><span class="p">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="p">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s">&#39;%Y-%m-%d&#39;</span><span class="p">))</span>
+
+#<span class="w"> </span><span class="n">Second</span><span class="w"> </span><span class="nb">plot</span><span class="p">:</span><span class="w"> </span><span class="n">zoomed</span><span class="w"> </span><span class="n">in</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;b-&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linewidth</span><span class="p">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Filtered&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span><span class="w"> </span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">linewidth</span><span class="p">=</span><span class="mf">0.75</span><span class="p">,</span><span class="n">label</span><span class="p">=</span><span class="s">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Zoom in Filtered Data&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">set_xlim</span><span class="p">(</span><span class="w"> </span><span class="p">[</span><span class="nb">datetime</span><span class="p">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1980</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="nb">datetime</span><span class="p">.</span><span class="n">date</span><span class="p">(</span><span class="mi">1981</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">)]</span><span class="w"> </span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">xaxis</span><span class="p">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">mdates</span><span class="p">.</span><span class="n">DateFormatter</span><span class="p">(</span><span class="s">&#39;%Y-%m-%d&#39;</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_40_0.png" src="../_images/day2_data_workshop2_40_0.png" />
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Spectral Analysis - Fourier Space<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>Now, we can take out filtered data, and analyze it in Fourier (frequency) space</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Convert</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">MATLAB</span><span class="w"> </span><span class="nb">datenum</span><span class="w"> </span><span class="o">---</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mdates</span><span class="p">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span><span class="w">   </span>#<span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="nb">datetime</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">float</span><span class="w"> </span><span class="nb">days</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">           </span>#<span class="w"> </span><span class="n">shift</span><span class="w"> </span><span class="n">so</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="nb">day</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">dates</span><span class="p">)</span>
+#<span class="w"> </span><span class="nb">nextpow2</span><span class="w"> </span><span class="n">equivalent</span>
+<span class="n">n</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">log2</span><span class="p">(</span><span class="n">L</span><span class="p">)))</span>
+<span class="n">dim</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span><span class="w">  </span>#<span class="w"> </span><span class="n">NumPy</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="nb">axis</span><span class="p">=</span><span class="mi">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">rows</span><span class="p">,</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">MATLAB</span><span class="w"> </span><span class="n">dim</span><span class="p">=</span><span class="mi">1</span>
+
+#<span class="w"> </span><span class="n">Take</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="n">along</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">chosen</span><span class="w"> </span><span class="n">dimension</span>
+<span class="n">orig</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">fft</span><span class="p">.</span><span class="n">fft</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">=</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="nb">axis</span><span class="p">=</span><span class="n">dim</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Plot</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">---</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="p">=(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">orig</span><span class="p">[:</span><span class="n">len</span><span class="p">(</span><span class="n">d</span><span class="p">)].</span><span class="n">real</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="nb">plot</span><span class="w"> </span><span class="nb">real</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="p">(</span><span class="nb">imag</span><span class="w"> </span><span class="n">part</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">usually</span><span class="w"> </span><span class="n">symmetric</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;Time (days since start)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;FFT Amplitude (Real Part)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;FFT of Filtered Data&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_42_0.png" src="../_images/day2_data_workshop2_42_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>#<span class="w"> </span><span class="n">Python</span>
+
+<span class="n">from</span><span class="w"> </span><span class="s">scipy.signal</span><span class="w"> </span><span class="s">import</span><span class="w"> </span><span class="s">welch</span>
+
+<span class="nb">date</span><span class="p">=</span><span class="n">dates</span>
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Compute</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="n">quantities</span><span class="w"> </span><span class="o">---</span>
+<span class="n">L</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span>
+<span class="n">P2</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">np</span><span class="p">.</span><span class="n">abs</span><span class="p">(</span><span class="n">orig</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">L</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="n">MATLAB</span><span class="w"> </span><span class="n">uses</span><span class="w"> </span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">frequencies</span>
+<span class="n">P1</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">P2</span><span class="p">[:</span><span class="w"> </span><span class="n">int</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">].</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">P1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">P1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+#<span class="w"> </span><span class="n">Convert</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="n">MATLAB</span><span class="w"> </span><span class="nb">datenum</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">mdates</span><span class="p">.</span><span class="n">date2num</span><span class="p">(</span><span class="nb">date</span><span class="p">)</span>
+<span class="n">d</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span>#<span class="w"> </span><span class="nb">start</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="mi">1</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Plot</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="nb">figure</span><span class="p">:</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="mi">500</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="n">FFT</span><span class="w"> </span><span class="n">spectrum</span><span class="w"> </span><span class="o">---</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="p">=(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span><span class="w"> </span><span class="n">P1</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span><span class="w"> </span><span class="s">&#39;b-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&quot;Time (days since start)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&quot;Amplitude&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">title</span><span class="p">(</span><span class="s">&quot;Single-Sided Amplitude Spectrum&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+
+#<span class="w"> </span><span class="o">---</span><span class="w"> </span><span class="n">Tiled</span><span class="w"> </span><span class="nb">layout</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="n">subplots</span><span class="p">)</span><span class="w"> </span><span class="o">---</span>
+<span class="n">fig</span><span class="p">,</span><span class="w"> </span><span class="n">axs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">plt</span><span class="p">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">figsize</span><span class="p">=(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"> </span><span class="n">constrained_layout</span><span class="p">=</span><span class="n">True</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="mf">1.</span><span class="w"> </span><span class="n">Original</span><span class="w"> </span><span class="n">transformed</span><span class="w"> </span><span class="n">data</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">86400</span><span class="p">,</span><span class="w"> </span><span class="n">orig</span><span class="p">[:</span><span class="n">len</span><span class="p">(</span><span class="n">d</span><span class="p">)].</span><span class="n">real</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">divide</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mi">86400</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="nb">seconds</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="nb">days</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Original Transform&#39;</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="mf">2.</span><span class="w"> </span><span class="n">All</span><span class="w"> </span><span class="n">positive</span><span class="w"> </span><span class="nb">transform</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">plot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">P2</span><span class="p">[:</span><span class="n">len</span><span class="p">(</span><span class="n">d</span><span class="p">)])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Positive Transform&#39;</span><span class="p">)</span>
+
+#<span class="w"> </span><span class="mf">3.</span><span class="w"> </span><span class="n">Welch</span><span class="w"> </span><span class="n">Power</span><span class="w"> </span><span class="n">Spectral</span><span class="w"> </span><span class="n">Density</span>
+<span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Pxx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">welch</span><span class="p">(</span><span class="nb">flow</span><span class="p">,</span><span class="w"> </span><span class="n">fs</span><span class="p">=</span><span class="mf">1.0</span><span class="p">)</span><span class="w">  </span>#<span class="w"> </span><span class="n">fs</span><span class="p">=</span><span class="mf">1.0</span><span class="w"> </span><span class="n">assumes</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">sample</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="nb">day</span><span class="w"> </span><span class="p">(</span><span class="n">adjust</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">different</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">semilogy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">Pxx</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="n">set_title</span><span class="p">(</span><span class="s">&#39;Welch Power Spectral Density&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_44_0.png" src="../_images/day2_data_workshop2_44_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_44_1.png" src="../_images/day2_data_workshop2_44_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-matlab notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="data_workshop2_pt2.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Data Workshop 2 - Part 2</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="stats_in_practice.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Statistics in Practice</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Data Workshop 2</a><ul>
+<li><a class="reference internal" href="#MATLAB">MATLAB</a><ul>
+<li><a class="reference internal" href="#Import-Raw-Data">Import Raw Data</a></li>
+<li><a class="reference internal" href="#Reading-in-the-data">Reading in the data</a></li>
+<li><a class="reference internal" href="#Find-Monthly-Average">Find Monthly Average</a></li>
+<li><a class="reference internal" href="#Removing-NaNs">Removing NaNs</a></li>
+<li><a class="reference internal" href="#Interpolation">Interpolation</a></li>
+<li><a class="reference internal" href="#Filtering-Data">Filtering Data</a></li>
+<li><a class="reference internal" href="#Spectral-Analysis---Fourier-Space">Spectral Analysis - Fourier Space</a></li>
+<li><a class="reference internal" href="#Alternate-Data-Read-for-MATLAB">Alternate Data Read for MATLAB</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Python">Python</a><ul>
+<li><a class="reference internal" href="#Raw-Data">Raw Data</a></li>
+<li><a class="reference internal" href="#id1">Reading in the data</a></li>
+<li><a class="reference internal" href="#id2">Find Monthly Average</a></li>
+<li><a class="reference internal" href="#id3">Removing NaNs</a></li>
+<li><a class="reference internal" href="#id4">Interpolation</a></li>
+<li><a class="reference internal" href="#id5">Filtering Data</a></li>
+<li><a class="reference internal" href="#id6">Spectral Analysis - Fourier Space</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

@@ -1,0 +1,518 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Ordinary Differential Equations" href="ode.html"><link rel="prev" title="Taylor Expansions and Series Solutions" href="taylor_expansion.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Fourier Analysis - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day2/index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day2/intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day1/fourier_analysis.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Fourier-Analysis">
+<h1>Fourier Analysis<a class="headerlink" href="#Fourier-Analysis" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Austin Green - <a class="reference external" href="mailto:a7green&#37;&#52;&#48;ucsd&#46;edu">a7green<span>&#64;</span>ucsd<span>&#46;</span>edu</a></p>
+<p><strong>TAs:</strong> Camilla Marcellini and Kayli Matsuyoshi</p>
+<p>This lecture introduces Fourier Series, Expansion, and Transforms</p>
+<section id="1-|-Introduction">
+<h2>1 | Introduction<a class="headerlink" href="#1-|-Introduction" title="Link to this heading"></a></h2>
+<p>In previous sections, we were introduced to a few techniques for estimating functions. Fourier Series, and by extension, Fourier Analysis, is a natural extension of the Taylor Expansion. The primary difference is that the Fourier Series is ideal for <em>Periodic</em> functions, while Taylor Expansion is usable for any function, around some point.</p>
+<p>From an application standpoint, Fourier Analysis is particularly useful because of the prevalence of periodic signals of many natural phenomena that many of us will encounter. Waves are often the most visible form of periodic signals we see in oceanography, but are not the only ones. Fourier analysis is a fairly content-dense topic that a single 45-minute lecture would have a hard time summarizing well, so for the purposes of this workshop, we will focus on building your intuition for
+approaching these problems.</p>
+</section>
+<section id="2-|-The-Fourier-Series">
+<h2>2 | The Fourier Series<a class="headerlink" href="#2-|-The-Fourier-Series" title="Link to this heading"></a></h2>
+<section id="2.1-Overview">
+<h3>2.1 Overview<a class="headerlink" href="#2.1-Overview" title="Link to this heading"></a></h3>
+<p>As mentioned before, the Fourier Series is a way of describing a given function through a linear superposition of sine and cosine components, defined as such:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{1}{2}a_0 + \sum_{n=1} a_n\ cos(k_n x) + \sum_{n=1} b_n\ sin(k_n x)\]</div>
+</div>
+<p>This is a concise form of the Fourier Series, but let’s take a second to think about this. Here are some checkpoint questions to make sure you understand before we go deeper.</p>
+<ol class="arabic">
+<li><p><strong>What do the coefficient terms (:math:`a_0`, :math:`a_n` &amp; :math:`b_n`) describe?</strong></p>
+<p>The coefficients describe the relative weight of each component towards the reconstruction of <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+</li>
+<li><p><strong>Why do we need a separate cosine and sine term?</strong></p>
+<p>This comes from a really useful trig identity. We normally might express a wave like this: <span class="math notranslate nohighlight">\(f(x) = cos(kx + \phi)\)</span> or <span class="math notranslate nohighlight">\(f(t) = cos(\omega t + \phi)\)</span>. This details a wave that is either space (<span class="math notranslate nohighlight">\(kx\)</span>) or time (<span class="math notranslate nohighlight">\(\omega t\)</span>) varying, with a phase offset term. That phase offset is the part that we care about in this instance, and the reason we end up needing both components. If we use the trig identity <span class="math notranslate nohighlight">\(cos(A + B) = cos(A)cos(B) - sin(A)sin(B)\)</span>, we can accurately
+represent the phase of a single wave mode, with a zero phase sine and cosine component instead.</p>
+</li>
+<li><p><strong>What are the bounds of the interval as written?</strong></p>
+<p>In this particular case, the bounds are over all values of <span class="math notranslate nohighlight">\(0 \le n \le \infty\)</span>. However, it is often the case that it is easier, or necessary, to enforce bounds that are relevant to the period of our function.</p>
+</li>
+</ol>
+</section>
+<section id="2.2-Periodicity">
+<h3>2.2 Periodicity<a class="headerlink" href="#2.2-Periodicity" title="Link to this heading"></a></h3>
+<p>While the Fourier Series can technically be applied to any function, where it really shines is with functions that are periodic over a given interval.</p>
+<p>As a very quick refresher, a function is considered periodic if $ f(x+L) = f(x)$ for all values of x, where L is the period (spatially) or <span class="math notranslate nohighlight">\(f(t+T) = f(t)\)</span> for all t, where T is the period (temporally). The period is inversely proportional to the frequency( or wavenumber) of our waves. i.e. <span class="math notranslate nohighlight">\(T = \frac{1}{f}\)</span> or <span class="math notranslate nohighlight">\(L = \frac{1}{x}\)</span>.</p>
+<p><strong>Exercise 1: What is the Period of sin(t)?</strong></p>
+<ul class="simple">
+<li><p><strong>Recall:</strong> we define a time varying wave as <span class="math notranslate nohighlight">\(sin(\omega t)\)</span>, where <span class="math notranslate nohighlight">\(\omega = 2\pi \ f\)</span></p></li>
+<li><p>This means that <span class="math notranslate nohighlight">\(sin(t) = sin(\omega t)\)</span>, when <span class="math notranslate nohighlight">\(\omega = 1\)</span>. Then <span class="math notranslate nohighlight">\(\omega = 2\pi \ f = 1\)</span>, so <span class="math notranslate nohighlight">\(f = \frac{1}{2\pi}\)</span>.</p></li>
+<li><p>Since the frequency is <span class="math notranslate nohighlight">\(\frac{1}{2\pi}\)</span>, <span class="math notranslate nohighlight">\(T = 2\pi\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(sin(t)\)</span> is periodic over a period of <span class="math notranslate nohighlight">\(2\pi\)</span>.</p></li>
+</ul>
+<p>For higher frequencies, it should then track that our period gets smaller as well. Making a general case for this, we get the expression <span class="math notranslate nohighlight">\(cos(\frac{n\pi x}{L})\)</span> which has a period of 2L/n.</p>
+</section>
+<section id="2.3-The-Fourier-Expansion">
+<h3>2.3 The Fourier Expansion<a class="headerlink" href="#2.3-The-Fourier-Expansion" title="Link to this heading"></a></h3>
+<p>Within an interval <span class="math notranslate nohighlight">\(-L \le x \le L\)</span>, the general form of the series can be written as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[f(x) = \frac{1}{2} a_0 + \sum_{n=1}^{\infty}a_n\ cos(\frac{n\pi x}{L})+  \sum_{n=1}^{\infty}b_n\ sin(\frac{n\pi x}{L})\]</div>
+</div>
+</section>
+<section id="2.4-Orthogonality">
+<h3>2.4 Orthogonality<a class="headerlink" href="#2.4-Orthogonality" title="Link to this heading"></a></h3>
+<p>Now that we have our final form of the series, how do we go about solving for the <span class="math notranslate nohighlight">\(a_n\)</span> and <span class="math notranslate nohighlight">\(b_n\)</span> terms? We’ll start by looking at the orthogonality integrals of one of these Fourier modes.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\int^L_{-L}cos(\frac{m\pi x}{L})cos(\frac{n\pi x}{L}) dx = \left\{
+\begin{array}{ll}
+    0 &amp; m\ne n \\
+    L &amp; m = n \\
+\end{array}
+\right.\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\int^L_{-L}sin(\frac{m\pi x}{L})sin(\frac{n\pi x}{L}) dx = \left\{
+\begin{array}{ll}
+    0 &amp; m\ne n \\
+    L &amp; m = n \\
+\end{array}
+\right.\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\int^L_{-L}cos(\frac{m\pi x}{L})sin(\frac{n\pi x}{L}) dx = 0\]</div>
+</div>
+<p>Computing these integrals should be relatively straight forward, and easy to verify. However, incase it doesn’t immediately track in your brain as to why this works out here is a handy little demo to visually show you.</p>
+<p>The final bit of all this is actually solving for those <span class="math notranslate nohighlight">\(a_n\)</span> &amp; <span class="math notranslate nohighlight">\(b_n\)</span> terms. If we rearrange our original expression, we get something that looks like this</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{L} \int^L_{-L} f(x)\ cos(\frac{n\pi x}{L})dx\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[b_n = \frac{1}{L} \int^L_{-L} f(x)\ sin(\frac{n\pi x}{L})dx\]</div>
+</div>
+<p><strong>Exercise 2:</strong> find <span class="math notranslate nohighlight">\(a_n\)</span> &amp; <span class="math notranslate nohighlight">\(b_n\)</span> when <span class="math notranslate nohighlight">\(f(x) = 1 + 2sin(kx) + 3 cos(3kx)\)</span></p>
+<ol class="arabic">
+<li><p>Start with</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{L} \int^L_{-L} f(x)\ cos(\frac{n\pi x}{L})dx\]</div>
+</div>
+</li>
+<li><p>Plug in <span class="math notranslate nohighlight">\(f(x)\)</span></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{L} \int^L_{-L} [1 + 2sin(kx) + 3 cos(3kx)] * cos(\frac{n\pi x}{L})dx\]</div>
+</div>
+</li>
+<li><p>Simplify</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{L} \int^L_{-L} [cos(\frac{n\pi x}{L}) + 2sin(kx)*cos(\frac{n\pi x}{L}) + 3 cos(3kx)*cos(\frac{n\pi x}{L})]dx\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_n = \frac{1}{L} \int^L_{-L} [cos(\frac{n\pi x}{L}) + 3 cos(3kx)*cos(\frac{n\pi x}{L})]dx\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_0 = \frac{1}{L} \int^L_{-L} [1]dx = \frac{2L}{L} = 2\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a_6 = \frac{1}{L} \int^L_{-L}  3 cos(3kx)*cos(\frac{n\pi x}{L})dx = \frac{3L}{L}  = 3\]</div>
+</div>
+<p><strong>Exercise 3:</strong> find <span class="math notranslate nohighlight">\(a_n\)</span> &amp; <span class="math notranslate nohighlight">\(b_n\)</span> when <span class="math notranslate nohighlight">\(f(x) = 4cos(kx) - 4sin(kx) + 6 cos(10kx)\)</span></p>
+<p><strong>Exercise 4:</strong> find <span class="math notranslate nohighlight">\(a_n\)</span> &amp; <span class="math notranslate nohighlight">\(b_n\)</span> when <span class="math notranslate nohighlight">\(f(x) = L - x\)</span></p>
+</section>
+<section id="2.5-Circling-back-to-Euler's-formula">
+<h3>2.5 Circling back to Euler’s formula<a class="headerlink" href="#2.5-Circling-back-to-Euler's-formula" title="Link to this heading"></a></h3>
+<p>In the <em>Complex Numbers</em> lecture, we introduced the identity:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[e^{i\theta} = cos(\theta) + i\ sin(\theta)\]</div>
+</div>
+<p>This then gets expanded to the idea of the unit circle, where the x axis (Real axis) is represented by cosine terms, and the y axis (Imag axis) is represented by sine terms. We often use this form to represent circular or wave-like motions.</p>
+<p>If we use this identity, we can redefine our expression of the Fourier series, to something that looks like this.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[x(t) = \sum_{k = -\infty}^{\infty}\hat{a_k}e^{(i2\pi kt)/T}\]</div>
+</div>
+<p>Essentially, this just shifts our from of reference from individual sines and cosines at a specific frequency, and puts it into terms of circles instead. This also transitions us nicely into the next idea, which is the Fourier Transform</p>
+</section>
+</section>
+<section id="3-|-Fourier-Transforms">
+<h2>3 | Fourier Transforms<a class="headerlink" href="#3-|-Fourier-Transforms" title="Link to this heading"></a></h2>
+<p>The Fourier Transform is the next step past the series. There are typically 2 flavors of the FT that exist, and it is dependent on the type of signal you have. The first option is the continuous Fourier transform (CFT), which is reliant on having a continuous data stream that can be broken up into an infinite number of discrete frequencies. The other option is the discrete Fourier transform (DFT), which is tailored toward discrete data and frequencies. In science, we will mostly utilize the DFT,
+since this is more like how our sampled signals will actually look like a set of discrete data points, spaced by a uniform (ideally) time step that is defined by our sensors.</p>
+<section id="3.1-The-Continuous-Fourier-Transform">
+<h3>3.1 The Continuous Fourier Transform<a class="headerlink" href="#3.1-The-Continuous-Fourier-Transform" title="Link to this heading"></a></h3>
+<p>The Fourier transform operates on much of the same principles as the Fourier series, but instead of the summation of a bunch of discrete frequency values, what if we just integrated over <strong>ALL</strong> frequency values? You would end up with something like this. (which just so happens to be the definition of the CFT)</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[x(t) = \int^{\infty}_{\infty} \tilde{X}(f) e^{i2\pi ft} df\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\tilde{X}(f) = \int^{\infty}_{\infty} x(t) e^{-i2\pi ft} dt\]</div>
+</div>
+</section>
+<section id="3.2-The-Discrete-Fourier-Transform">
+<h3>3.2 The Discrete Fourier Transform<a class="headerlink" href="#3.2-The-Discrete-Fourier-Transform" title="Link to this heading"></a></h3>
+<p>Coming Soon</p>
+</section>
+</section>
+<section id="Real-World-Applications">
+<h2>Real World Applications<a class="headerlink" href="#Real-World-Applications" title="Link to this heading"></a></h2>
+<p>As mentioned previously, we often come across regularly repeating signals in all parts of oceanogrpahy. We use the FT to get a sense of what sort of frequencies of things we are seeing, and how they contribute to the measured signal as a whole. The FT can be massaged into a more usuable form, that we call the Spectrum. These can exist in many forms, and can be used to track velocity, energy, temeperture, pressure, etc. and is usually in either the wavenumber of frequency domain. Here are a few
+examples of what that result may look like.</p>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="ode.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Ordinary Differential Equations</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="taylor_expansion.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Taylor Expansions and Series Solutions</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Fourier Analysis</a><ul>
+<li><a class="reference internal" href="#1-|-Introduction">1 | Introduction</a></li>
+<li><a class="reference internal" href="#2-|-The-Fourier-Series">2 | The Fourier Series</a><ul>
+<li><a class="reference internal" href="#2.1-Overview">2.1 Overview</a></li>
+<li><a class="reference internal" href="#2.2-Periodicity">2.2 Periodicity</a></li>
+<li><a class="reference internal" href="#2.3-The-Fourier-Expansion">2.3 The Fourier Expansion</a></li>
+<li><a class="reference internal" href="#2.4-Orthogonality">2.4 Orthogonality</a></li>
+<li><a class="reference internal" href="#2.5-Circling-back-to-Euler's-formula">2.5 Circling back to Euler’s formula</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3-|-Fourier-Transforms">3 | Fourier Transforms</a><ul>
+<li><a class="reference internal" href="#3.1-The-Continuous-Fourier-Transform">3.1 The Continuous Fourier Transform</a></li>
+<li><a class="reference internal" href="#3.2-The-Discrete-Fourier-Transform">3.2 The Discrete Fourier Transform</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Real-World-Applications">Real World Applications</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

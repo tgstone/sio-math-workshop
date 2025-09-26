@@ -1,0 +1,1653 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Linear Algebra 1" href="linear_algebra1.html"><link rel="prev" title="Distribution Functions" href="distribution_functions.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Data Workshop 1 - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day1/index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day1/algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day2/data_workshop1.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Data-Workshop-1">
+<h1>Data Workshop 1<a class="headerlink" href="#Data-Workshop-1" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Tommy Stone, Applied Ocean Science (AOS) PhD student (<a class="reference external" href="mailto:thstone&#37;&#52;&#48;ucsd&#46;edu">thstone<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Austin Green (<a class="reference external" href="mailto:a7green&#37;&#52;&#48;ucsd&#46;edu">a7green<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This notebook is meant to be a general guide into data analysis. The scrips is using Python but there is also a Matlab code section towards the bottom of the notebook which will contain all the same information, but how to do it in Matlab. This is meant to show a typical data analysis workflow for graduate students looking at a new dataset. We will apply concepts learned in this math workshop and demonstrate how they translate into everyday research. The topics include</p>
+<ol class="arabic simple">
+<li><p>Loading a new dataset</p></li>
+<li><p>Determining the statistics and gradients</p></li>
+<li><p>Visualizing the statistics as well as the variables</p></li>
+</ol>
+<p>Dataset is located here <a class="reference external" href="https://drive.google.com/drive/u/0/folders/1W7SLAx3mLM15S7rF66SwRLScTbEVBdeD">washington_shelf_data.nc</a></p>
+<p>If you are new to python you can follow the instructions below to setup a new environment using Conda and an IDE with VS Code. Below instructions are for Mac and Windows users created by Ellen Davenport (<a class="reference external" href="mailto:edavenport&#37;&#52;&#48;ucsd&#46;edu">edavenport<span>&#64;</span>ucsd<span>&#46;</span>edu</a>) for the Software Carpentries workshop</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://eldavenport.github.io/SIO-PythonEarthScience/installation/software_install/wsl_installation.html">Windows Install Using Linux Kernel</a></p></li>
+<li><p><a class="reference external" href="https://eldavenport.github.io/SIO-PythonEarthScience/installation/software_install/python_install.html">Installing Python with Conda</a></p></li>
+<li><p><a class="reference external" href="https://eldavenport.github.io/SIO-PythonEarthScience/installation/software_install/vscode_install.html">Installing VSCode</a></p></li>
+</ul>
+<p>The below notebook contains the solutions, if you want to follow along without the solutions download the following notebook (Python) and you can also create a new .m file (Matlab).</p>
+<p><a class="reference external" href="https://drive.google.com/drive/u/0/folders/1cqnsTm6ImLIRZT6nzkvrBpmdzL1_Vl6T">Python Notebook without Solutions</a></p>
+<p>Author: Tommy Stone</p>
+<p>Notes adapted from <strong>Andrea Rodriguez-Marin Freudmann notebook from Data 1 2024</strong></p>
+<p>Dataset created by <strong>Caeli Griffin, Kaley Mudd and Turner Johnson</strong></p>
+<p><strong>Python Users</strong></p>
+<p>After installing Python and Conda it is recommend that you setup a new environment. You can do so with the following commands</p>
+<ol class="arabic simple">
+<li><p>Create new conda environment</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda create --name math_workshop
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Activate new environment</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda activate math_workshop
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install following packages</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>conda install --name math_workshop -c conda-forge numpy matplotlib jupyterlab netcdf4 scipy pandas xarray cmocean gsw
+</pre></div>
+</div>
+<p><strong>Matlab Users</strong></p>
+<p>If you are using Matlab we have a license through UCSD that you can register through your email account.</p>
+<p><a class="reference external" href="https://www.mathworks.com/academia/tah-portal/university-of-california-san-diego-1144083.html">This is the link for installation</a></p>
+<ol class="arabic simple">
+<li><p>Installing GSW</p></li>
+</ol>
+<p>The Gibbs SeaWater (GSW) Oceanographic Toolbox allows you to convert salinity and temperature to density (it does more than that but we will be using it for that). In order to use GSW you will need to <a class="reference external" href="https://drive.google.com/drive/u/0/folders/1byqbVhLeeWPQSdDaJ9l7FcgdqQzyOQF1">download the zip file located on the Google drive</a>.</p>
+<ol class="arabic simple">
+<li><p>Unzip the file in the current working directory</p></li>
+<li><p>Add the path at the top of your Matlab script</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addpath(genpath(&#39;gsw_matlab_v3_06_16&#39;))
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Installing cmocean</p></li>
+</ol>
+<p>cmocean is explained below. To install cmocean, <a class="reference external" href="https://drive.google.com/drive/u/0/folders/1byqbVhLeeWPQSdDaJ9l7FcgdqQzyOQF1">download the zip file from the google drive</a></p>
+<ol class="arabic simple">
+<li><p>Extract the files in the current working directory</p></li>
+<li><p>Add the path</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>addpath(&#39;cmocean&#39;)
+</pre></div>
+</div>
+<section id="1-|-Importing-Libraries-and-Loading-a-NetCDF-File">
+<h2>1 | Importing Libraries and Loading a NetCDF File<a class="headerlink" href="#1-|-Importing-Libraries-and-Loading-a-NetCDF-File" title="Link to this heading"></a></h2>
+<section id="1.1-Importing-Libraries">
+<h3>1.1 Importing Libraries<a class="headerlink" href="#1.1-Importing-Libraries" title="Link to this heading"></a></h3>
+<p>What some individuals like (and don’t like) about python is it’s library system. Below are some standard libraries that are used within oceanography and that we will use in this notebook</p>
+<p><strong>Description of Libraries</strong></p>
+<ul class="simple">
+<li><p><strong>NumPy</strong>: A fundamental package for scientific computing and linear algebra in Python. It provides support for large, multi-dimensional arrays and matrices, along with a collection of mathematical functions to operate on these arrays.</p></li>
+<li><p><strong>xarray</strong>: A library designed for working with labeled multi-dimensional arrays. It is particularly useful for handling datasets with dimensions like time, latitude, and longitude, often used in geosciences and often used for opening NetCDF (.net)</p></li>
+<li><p><strong>matplotlib</strong>: A comprehensive library for creating static, animated, and interactive visualizations in Python. It is widely used for plotting graphs and charts.</p></li>
+<li><p><strong>gsw</strong>: The Gibbs SeaWater (GSW) Oceanographic Toolbox for Python. It is used for oceanographic calculations, such as determining seawater properties like salinity and density.</p></li>
+<li><p><strong>datetime</strong>: A module in Python’s standard library for working with dates and times. It provides classes for manipulating dates, times, and intervals.</p></li>
+<li><p><strong>cmocean</strong>: A library of uniform colormaps designed specifically for oceanographic data. It provides colormaps that are visually appealing and scientifically accurate for representing data such as temperature, salinity, and density.</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mdates</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmocean.cm</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gsw</span>
+
+<span class="c1"># converting ordinal to dattime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+<br/></pre></div>
+</div>
+</div>
+</section>
+<section id="1.2-Loading-the-data">
+<h3>1.2 Loading the data<a class="headerlink" href="#1.2-Loading-the-data" title="Link to this heading"></a></h3>
+<p>We will be analyzing data collected from the Washington Shelf. File is located on our shared Google Drive, download the file in the same directory as this notebook and execute the following commands</p>
+<p><a class="reference external" href="https://drive.google.com/file/d/1LaD2vD9eag6EhWqv2sMMbanr_Ed6v9JM/view?usp=drive_link">Download the dataset from Google Drive</a></p>
+<p>Xarray can be used to open the data</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xr.open_dataset(&#39;washington_sehfl_data.nc)
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load the dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;washington_shelf_data.nc&quot;</span><span class="p">)</span>
+
+<span class="c1"># review the outputs</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 49kB
+Dimensions:  (time: 19, depth: 105)
+Coordinates:
+  * time     (time) datetime64[ns] 152B 1900-01-09T13:04:54 ... 1900-01-09T13...
+  * depth    (depth) float64 840B -3.0 -3.5 -4.0 -4.5 ... -54.0 -54.5 -55.0
+Data variables:
+    rho      (time, depth) float64 16kB ...
+    sal      (time, depth) float64 16kB ...
+    temp     (time, depth) float64 16kB ...
+Attributes: (12/14)
+    title:          OOI Washington Shelf Surface-Piercing Profiler CTD
+    source:         CE02SHSP-SP001-08-CTDPFJ000-recovered_cspp-ctdpf_j_cspp_i...
+    creation_date:  2024-09-09 19:32:12
+    sourceUrl:      http://oceanobservatories.org/
+    institution:    Ocean Observatories Initiative
+    Manufacturer:   Sea-Bird Electronics
+    ...             ...
+    Description:    CTD Profiler: CTDPF Series J
+    latitude:       44.6350
+    longitude:      -124.3059
+    Owner:          Oregon State University
+    gridded by:     Turner Johnson
+    for use in:     SIO Math Workshop 2024</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-df2fbc05-b641-44a4-9860-1007c8abe964' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-df2fbc05-b641-44a4-9860-1007c8abe964' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 19</li><li><span class='xr-has-index'>depth</span>: 105</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-fa8a7a42-128e-454d-b6cc-53f68f38e392' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fa8a7a42-128e-454d-b6cc-53f68f38e392' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1900-01-09T13:04:54 ... 1900-01-...</div><input id='attrs-8f94f20c-0c6f-4ad9-9e6c-a6f4881aa3b2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f94f20c-0c6f-4ad9-9e6c-a6f4881aa3b2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e822eed-8eaf-4437-949a-ef9618b40017' class='xr-var-data-in' type='checkbox'><label for='data-7e822eed-8eaf-4437-949a-ef9618b40017' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1900-01-09T13:04:54.000000000&#x27;, &#x27;1900-01-09T13:04:54.444444444&#x27;,
+       &#x27;1900-01-09T13:04:54.888888888&#x27;, &#x27;1900-01-09T13:04:55.333333333&#x27;,
+       &#x27;1900-01-09T13:04:55.777777777&#x27;, &#x27;1900-01-09T13:04:56.222222222&#x27;,
+       &#x27;1900-01-09T13:04:56.666666666&#x27;, &#x27;1900-01-09T13:04:57.111111111&#x27;,
+       &#x27;1900-01-09T13:04:57.555555555&#x27;, &#x27;1900-01-09T13:04:58.000000000&#x27;,
+       &#x27;1900-01-09T13:04:58.444444444&#x27;, &#x27;1900-01-09T13:04:58.888888888&#x27;,
+       &#x27;1900-01-09T13:04:59.333333333&#x27;, &#x27;1900-01-09T13:04:59.777777777&#x27;,
+       &#x27;1900-01-09T13:05:00.222222222&#x27;, &#x27;1900-01-09T13:05:00.666666666&#x27;,
+       &#x27;1900-01-09T13:05:01.111111111&#x27;, &#x27;1900-01-09T13:05:01.555555555&#x27;,
+       &#x27;1900-01-09T13:05:02.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>depth</span></div><div class='xr-var-dims'>(depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.0 -3.5 -4.0 ... -54.5 -55.0</div><input id='attrs-382567a0-4bc3-41dc-b7b5-3d8307abbe27' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-382567a0-4bc3-41dc-b7b5-3d8307abbe27' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb6ad178-d400-47a8-b587-b9a068ac6ad1' class='xr-var-data-in' type='checkbox'><label for='data-bb6ad178-d400-47a8-b587-b9a068ac6ad1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Depth (m) calculated from pressure (dbar) and latitude.</dd><dt><span>precision :</span></dt><dd>3</dd><dt><span>long_name :</span></dt><dd>depth calculated from pressure</dd><dt><span>units :</span></dt><dd>meters</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([ -3. ,  -3.5,  -4. ,  -4.5,  -5. ,  -5.5,  -6. ,  -6.5,  -7. ,  -7.5,
+        -8. ,  -8.5,  -9. ,  -9.5, -10. , -10.5, -11. , -11.5, -12. , -12.5,
+       -13. , -13.5, -14. , -14.5, -15. , -15.5, -16. , -16.5, -17. , -17.5,
+       -18. , -18.5, -19. , -19.5, -20. , -20.5, -21. , -21.5, -22. , -22.5,
+       -23. , -23.5, -24. , -24.5, -25. , -25.5, -26. , -26.5, -27. , -27.5,
+       -28. , -28.5, -29. , -29.5, -30. , -30.5, -31. , -31.5, -32. , -32.5,
+       -33. , -33.5, -34. , -34.5, -35. , -35.5, -36. , -36.5, -37. , -37.5,
+       -38. , -38.5, -39. , -39.5, -40. , -40.5, -41. , -41.5, -42. , -42.5,
+       -43. , -43.5, -44. , -44.5, -45. , -45.5, -46. , -46.5, -47. , -47.5,
+       -48. , -48.5, -49. , -49.5, -50. , -50.5, -51. , -51.5, -52. , -52.5,
+       -53. , -53.5, -54. , -54.5, -55. ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-795b235e-7f0a-4aa8-8d4b-751adc72db95' class='xr-section-summary-in' type='checkbox'  checked><label for='section-795b235e-7f0a-4aa8-8d4b-751adc72db95' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rho</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d3794940-ffe0-4b62-9e8d-39b8142c6b68' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d3794940-ffe0-4b62-9e8d-39b8142c6b68' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-56e0d95f-9932-4151-87ac-1597eabe4561' class='xr-var-data-in' type='checkbox'><label for='data-56e0d95f-9932-4151-87ac-1597eabe4561' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Seawater Density is defined as mass per unit volume and is calculated from the conductivity, temperature and depth of a seawater sample using the TEOS-10 equation.</dd><dt><span>long_name :</span></dt><dd>seawater density</dd><dt><span>standard_name :</span></dt><dd>sea_water_density</dd><dt><span>units :</span></dt><dd>kg/m^3</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sal</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-72b45dd5-30bc-4cf8-ae35-e1450cc4ac40' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-72b45dd5-30bc-4cf8-ae35-e1450cc4ac40' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2d6fd87d-be96-45f9-af28-419fa225b6c7' class='xr-var-data-in' type='checkbox'><label for='data-2d6fd87d-be96-45f9-af28-419fa225b6c7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Salinity is generally defined as the concentration of dissolved salt in a parcel of seawater. Practical Salinity is a more specific unitless quantity calculated from the conductivity of seawater and adjusted for temperature and pressure. It is approximately equivalent to Absolute Salinity (the mass fraction of dissolved salt in seawater) but they are not interchangeable.</dd><dt><span>long_name :</span></dt><dd>practical salinity</dd><dt><span>standard_name :</span></dt><dd>sea_water_practical_salinity</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>temp</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-b9009e7c-7d62-4915-93a9-a752afa9721e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b9009e7c-7d62-4915-93a9-a752afa9721e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e92b0b86-c30f-4b11-b6f4-b0f62d7e605e' class='xr-var-data-in' type='checkbox'><label for='data-e92b0b86-c30f-4b11-b6f4-b0f62d7e605e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Seawater temperature near the sensor.</dd><dt><span>long_name :</span></dt><dd>temperature</dd><dt><span>standard_name :</span></dt><dd>sea_water_temperature</dd><dt><span>units :</span></dt><dd>degrees_Celsius</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8d19447d-7efc-4c50-af08-50e4d8fa89dd' class='xr-section-summary-in' type='checkbox'  ><label for='section-8d19447d-7efc-4c50-af08-50e4d8fa89dd' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-9576db6c-3d1b-4ae8-8d01-79c824085603' class='xr-index-data-in' type='checkbox'/><label for='index-9576db6c-3d1b-4ae8-8d01-79c824085603' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([          &#x27;1900-01-09 13:04:54&#x27;,
+               &#x27;1900-01-09 13:04:54.444444444&#x27;,
+               &#x27;1900-01-09 13:04:54.888888888&#x27;,
+               &#x27;1900-01-09 13:04:55.333333333&#x27;,
+               &#x27;1900-01-09 13:04:55.777777777&#x27;,
+               &#x27;1900-01-09 13:04:56.222222222&#x27;,
+               &#x27;1900-01-09 13:04:56.666666666&#x27;,
+               &#x27;1900-01-09 13:04:57.111111111&#x27;,
+               &#x27;1900-01-09 13:04:57.555555555&#x27;,
+                         &#x27;1900-01-09 13:04:58&#x27;,
+               &#x27;1900-01-09 13:04:58.444444444&#x27;,
+               &#x27;1900-01-09 13:04:58.888888888&#x27;,
+               &#x27;1900-01-09 13:04:59.333333333&#x27;,
+               &#x27;1900-01-09 13:04:59.777777777&#x27;,
+               &#x27;1900-01-09 13:05:00.222222222&#x27;,
+               &#x27;1900-01-09 13:05:00.666666666&#x27;,
+               &#x27;1900-01-09 13:05:01.111111111&#x27;,
+               &#x27;1900-01-09 13:05:01.555555555&#x27;,
+                         &#x27;1900-01-09 13:05:02&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>depth</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-6646e154-5c58-4115-b156-ff26b114c099' class='xr-index-data-in' type='checkbox'/><label for='index-6646e154-5c58-4115-b156-ff26b114c099' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -3.0,  -3.5,  -4.0,  -4.5,  -5.0,  -5.5,  -6.0,  -6.5,  -7.0,  -7.5,
+       ...
+       -50.5, -51.0, -51.5, -52.0, -52.5, -53.0, -53.5, -54.0, -54.5, -55.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;depth&#x27;, length=105))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5f6e6df8-86e0-4bac-af7e-027ef00e1c67' class='xr-section-summary-in' type='checkbox'  ><label for='section-5f6e6df8-86e0-4bac-af7e-027ef00e1c67' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>OOI Washington Shelf Surface-Piercing Profiler CTD</dd><dt><span>source :</span></dt><dd>CE02SHSP-SP001-08-CTDPFJ000-recovered_cspp-ctdpf_j_cspp_instrument_recovered</dd><dt><span>creation_date :</span></dt><dd>2024-09-09 19:32:12</dd><dt><span>sourceUrl :</span></dt><dd>http://oceanobservatories.org/</dd><dt><span>institution :</span></dt><dd>Ocean Observatories Initiative</dd><dt><span>Manufacturer :</span></dt><dd>Sea-Bird Electronics</dd><dt><span>ModelNumber :</span></dt><dd>SBE 49 Fast CAT</dd><dt><span>SerialNumber :</span></dt><dd>49-0346</dd><dt><span>Description :</span></dt><dd>CTD Profiler: CTDPF Series J</dd><dt><span>latitude :</span></dt><dd>44.6350</dd><dt><span>longitude :</span></dt><dd>-124.3059</dd><dt><span>Owner :</span></dt><dd>Oregon State University</dd><dt><span>gridded by :</span></dt><dd>Turner Johnson</dd><dt><span>for use in :</span></dt><dd>SIO Math Workshop 2024</dd></dl></div></li></ul></div></div></div>
+</div>
+</section>
+</section>
+<section id="2.-|-Statistics-of-the-data">
+<h2>2. | Statistics of the data<a class="headerlink" href="#2.-|-Statistics-of-the-data" title="Link to this heading"></a></h2>
+<section id="2.1-|-Looking-at-the-whole-dataset">
+<h3>2.1 | Looking at the whole dataset<a class="headerlink" href="#2.1-|-Looking-at-the-whole-dataset" title="Link to this heading"></a></h3>
+<p>Pick a variable that interests from our options of density, salinity and temperature. In python we use the plt (plot) command from Matplotlib. To plot 2D colormaps we could use pcolormesh. Below are some options for python</p>
+<ul class="simple">
+<li><p><strong>plt.pcolormesh(x,y,data)</strong>: creates a 2D colormap of data</p></li>
+<li><p><strong>plt.plot(x,y)</strong>: Creates a 2D plot of y vs x. Can also use a c option to include color</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Plot a 2D colormap of time vs depth over our variable of interests. Below is an example of a 2D plot over density.</p></li>
+<li><p>Play with other variables and use other colormaps from <a class="reference external" href="https://matplotlib.org/cmocean/">cmocean</a></p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cb0 = plt.pcolormesh(data[&#39;time&#39;], data[&#39;depth&#39;], data[&#39;rho&#39;].T, cmap = cm.dense);
+plt.colorbar(cb0, label = &quot;Density (kg/m^3)&quot;);
+plt.xlabel(&quot;Time&quot;);
+plt.ylabel(&quot;Depth (m)&quot;);
+plt.xticks(rotation = 45);
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><br/><br/><span></span><span class="c1"># grab dimensions</span>
+<span class="n">M</span><span class="p">,</span><span class="n">N</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># Separating variables for easier access. Capital means a matrix and lower case means a vector</span>
+<span class="n">SAL</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">TEMP</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">RHO</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+
+<span class="c1"># Convert time to seconds since January 1st, 1900</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;1900-01-01T00:00:00&#39;</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a pcolormap of density with depth vs time</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">RHO</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">dense</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Density (RHO) with Depth vs Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (m)&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density (kg/m^3)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_10_0.png" src="../_images/day2_data_workshop1_10_0.png" />
+</div>
+</div>
+</section>
+<section id="2.2-|-Separating-into-meaningful-chunks-with-statistics">
+<h3>2.2 | Separating into meaningful chunks with statistics<a class="headerlink" href="#2.2-|-Separating-into-meaningful-chunks-with-statistics" title="Link to this heading"></a></h3>
+<p>We often times care about the mean of our variable of interests as well as the standard deviation. We can determine the values by using the following commands</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>data[&#39;variable&#39;].mean
+data[&#39;variable&#39;].std
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Compare the mean of your variable of interest over depth and plot the results</p></li>
+<li><p>Compare the mean of your variable of interest over time and plot the results</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Question?</strong></p>
+<hr class="docutils" />
+<p>What conclusions can you draw from the differences/similarities between the statistics of your variable when looking at different sets of time/depth?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There are a few ways to do this. It depends on what you are interested in. If you want to know the mean and standard deviation</span>
+<span class="c1"># of your variable across all of time at various depths</span>
+<span class="n">mean_depth</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">std_depth</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">max_rho</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">min_rho</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+
+<span class="n">mean_time</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">std_time</span> <span class="o">=</span> <span class="n">RHO</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Compute the standard error for RHO</span>
+<span class="n">std_error_depth</span> <span class="o">=</span> <span class="n">std_depth</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+<span class="n">std_error_time</span> <span class="o">=</span> <span class="n">std_time</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1"># plot the mean at each depth</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">mean_depth</span><span class="p">,</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">],</span> <span class="n">mean_depth</span> <span class="o">-</span> <span class="n">std_error_depth</span><span class="p">,</span> <span class="n">mean_depth</span> <span class="o">+</span> <span class="n">std_error_depth</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Standard Error in Time&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean Density Over Time at Each Depth&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Density (kg/m^3)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">mean_time</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">mean_time</span> <span class="o">-</span> <span class="n">std_error_time</span><span class="p">,</span> <span class="n">mean_time</span> <span class="o">+</span> <span class="n">std_error_time</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Standard Error in Depth&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mean Density over Depth at Each Day&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Density (kg/m^3)&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Maximum density: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">max_rho</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Minimum density: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_rho</span><span class="p">))</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Maximum density: 1026.8088984693732
+Minimum density: 1023.6581371622559
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_12_1.png" src="../_images/day2_data_workshop1_12_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="3.-|-Visualizing-statistics">
+<h2>3. | Visualizing statistics<a class="headerlink" href="#3.-|-Visualizing-statistics" title="Link to this heading"></a></h2>
+<section id="3.1-|-One-dimensional-histograms">
+<h3>3.1 | One-dimensional histograms<a class="headerlink" href="#3.1-|-One-dimensional-histograms" title="Link to this heading"></a></h3>
+<p>Another way we like to visualize data and gain some intiution is by understanding the type of distribution the data follows (Gaussian, <span class="math notranslate nohighlight">\(\chi\)</span> etc. etc.).</p>
+<p>There are a few ways to do this</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>count, bin np.hist(data, bins = #, density = True)
+plt.hist(data, bins = #, density = True)
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Plot a histogram of your variable over all depths/time, over just one depth, then over just a day or two</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Question?</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>What can we learn from this plot?</p></li>
+<li><p>What do the differences between histograms imply?</p></li>
+<li><p>What further information about the data did we learn on top of the statistics?</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting histogram over depth</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mean_depth</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PDF&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histogram of Density over Depth&quot;</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">mean_time</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Density&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PDF&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Histogram of Density over Time&quot;</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;Histogram of Density over Time&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_14_1.png" src="../_images/day2_data_workshop1_14_1.png" />
+</div>
+</div>
+</section>
+<section id="3.2-|-Two-dimensional-histograms">
+<h3>3.2 | Two-dimensional histograms<a class="headerlink" href="#3.2-|-Two-dimensional-histograms" title="Link to this heading"></a></h3>
+<p>What if we want to know about how two variables relate to one another? Well, we can visualize that too. Pick a second variable that you think might have a relationship with your first. Plot the 2D histogram of the two variables. You can do so for the whole record, per day, per depth, you can decide what is most relevant based on your hypothesis.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>plt.hist2d(variable1, variable2, density = True)
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<p>Plot the 2D histogram of the two variables. You can do so for the whole record, per day, per depth, you can decide what is most relevant based on your hypothesis.</p>
+<hr class="docutils" />
+<p><strong>Question?</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Based on your plots, do you see any correlations?</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="n">hist0</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">SAL</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">RHO</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hist0</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2D Histogram of Salinity and Density&#39;</span><span class="p">)</span>
+
+<span class="n">hist1</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">TEMP</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">RHO</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">hist1</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2D Histogram of Temperature and Density&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;2D Histogram of Temperature and Density&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_16_1.png" src="../_images/day2_data_workshop1_16_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="4.-Plotting-physical-quantities-from-data">
+<h2>4. Plotting physical quantities from data<a class="headerlink" href="#4.-Plotting-physical-quantities-from-data" title="Link to this heading"></a></h2>
+<section id="4.1-|-Temperature-Salinity-diagram-with-depth">
+<h3>4.1 | Temperature-Salinity diagram with depth<a class="headerlink" href="#4.1-|-Temperature-Salinity-diagram-with-depth" title="Link to this heading"></a></h3>
+<p>A useful technique in oceanography is looking at the relationship between temperature and salinity, since they define density. Colder water is denser, as is saltier water, so there is an interplay between the two variables. You can analyze this relationship by plotting temperature vs salinity across density lines</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--------------
+</pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Create a scatter plot with temperature on the y-axis and salinity on the x-axis. Color your points by depth.</p></li>
+<li><p>Add density contour lines: density is constant along each of these lines.</p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Questions?</strong></p>
+<hr class="docutils" />
+<p>Interpret your plot: what is the overall change in density over depth? Does salinity or temperature seem to affect density more? Is this what you expected? Are there any points that stand out?</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating meshgrid of values for time and depth for scatter plots</span>
+<span class="n">TIME</span><span class="p">,</span> <span class="n">DEPTH</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">depth</span><span class="p">)</span>
+
+<span class="c1"># order is because Matlab is column major and python is row major.</span>
+<span class="n">sal</span> <span class="o">=</span> <span class="n">SAL</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">TEMP</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">depth_flat</span> <span class="o">=</span> <span class="n">DEPTH</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+<span class="n">time_flat</span> <span class="o">=</span> <span class="n">TIME</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span><span class="p">)</span>
+
+<span class="c1"># Slice salinity and temp data for contour points</span>
+<span class="n">slices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">sal_slices</span> <span class="o">=</span> <span class="n">SAL</span><span class="p">[:,</span><span class="n">slices</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+<span class="n">temp_slices</span> <span class="o">=</span> <span class="n">TEMP</span><span class="p">[:,</span><span class="n">slices</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span><span class="p">)</span>
+
+<span class="c1"># sorting the salinity and temperature values</span>
+<span class="n">sal_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">sal_slices</span><span class="p">)</span>
+<span class="n">sal_sorted</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="n">temp_sorted</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">temp_slices</span><span class="p">)</span>
+<span class="n">temp_sorted</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+
+<span class="c1"># creating meshgrid</span>
+<span class="n">SAL_SORTED</span><span class="p">,</span> <span class="n">TEMP_SORTED</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">sal_sorted</span><span class="p">,</span> <span class="n">temp_sorted</span><span class="p">)</span>
+
+<span class="c1"># providing contour plots density</span>
+<span class="n">RHOS</span> <span class="o">=</span> <span class="n">gsw</span><span class="o">.</span><span class="n">density</span><span class="o">.</span><span class="n">rho</span><span class="p">(</span><span class="n">SAL_SORTED</span><span class="p">,</span> <span class="n">TEMP_SORTED</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+
+<span class="c1"># Plotting T-S profiles</span>
+<span class="c1"># Create subplots 1,2</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+
+<span class="c1"># First subplot where colorbar is depth</span>
+<span class="n">contour0</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">SAL_SORTED</span><span class="p">,</span> <span class="n">TEMP_SORTED</span><span class="p">,</span> <span class="n">RHOS</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contour0</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">cb0</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">depth_flat</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cb0</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature (C)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Salinity (PSU)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;T-S Diagram&quot;</span><span class="p">)</span>
+<br/><br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 1.0, &#39;T-S Diagram&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_18_1.png" src="../_images/day2_data_workshop1_18_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="5.-calculating-physical-quantities-from-data">
+<h2>5. calculating physical quantities from data<a class="headerlink" href="#5.-calculating-physical-quantities-from-data" title="Link to this heading"></a></h2>
+<p>In a continuously stratified ocean, the buoyancy frequency represents the natural oscillation frequency of a displaced fluid parcel. A larger buoyancy frequency means a more stratified fluid.</p>
+<p>The equation for the buoyancy frequency is the following:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[N^2 = -\frac{g}{\rho_0} \frac{d \rho}{d z}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is acceleration due to gravity, z is depth, and <span class="math notranslate nohighlight">\(\rho\)</span> is the density as a function of depth. To calculate derivatives we can use numpy</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>np.diff(array, axis)
+np.gradient(array, axis)
+</pre></div>
+</div>
+<p><strong>np.diff</strong> is used as a first order approximation and takes the difference along the chosen axis. <strong>np.gradient</strong> is a second order approximation (central finite difference) to approximate the gradient along a specific axis.</p>
+<hr class="docutils" />
+<p><strong>Exercise</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Calculate the derivative <span class="math notranslate nohighlight">\(\frac{d \rho}{d z}\)</span>. Think about what this vertical gradient in density means.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(N^2\)</span></p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Questions?</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>How does <span class="math notranslate nohighlight">\(N^2\)</span> change with the depth and time? How could you visualize these changes?</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># determining the derivative as a function of depth by using numerical approximation</span>
+<span class="c1">#drho = np.diff(RHO, axis = 1)</span>
+<span class="c1">#dz = np.mean(np.diff(depth)) # because dz is constant we can use one value</span>
+
+<span class="c1"># creating gradient</span>
+<span class="c1">#drho_dz = drho/dz</span>
+
+<span class="c1"># calculating using higher order method</span>
+<span class="c1"># Using gradient functino</span>
+<span class="n">drho_dz_grad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">RHO</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># plotting gradient on first day</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">RHO</span><span class="p">[</span><span class="mi">0</span><span class="p">,:],</span><span class="n">depth</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Density (kg/m^3)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Density vs Depth&quot;</span><span class="p">)</span>
+
+<span class="c1"># calculate N as a function of depth</span>
+<span class="n">g</span> <span class="o">=</span> <span class="mf">9.81</span> <span class="c1"># m/s^2</span>
+<span class="n">rho0</span> <span class="o">=</span> <span class="mi">1025</span> <span class="c1"># kg/m^3</span>
+<span class="n">N2</span> <span class="o">=</span> <span class="o">-</span><span class="n">g</span><span class="o">/</span><span class="n">rho0</span> <span class="o">*</span> <span class="n">drho_dz_grad</span>
+
+<span class="c1"># Plot N2 as a function of depth</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">N2</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">depth</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;N^2&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;N^2 (1/s^2)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Change in density over depth vs depth&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x1694256d0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop1_20_1.png" src="../_images/day2_data_workshop1_20_1.png" />
+</div>
+</div>
+<section id="6-|-Matlab-Code-Section">
+<h3>6 | Matlab Code Section<a class="headerlink" href="#6-|-Matlab-Code-Section" title="Link to this heading"></a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% data_solutions_MATLAB.m
+% author Turner Johnson
+% edited by Tommy Stone
+% date 10 September 2024
+clear all; close all; clc;
+
+% import GSW
+addpath(genpath(&#39;gsw_matlab_v3_06_16&#39;))
+addpath(genpath(&#39;cmocean&#39;))
+
+%% 1. Load the data.
+info = ncinfo(&#39;washington_shelf_data.nc&#39;);
+
+% This dataset has 19 indices in time and 105 indices in depth.
+% Look at the maxes and mins of this dimensions to see what depth &amp; time
+% ranges these indices apply to.
+time = ncread(&quot;washington_shelf_data.nc&quot;, &#39;time&#39;);
+depth = ncread(&#39;washington_shelf_data.nc&#39;, &#39;depth&#39;);
+
+density = ncread(&#39;washington_shelf_data.nc&#39;, &#39;rho&#39;);
+temp = ncread(&#39;washington_shelf_data.nc&#39;, &#39;temp&#39;);
+sal = ncread(&#39;washington_shelf_data.nc&#39;, &#39;sal&#39;);
+
+%% 2. Statistics of the data.
+
+disp(&#39;Temperature:&#39;)
+mean_temp = mean(temp); % mean(temp, 1) to average along depth; mean(temp,2) to average along time
+fprintf(&quot; Looking at length tells me which dimension MATLAB is averaging across: %.2f elements --&gt; depth\n&quot;, length(mean_temp))
+std_temp = std(temp); % standard deviation from depth-mean
+fprintf(&#39; Overall mean temperature for entire dataset: %.2f,\n&#39; ,mean(mean_temp));
+fprintf(&#39; Average standard deviation of temperature (typical variation over dataset): %.2f\n&#39;, mean(std_temp));
+
+disp(&#39;Salinity:&#39;)
+max_sal = max(max(sal)); % perform min() and max() twice to get stats of entire 2D array.
+min_sal = min(min(sal));
+fprintf(&#39; Maximum salinity: %.2f, Minimum salinity: %.2f\n&#39;, max_sal, min_sal);
+
+mean_rho = mean(density);
+var_rho = mean(var(density));
+sem_rho = mean(std(density)) / sqrt(length(density));
+disp(&#39;Density:&#39;)
+fprintf(&#39; Standard deviation of mean density: %.2f,\n&#39;, std(mean_rho));
+% i.e. how much average densities vary across time
+fprintf(&#39; Time-averaged density depth variability: %.2f\n&#39;,var_rho)
+fprintf(&#39; Time-averaged Standard Error of the Mean: %.2f\n&#39;,sem_rho)
+
+% Separating into meaningful chunks.
+
+% depth chunking
+middle_depth_index = ceil(size(density,1)/2); % ceil ~ round up
+density_upper = density(1:middle_depth_index, :);
+density_lower = density(middle_depth_index:end, :);
+% upper 20m vs lower 20m (depth)
+density_top20m = density(1:20, :);
+density_bottom20m = density(size(density,1)-20:end, :);
+
+% plot avg time series of upper water col. vs. lower
+figure(1);
+plot(time, mean(density_lower), &#39;LineWidth&#39;,2); hold on;
+plot(time, mean(density_upper), &#39;LineWidth&#39;,2);
+plot(time, mean(density_top20m), &#39;LineWidth&#39;,4);
+plot(time, mean(density_bottom20m), &#39;LineWidth&#39;,4); hold off;
+legend(&#39;lowerhalf&#39;, &#39;upperhalf&#39;,&#39;top20m&#39;,&#39;bottom20m&#39;); xlabel(&#39;time&#39;); ylabel(&quot;density (kg/m3)&quot;);
+title(&quot;Mean density time series for different depth ranges&quot;); datetick(&#39;x&#39;);
+
+
+
+% first half vs. last half (time)
+% everything from dim 1 time (:) , indices 1 thru 10 for dim 2 (depth)
+temp_firsthalf =       temp(  :  , 1:10);
+temp_lasthalf = temp(:,10:end); %sam but indexing 2nd half
+% plot average profile of first half vs. second half.
+figure(2);
+plot(mean(temp_firsthalf, 2), depth, &#39;LineWidth&#39;,2); hold on;
+plot(mean(temp_lasthalf, 2), depth, &#39;LineWidth&#39;,2); hold off;
+legend(&#39;first half average profile&#39;, &#39;last half average profile&#39;, &#39;Location&#39;,&#39;southeast&#39;);
+xlabel(&#39;T (C)&#39;); ylabel(&quot;depth (m)&quot;);
+title(&quot;Mean temperature profiles for first and last halves (time)&quot;)
+
+%% 3. Visualizing statistics.
+
+figure(3); % histograms over all depths/time
+subplot(1,3,1); histogram(temp); xlabel(&#39;T (C)&#39;); ylabel(&quot;counts&quot;);
+title(&quot;Histograms over all depths/time&quot;)
+subplot(1,3,2); histogram(sal); xlabel(&#39;S (psu)&#39;); ylabel(&quot;counts&quot;);
+subplot(1,3,3); histogram(density); xlabel(&#39;density (kg/m3)&#39;); ylabel(&quot;counts&quot;);
+
+
+
+figure(4); % histogram at depth index 3, with 6 bins
+
+subplot(1,3,1); histogram(temp(3,:),  6); hold on;
+histogram(temp(90,:),6); xlabel(&#39;T (C)&#39;); ylabel(&quot;counts&quot;); hold off;
+legend(sprintf(&#39;%.2fm&#39;, depth(3)), sprintf(&#39;%2.fm&#39;, depth(90)))
+
+subplot(1,3,2); histogram(sal(3,:), 6); hold on;
+histogram(sal(90,:), 6); xlabel(&#39;S (psu)&#39;); ylabel(&quot;counts&quot;); hold off;
+title(sprintf(&#39;Histograms at %.2f and %.2f m&#39;, depth(3), depth(90)));
+legend(sprintf(&#39;%.2fm&#39;, depth(3)), sprintf(&#39;%2.fm&#39;, depth(90)))
+
+subplot(1,3,3); histogram(density(3,:), 6); hold on;
+histogram(density(90,:), 6); xlabel(&#39;density (kg/m3)&#39;); ylabel(&quot;counts&quot;); hold off;
+legend(sprintf(&#39;%.2fm&#39;, depth(3)), sprintf(&#39;%2.fm&#39;, depth(90)))
+
+
+
+figure(5); % histogram at time index 10, with 6 bins
+subplot(1,3,1); histogram(temp(:,10),  6); xlabel(&#39;T (C)&#39;); ylabel(&quot;counts&quot;);
+subplot(1,3,2); histogram(sal(:,10), 6); xlabel(&#39;S (psu)&#39;); ylabel(&quot;counts&quot;);
+title(sprintf(&#39;Histograms at %s&#39;, datestr(time(10), &#39;dd-mmm-yyyy&#39;)))
+subplot(1,3,3); histogram(density(:,10), 6); xlabel(&#39;density (kg/m3)&#39;); ylabel(&quot;counts&quot;);
+
+
+% Two-dimensional histogram.
+figure(6);
+nbins = [80 80];
+[N,Xedges,Yedges] = histcounts2(sal(:), density(:), nbins);
+% calculate centers from edges (for pcolor)
+Xcenters = (Xedges(1:end-1) + Xedges(2:end)) / 2;
+Ycenters = (Yedges(1:end-1) + Yedges(2:end)) / 2;
+N(N == 0) = NaN; % replaces 0 with NaN for visual efficiency
+[X, Y] = meshgrid(Xcenters, Ycenters);
+pcolor(X, Y, N);
+% shading flat  % option to remove grid lines
+cb=colorbar; xlabel(&#39;Salinity (PSU)&#39;); ylabel(&#39;Density (kg/m3)&#39;); ylabel(cb,&#39;Counts&#39;);
+title(&#39;2D Histogram: Salinity vs. Density&#39;)
+
+%% Physical quantities from data.
+
+% T-S diagram with depth.
+
+% make 2-D variables into 1-D vectors
+temp_vec = temp(:);sal_vec = sal(:);
+% make 2-D array of &quot;depth&quot; by repeating the 1-D vector
+depth_repeated = repmat(depth, 1, size(sal, 2)); % repeat depth vector along rows
+depth_repeated_vec = depth_repeated(:);
+
+figure(7);
+scatter(sal_vec, temp_vec, 20, depth_repeated_vec, &#39;filled&#39;); hold on;
+cb = colorbar;ylabel(cb, &#39;Depth (m)&#39;);
+xlabel(&#39;Salinity (PSU)&#39;);ylabel(&#39;Temperature (°C)&#39;);title(&#39;T-S Diagram with Depth&#39;);
+
+% add density contours. using GSW tool box. (code ~ from sgiddings)
+% use the Thermodynamic Equation of Seawater - 2010 (TEOS-10) from here:
+% http://www.teos-10.org/software.htm
+
+[s,t] = meshgrid(unique(sal(1:10:end,:),&#39;sorted&#39;),unique(temp(1:10:end,:),&#39;sorted&#39;));
+% practical salinity -&gt; absolute salinity
+lat = 44.6350; lon = -124.3059;
+[SA, ~] = gsw_SA_from_SP(s,10.1325,lon,lat);
+% temp -&gt; conservative temp
+CT = gsw_CT_from_t(SA,t, 10.1325);
+
+rho_grid=gsw_rho(SA,CT,10.1325);
+
+contour(s,t,rho_grid,1023.5:0.25:1027.5,&#39;k&#39;,&#39;ShowText&#39;,&#39;on&#39;);
+clim([min(depth_repeated_vec) max(depth_repeated_vec)]);
+
+% add mooring density data
+density_vec = density(:);
+rho_interpolated = griddata(sal_vec, temp_vec, density_vec, s, t);
+[c,h] = contour(s, t, rho_interpolated, 1023.5:0.25:1027.5, &#39;m&#39;); %1015:1:1028
+clabel(c, h,  &#39;FontSize&#39;, 15, &#39;Color&#39;, &#39;k&#39;, &#39;FontWeight&#39;,&#39;bold&#39;); hold off;
+
+
+
+%T-S Diagram with time.
+
+time_repeated = repmat(time&#39;, size(sal, 1), 1); % repeat time vector along columns
+time_rep_vec = time_repeated(:); % flatten
+
+figure(8);
+scatter(sal_vec, temp_vec, 20, time_rep_vec, &#39;filled&#39;); hold on;
+cb = colorbar;
+clim([min(time_rep_vec) max(time_rep_vec)]);
+datetick(cb, &#39;y&#39;, &#39;mmm dd&#39;, &#39;keeplimits&#39;);
+ylabel(cb, &#39;Date&#39;);
+xlabel(&#39;Salinity (PSU)&#39;);ylabel(&#39;Temperature (°C)&#39;);title(&#39;T-S Diagram with Time&#39;);
+contour(s,t,rho_grid,1023.5:0.25:1027.5,&#39;k&#39;,&#39;ShowText&#39;,&#39;on&#39;); hold off;
+
+%% Calculating physical quantities from data.
+
+[drho_dz, drho_dt] = gradient(density);
+
+figure(9);
+subplot(1,2,1);
+pcolor(time, depth, drho_dt); shading flat;
+xlabel(&quot;date&quot;); ylabel(&#39;depth&#39;);
+cb = colorbar; ylabel(cb, &#39;d rho/dt&#39;);colormap(cmocean(&#39;balance&#39;));
+title(&quot;d\rho /dt: Horizontal Gradient&quot;, &#39;Interpreter&#39;,&#39;tex&#39;);
+datetick(&#39;x&#39;);
+
+subplot(1,2,2);
+pcolor(time, depth, drho_dz); shading flat;
+xlabel(&quot;date&quot;); ylabel(&#39;depth&#39;);
+cb = colorbar; ylabel(cb, &#39;d rho/dz&#39;);colormap(cmocean(&#39;balance&#39;));
+title(&quot;d\rho /dz: Vertical Gradient&quot;, &#39;Interpreter&#39;,&#39;tex&#39;);
+datetick(&#39;x&#39;);
+
+% N squared
+g = 9.8; %m/s2
+figure(10);
+N2 = -g * drho_dz ./ density;
+pcolor(time, depth, N2);shading flat;
+xlabel(&quot;date&quot;); ylabel(&#39;depth&#39;);
+cb = colorbar; ylabel(cb, &#39;d rho/dz&#39;);colormap(cmocean(&#39;balance&#39;));
+title(&quot;N^2: Buoyancy Frequency&quot;, &#39;Interpreter&#39;,&#39;tex&#39;);
+datetick(&#39;x&#39;);
+
+%% Regression Analysis.
+
+figure(11);
+scatter(sal_vec , density_vec); hold on;
+% this looks linear. probably because they used salinity to calculate density.
+xlabel(&quot;salinity (psu)&quot;); ylabel(&quot;density (kg/m3)&quot;);
+x_limits = xlim;
+p = polyfit(sal_vec, density_vec, 1);
+slope = p(1);
+intercept = p(2);
+fprintf(&#39;Slope: %.2f\n&#39;, slope);
+fprintf(&#39;Intercept: %.2f\n&#39;, intercept);
+
+x = linspace(x_limits(1), x_limits(2), 100);
+y = slope * x + intercept;
+plot(x, y, &#39;r--&#39;, LineWidth=2); hold off;
+legend(&quot;data&quot;,&#39;linear fit&#39;, Location=&#39;southeast&#39;)
+
+%% Periodicity and Cycles.
+
+figure(12);
+temp_ts = temp(10,:);
+plot(time, temp_ts);hold on;
+fit = 0.5 * sin(2 * pi * (738297.5-738295.98) * time + 29) + 9.6;
+plot(time, fit);hold off;
+xlabel(&quot;date&quot;); datetick(&#39;x&#39;);
+ylabel(&#39;T (C)&#39;); title(&quot;Periodicity of Temperature at 10m: Turner&#39;s Eyeballed Sine Fit&quot;);
+legend(&quot;data&quot;, &#39;Turners really good fit&#39;)
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="linear_algebra1.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Linear Algebra 1</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="distribution_functions.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Distribution Functions</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Data Workshop 1</a><ul>
+<li><a class="reference internal" href="#1-|-Importing-Libraries-and-Loading-a-NetCDF-File">1 | Importing Libraries and Loading a NetCDF File</a><ul>
+<li><a class="reference internal" href="#1.1-Importing-Libraries">1.1 Importing Libraries</a></li>
+<li><a class="reference internal" href="#1.2-Loading-the-data">1.2 Loading the data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#2.-|-Statistics-of-the-data">2. | Statistics of the data</a><ul>
+<li><a class="reference internal" href="#2.1-|-Looking-at-the-whole-dataset">2.1 | Looking at the whole dataset</a></li>
+<li><a class="reference internal" href="#2.2-|-Separating-into-meaningful-chunks-with-statistics">2.2 | Separating into meaningful chunks with statistics</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3.-|-Visualizing-statistics">3. | Visualizing statistics</a><ul>
+<li><a class="reference internal" href="#3.1-|-One-dimensional-histograms">3.1 | One-dimensional histograms</a></li>
+<li><a class="reference internal" href="#3.2-|-Two-dimensional-histograms">3.2 | Two-dimensional histograms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#4.-Plotting-physical-quantities-from-data">4. Plotting physical quantities from data</a><ul>
+<li><a class="reference internal" href="#4.1-|-Temperature-Salinity-diagram-with-depth">4.1 | Temperature-Salinity diagram with depth</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#5.-calculating-physical-quantities-from-data">5. calculating physical quantities from data</a><ul>
+<li><a class="reference internal" href="#6-|-Matlab-Code-Section">6 | Matlab Code Section</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

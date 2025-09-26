@@ -1,0 +1,479 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Units/Geometry/Trig" href="geometry_trig.html"><link rel="prev" title="Day 1" href="index.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Algebra - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day2/index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day2/intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day1/algebra.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Algebra">
+<h1>Algebra<a class="headerlink" href="#Algebra" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Caeli Griffin <a class="reference external" href="mailto:cagriffin&#37;&#52;&#48;ucsd&#46;edu">cagriffin<span>&#64;</span>ucsd<span>&#46;</span>edu</a> (Keck 225)</p>
+<p><strong>TAs:</strong> Kathryn Chen &amp; Lauren Harvey</p>
+<p><a class="reference external" href="./algebra_figs/sio_math_worksheet_2025_algebra.pdf">See warm-up problems from lecture here.</a></p>
+<section id="1-|-Introduction">
+<h2>1 | Introduction<a class="headerlink" href="#1-|-Introduction" title="Link to this heading"></a></h2>
+<p>This lecture is designed to provide incoming students with a quick refresher on basic algebraic problem-solving techniques. Topics to be covered are: order of operations, exponent and logarithm rules, the quadratic equation, and systems of equations.</p>
+<p><em>Aside: If you notice any mistakes in these notes or have suggestions for improving their clarity, please let me know!</em></p>
+</section>
+<section id="2-|-Order-of-Operations">
+<h2>2 | Order of Operations<a class="headerlink" href="#2-|-Order-of-Operations" title="Link to this heading"></a></h2>
+<p>The order of operations helps us to unpack mathematical expressions, so that we can simplify arithmetic problems and solve algebraic equations. It tells you exactly what sequence in which to perform the necessary operations. A helpful mnemonic is `PEMDAS’:</p>
+<ul class="simple">
+<li><p>P - Parentheses</p></li>
+<li><p>E - Exponents</p></li>
+<li><p>M - Multiplication</p></li>
+<li><p>D - Division</p></li>
+<li><p>A - Addition</p></li>
+<li><p>S - Subtraction</p></li>
+</ul>
+<p>To simplify an arithmetic expression using PEMDAS, complete the mathematical operations in the order described above. To simplify an algebraic equation, apply PEMDAS in reverse order. Note that the order in which the addition/subtraction operations are completed is often interchangeable. The same is true for multiplication/division. When in doubt, however, the rule is to work from left to right.</p>
+</section>
+<section id="3-|-Logarithms-&amp;-Exponents-^3">
+<h2>3 | Logarithms &amp; Exponents <span class="math notranslate nohighlight">\(^3\)</span><a class="headerlink" href="#3-|-Logarithms-&-Exponents-^3" title="Link to this heading"></a></h2>
+<p>As a reminder, some of the key properties of logarithms and exponents are described below.</p>
+<section id="Exponents">
+<h3>Exponents<a class="headerlink" href="#Exponents" title="Link to this heading"></a></h3>
+<p>Let <span class="math notranslate nohighlight">\(a, b \in \mathbb{R}\)</span> (’<span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are real numbers’), and <span class="math notranslate nohighlight">\(m,n \in \mathbb{I}\)</span> (’<span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are integers’). Then,</p>
+<p><img alt="Figure 1" src="../_images/exponents.png" /></p>
+<!-- - $a^m a^n = a^{m+n}$
+- $(a^m)^n = a^{mn}$
+- $(ab)^m = a^m a^n$
+- $\dfrac{a^m}{a^n} = a^{m-n},\; a \neq 0$
+- $\left(\dfrac{a}{b}\right)^m = \dfrac{a^m}{b^m},\; b \neq 0$
+- $a^{-m} = \dfrac{1}{a^m},\; a \neq 0$
+- $\sqrt[m]{a} = a^{1/m}$
+- $a^0 = 1,\; a \neq 0$   --></section>
+<section id="Logarithms">
+<h3>Logarithms<a class="headerlink" href="#Logarithms" title="Link to this heading"></a></h3>
+<p>Now take <span class="math notranslate nohighlight">\(a, b, x \in \mathbb{R}_+\)</span> (’<span class="math notranslate nohighlight">\(a, b\)</span>, and <span class="math notranslate nohighlight">\(x\)</span> are positive, real numbers’) and <span class="math notranslate nohighlight">\(y \in \mathbb{R}\)</span>. By definition,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[y = \log_a x \;\;\Longleftrightarrow\;\; x = a^y. \tag{1}\]</div>
+</div>
+<p><em>Aside: You can interpret the mathematical statement</em> $:nbsphinx-math:<cite>text{log}</cite>_ax $ <em>as being equivalent to the question: `:math:`a` to the power of what equals :math:`x`’?</em></p>
+<p>Recall that <span class="math notranslate nohighlight">\(a\)</span> is the logarithmic base. Common bases include <span class="math notranslate nohighlight">\(a = 10\)</span>,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\log_{10} a = \log(a),\]</div>
+</div>
+<p>and <span class="math notranslate nohighlight">\(a = e\)</span>,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\log_e a = \ln(a).\]</div>
+</div>
+<p>Rules for logarithms are summarized below.</p>
+<!-- - $\log_a(xy) = \log_a x + \log_a y$
+- $\log_a\left(\dfrac{x}{y}\right) = \log_a x - \log_a y$
+- $\log_a(x^y) = y \cdot \log_a x$
+- $\log_a(a^x) = x$
+- $a^{\log_a x} = x$
+- $\log_a a = 1,\; a > 0$
+- $\log_a 1 = 0,\; a > 0$
+- $\log_b a = \dfrac{\ln a}{\ln b} = \dfrac{\log_{10} a}{\log_{10} b}$  “Change of base formula”   --><p><img alt="Figure 1" src="../_images/logarithms.png" /></p>
+</section>
+</section>
+<section id="4-|-Quadratic-Formula">
+<h2>4 | Quadratic Formula<a class="headerlink" href="#4-|-Quadratic-Formula" title="Link to this heading"></a></h2>
+<p>The quadratic formula is a powerful tool for solving quadratic equations, which are polynomials of the following form:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a x^2 + b x + c = 0, \tag{2}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(x\)</span> is some unknown and <span class="math notranslate nohighlight">\(a, b, c\)</span> are constants.</p>
+<p>Recall that polynomials always have the same number of solutions as the degree on the leading order term (i.e. the unknown variable with the largest exponent). This means that a quadratic equation has two solutions, called roots. These roots may be (1) real and distinct, (2) real and repeated, or (3) a pair of complex conjugates. We’ll stick to real solutions here.</p>
+<p>The quadratic formula, then, is as follows:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[x_\pm = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \tag{3}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(x_+\)</span> and <span class="math notranslate nohighlight">\(x_-\)</span> are positive and negative roots, respectively.</p>
+<p>To apply the quadratic formula, manipulate the given equation so that it looks like (2). Identify constants <span class="math notranslate nohighlight">\(a, b, c\)</span>, and substitute into (3). Lastly, simplify as much as possible.</p>
+<p><em>Aside: The quadratic formula will always solve a quadratic equation. However, there are sometimes more elegant approaches, like factoring or completing the square.</em></p>
+</section>
+<section id="5-|-Systems-of-Equations">
+<h2>5 | Systems of Equations<a class="headerlink" href="#5-|-Systems-of-Equations" title="Link to this heading"></a></h2>
+<p>A system of equations is a set of at least two equations, containing at least two unknowns, which are meant to be solved together.</p>
+<p>It is possible for a system of equations to have either (1) exactly one solution, (2) no solutions, or (3) infinitely many solutions. Cases (1) and (3) describe a consistent system. Case (2) describes an inconsistent, meaning intractable, system. Graphical representations of all three cases are included below for a linear, 2×2 system:</p>
+<p><img alt="Figure 1" src="../_images/system_types.png" /></p>
+<p>In order to be tractable, it is necessary (but not sufficient!) that a system of equations contain at least as many constituent equations as unknown variables. When presented with a new system of equations, it’s often a good idea to check on this condition first—when it isn’t met, then a unique solution to the system does not exist!</p>
+<p><em>Aside: The formal way of deciding which of the above three cases a system falls into requires calculating matrix determinants and applying Cramer’s Rule. We won’t cover Cramer’s Rule here, but it’s helpful to know that it exists.</em></p>
+<section id="EX-Mixing-Water-Masses.^2">
+<h3>EX Mixing Water Masses.<span class="math notranslate nohighlight">\(^2\)</span><a class="headerlink" href="#EX-Mixing-Water-Masses.^2" title="Link to this heading"></a></h3>
+<p>Imagine you’re taking shipboard measurements along an equatorial transect, and collect a water sample with a volume of <span class="math notranslate nohighlight">\(1 \,\text{dm}^3\)</span>, temperature of <span class="math notranslate nohighlight">\(1.97^\circ\)</span> C and salinity of 34.83 psu. You know from previous profiles in the region that the sample is made up of two water masses: Antarctic Bottom Water (AABW) and North Atlantic Deep Water (NADW). You recall that AABW typically has temperature around <span class="math notranslate nohighlight">\(-0.5^\circ\)</span> C and salinity of approximately 34.67 psu. NADW usually
+has temperature of about <span class="math notranslate nohighlight">\(3^\circ\)</span> C and salinity near 34.9 psu.</p>
+<p><strong>Calculate the volume of each of the two water mass constituents.</strong></p>
+<p><img alt="Figure 1" src="../_images/mixing_figs.png" /></p>
+</section>
+<section id="Problem-Set-Up">
+<h3>Problem Set-Up<a class="headerlink" href="#Problem-Set-Up" title="Link to this heading"></a></h3>
+<p>Conservation of tracer (i.e. salt) and energy (i.e. temperature) give the following equations:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[V_{AABW} T_{AABW} + V_{NADW} T_{NADW} = V T \quad \text{Conservation temperature.} \tag{4}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[V_{AABW} S_{AABW} + V_{NADW} S_{NADW} = V S. \quad \text{Conservation salt.} \tag{5}\]</div>
+</div>
+<p>From the problem statement, we also have</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[V_{AABW} + V_{NADW} = V. \tag{6}\]</div>
+</div>
+<p>Notice that we have two unknowns (V1, V2) but three equations–our system is over-constrained! Proceed by choosing any two of our equations to solve for the unknowns. All choices should yield identical results, barring errors in our reported temperature, salinity, and/or volume values.</p>
+<p><em>Aside: Additional solution methods include row reduction, Cramer’s Rule, and elimination of variables. The first two, row reduction and Cramer’s Rule require some linear algebra background. The third, elimination of variables, can be very tidy, but is only applicable under very specific circumstances.</em></p>
+<p><a class="reference external" href="./algebra_figs/sio_math_workshop_2025_mixing_solutions.pdf">See solution write-up here.</a></p>
+</section>
+</section>
+<section id="6-|-References">
+<h2>6 | References<a class="headerlink" href="#6-|-References" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">[1] <a class="reference external" href="https://docs.google.com/document/d/1XpBGxah9UauVig83NRROMrFhNlti0GIWGauEHxB_itI/edit?usp=sharing">https://docs.google.com/document/d/1XpBGxah9UauVig83NRROMrFhNlti0GIWGauEHxB_itI/edit?usp=sharing</a></div>
+<div class="line">[2] <a class="reference external" href="https://webspace.science.uu.nl/~dijks101/DO/solution_1.1.pdf">https://webspace.science.uu.nl/~dijks101/DO/solution_1.1.pdf</a></div>
+<div class="line">[3] <a class="reference external" href="https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf">https://wou.edu/mathcenter/files/2015/09/Exponents-and-Logarithms.pdf</a></div>
+<div class="line">[4] <a class="reference external" href="https://tutorial.math.lamar.edu/Problems/Alg/Alg.aspx">https://tutorial.math.lamar.edu/Problems/Alg/Alg.aspx</a></div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="geometry_trig.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Units/Geometry/Trig</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Day 1</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Algebra</a><ul>
+<li><a class="reference internal" href="#1-|-Introduction">1 | Introduction</a></li>
+<li><a class="reference internal" href="#2-|-Order-of-Operations">2 | Order of Operations</a></li>
+<li><a class="reference internal" href="#3-|-Logarithms-&amp;-Exponents-^3">3 | Logarithms &amp; Exponents <span class="math notranslate nohighlight">\(^3\)</span></a><ul>
+<li><a class="reference internal" href="#Exponents">Exponents</a></li>
+<li><a class="reference internal" href="#Logarithms">Logarithms</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#4-|-Quadratic-Formula">4 | Quadratic Formula</a></li>
+<li><a class="reference internal" href="#5-|-Systems-of-Equations">5 | Systems of Equations</a><ul>
+<li><a class="reference internal" href="#EX-Mixing-Water-Masses.^2">EX Mixing Water Masses.<span class="math notranslate nohighlight">\(^2\)</span></a></li>
+<li><a class="reference internal" href="#Problem-Set-Up">Problem Set-Up</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#6-|-References">6 | References</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

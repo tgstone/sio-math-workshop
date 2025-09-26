@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Integrals &#8212; sio_math_workshop 1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+    <link rel="stylesheet" type="text/css" href="../_static/basic_mod.css?v=9b2032db" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vector Calculus" href="vector_calculus.html" />
+    <link rel="prev" title="Limits and Derivatives" href="derivatives.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">sio_math_workshop 1 documentation</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper"><p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry_trig.html">Geometry Trig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Integrals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="taylor_expansion.html">Taylor Expansion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ode.html">Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_workshop2.html">Data Workshop 2</a></li>
+</ul>
+
+        </div>
+      </div>
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="Integrals">
+<h1>Integrals<a class="headerlink" href="#Integrals" title="Link to this heading"></a></h1>
+<p><strong>First-Year Math Workshop 2025: Integration</strong></p>
+<p><strong>Instructor:</strong> Sophie Wynn, Climate Science PhD Student (<a class="reference external" href="mailto:srwynn&#37;&#52;&#48;ucsd&#46;edu">srwynn<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This lecture introduces integration and covers, Riemann Sums, the FTC, and integration by parts</p>
+<p>Lecture Notes inspired by Luisa Watkins, and 3Blue1Brown</p>
+<p><strong>Integration</strong></p>
+<p>The <strong>integral</strong> measures the total accumulation of a quantity over time, space etc. For example an integral can compute area, distance, volume, mass, work etc!</p>
+<p><strong>To get an understanding of what this means lets go through the example:</strong></p>
+<p><strong>Traveling in a Car</strong></p>
+<p>Suppose our velocity is given by:</p>
+<div class="math notranslate nohighlight">
+\[v(t) = t(8 - t), \quad 0 \leq t \leq 8\]</div>
+<p>But we were only keeping track of the velocity every second.</p>
+<p>Sampled values of velocity</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Time (t) (s)</p></th>
+<th class="head"><p>Velocity (v(t)) (m/s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>7</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Question: <strong>How far did the car travel between (t = 0) and (t = 8)?</strong></p>
+<p>We’ll compute the <strong>distance traveled</strong> in two ways:</p>
+<ol class="arabic simple">
+<li><p>Using a <strong>table of sampled values</strong> and <strong>Riemann sums</strong>.</p></li>
+<li><p>Using the <strong>exact integral</strong>.</p></li>
+</ol>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">u</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">t</span> <span class="o">*</span> <span class="p">(</span><span class="mi">8</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="n">time_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">u_samples</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">time_samples</span><span class="p">)</span>
+
+<span class="n">t_cont</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+<span class="n">u_cont</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">t_cont</span><span class="p">)</span>
+
+<span class="c1">#  Left-Riemann sum setup</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">t_left</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>   <span class="c1"># left endpoints: 0,1,2,...,7</span>
+<span class="n">u_left</span> <span class="o">=</span> <span class="n">u</span><span class="p">(</span><span class="n">t_left</span><span class="p">)</span>
+
+<span class="c1"># Compute left Riemann sum</span>
+<span class="n">areas</span> <span class="o">=</span> <span class="n">u_left</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="n">total_left_riemann</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">areas</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+
+<span class="c1"># plot continuous velocity curve</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_cont</span><span class="p">,</span> <span class="n">u_cont</span><span class="p">,</span> <span class="s2">&quot;b-&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$u(t) = t(8-t)$&quot;</span><span class="p">)</span>
+
+<span class="c1"># plot left endpoints</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">t_left</span><span class="p">,</span> <span class="n">u_left</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Left endpoints&quot;</span><span class="p">)</span>
+
+<span class="c1"># draw rectangles</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t_left</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">t_left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">u_left</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;edge&quot;</span><span class="p">,</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.35</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;skyblue&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Left-Riemann Sum (Δt=1)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity $v(t)$ (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/classes_integrals_4_0.png" src="../_images/classes_integrals_4_0.png" />
+</div>
+</div>
+<p><strong>Riemann Sum</strong></p>
+<div class="line-block">
+<div class="line">To compute distance given the velocity graph aove, we can first use <strong>Riemann sums</strong>.</div>
+<div class="line">We approximate the total distance by computing the <strong>area of rectangles</strong> under the curve.</div>
+</div>
+<ul class="simple">
+<li><p>The area of each rectangle is <strong>base × height</strong>.</p></li>
+<li><p>The base is <span class="math notranslate nohighlight">\((\Delta t = 1)\)</span> ie (s).</p></li>
+<li><p>The height is the velocity ie (m/s) at the <strong>left endpoint</strong> of each interval. ** Thus the area will give us meters **</p></li>
+</ul>
+<p>So, we can sum up the areas of all rectangles to get an approximation of the total distance traveled.</p>
+<p>If we divide the interval into equal parts of width <span class="math notranslate nohighlight">\((\Delta t)\)</span>, the <strong>Riemann sum</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[S = \sum_{i=0}^{n-1} v(t_i)\Delta t\]</div>
+<p>where <span class="math notranslate nohighlight">\((t_i)\)</span> is the left endpoint of each interval.</p>
+<p><strong>Example with Δt = 1:</strong></p>
+<div class="line-block">
+<div class="line">Here every change in time is <span class="math notranslate nohighlight">\((\Delta t = 1)\)</span>.</div>
+<div class="line">So the Riemann sum is:</div>
+</div>
+<div class="math notranslate nohighlight">
+\[S = (v(0)\cdot 1 + v(1)\cdot 1 + v(2)\cdot 1 + v(3)\cdot 1 + v(4)\cdot 1 + v(5)\cdot 1 + v(6)\cdot 1 + v(7)\cdot 1)\]</div>
+<p>Substitute <span class="math notranslate nohighlight">\((v(t) = t(8-t))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[S = (0 + 7 + 12 + 15 + 16 + 15 + 12 + 7) = 84\]</div>
+<p>So, the left Riemann sum approximation of the total distance is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{84 \text{ meters}}\]</div>
+<p><strong>Imagine if, instead of using a finite :math:`(Delta t = 1)` second, we could measure the velocity at</strong> <em>every instant in time</em><strong>. Then our rectangles would get smaller and smaller, And the sum of their areas would converge to the exact distance traveled!! This is exactly what</strong> <em>integration</em>** allows us to do.**</p>
+<hr class="docutils" />
+<section id="Introducing-the-Integral">
+<h2>Introducing the Integral<a class="headerlink" href="#Introducing-the-Integral" title="Link to this heading"></a></h2>
+<p>If we let the intervals become <strong>infinitely small</strong> (<span class="math notranslate nohighlight">\(\Delta t \to 0\)</span>), the Riemann sum <strong>converges</strong> to the exact total accumulation, which is written as an <strong>integral</strong>:</p>
+<div class="math notranslate nohighlight">
+\[\text{Accumulated quantity} = \int_a^b f(t) \, dt\]</div>
+<p>Where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\int\)</span> is the <strong>integration operator</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are the <strong>lower and upper bounds</strong> of the interval,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(t)\)</span> is the function being accumulated,</p></li>
+<li><p><span class="math notranslate nohighlight">\(dt\)</span> represents an <strong>infinitesimally small change</strong> in the independent variable.</p></li>
+</ul>
+<p><strong>Applying to our car example</strong></p>
+<p>For the car’s velocity <span class="math notranslate nohighlight">\(v(t)\)</span> from <span class="math notranslate nohighlight">\(t = 0\)</span> to <span class="math notranslate nohighlight">\(t = 8\)</span> s:</p>
+<div class="math notranslate nohighlight">
+\[v(t) = t(8-t)\]</div>
+<p>The <strong>distance traveled</strong> is:</p>
+<div class="math notranslate nohighlight">
+\[\text{Distance} = \int_0^8 v(t) \, dt\]</div>
+<ul class="simple">
+<li><p>Using the <strong>exact integral</strong>, we get:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\int_0^8 t(8-t) \, dt =  85.33 \text{ m}\]</div>
+<p>So, the true of the total distance is:</p>
+<div class="math notranslate nohighlight">
+\[\boxed{85.33 \text{ meters}}\]</div>
+<p>This shows how letting <span class="math notranslate nohighlight">\(\Delta t \to 0\)</span> turns the <strong>approximation into the true value</strong>.</p>
+<hr class="docutils" />
+<p><strong>Computing the Integral</strong></p>
+<div class="math notranslate nohighlight">
+\[\int_0^8 t(8-t) \,dt\]</div>
+<p>To compute an integral we <strong>take the antiderivative</strong> of the function and then compute the bounds (if stated).</p>
+<p><strong>Step 1: Expand the function</strong></p>
+<div class="math notranslate nohighlight">
+\[t(8-t) = 8t - t^2\]</div>
+<p><strong>Step 2: Apply the Power Rule for Integration</strong></p>
+<p>Recall the <strong>power rule</strong>, from derivatives, the same rule applies integration but in reverse:</p>
+<div class="math notranslate nohighlight">
+\[\int t^n \, dt = \frac{t^{n+1}}{n+1} + C, \quad n \neq -1\]</div>
+<p>Apply it to each term:</p>
+<div class="math notranslate nohighlight">
+\[\int (8t - t^2) \, dt = 4t^2 - \frac{t^3}{3} + C\]</div>
+<p>This is the <strong>antiderivative</strong> <span class="math notranslate nohighlight">\(F(t)\)</span>.</p>
+<p><strong>Step 3: Evaluate at the Bounds (Fundamental Theorem of Calculus)</strong></p>
+<p>The <strong>Fundamental Theorem of Calculus</strong> says:</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b f(t)\, dt = F(b) - F(a)\]</div>
+<div class="math notranslate nohighlight">
+\[F(t) = 4 t^2 - \frac{t^3}{3}, \quad a=0, b=8\]</div>
+<p>Compute:</p>
+<div class="math notranslate nohighlight">
+\[\int_0^8 (8t - t^2) \, dt = F(8) - F(0) = \left(256 - \frac{512}{3}\right) - 0 = \frac{256}{3} = 85.33\]</div>
+<p>The <strong>Fundamental Theorem of Calculus</strong> is key to understanding derivatives and antiderivatives!</p>
+<ul class="simple">
+<li><p>In our example, <span class="math notranslate nohighlight">\(F(t) = 4t^2 - \frac{t^3}{3}\)</span> also represents the <strong>path function</strong>, commonly written as <span class="math notranslate nohighlight">\(x(t)\)</span> in physics or calculus.</p></li>
+<li><p>Recall from derivatives:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\frac{dx}{dt} = v(t)\]</div>
+<p>which says the derivative of the path gives the <strong>velocity</strong>.</p>
+<ul class="simple">
+<li><p>Here, we went in the opposite direction: <strong>starting from velocity :math:`v(t)`</strong>, we computed the <strong>integral</strong> to recover the <strong>path :math:`x(t)`</strong>.</p></li>
+</ul>
+<p>In other words:</p>
+<ul class="simple">
+<li><p><strong>Derivative:</strong> path <span class="math notranslate nohighlight">\(\to\)</span> velocity</p></li>
+<li><p><strong>Integral:</strong> velocity <span class="math notranslate nohighlight">\(\to\)</span> path</p></li>
+</ul>
+<p>This shows how <strong>integration accumulates small changes in velocity</strong> over time to give the <strong>total displacement</strong>, just like summing the tiny rectangles in a Riemann sum.</p>
+<p>Thus, <strong>derivatives and integrals are inverse operations</strong>, and the Fundamental Theorem of Calculus makes this connection precise.</p>
+<ul class="simple">
+<li><p>Derivative: <span class="math notranslate nohighlight">\(v(t) = \frac{dx}{dt}\)</span></p></li>
+<li><p>Integral: <span class="math notranslate nohighlight">\(x(b) - x(a) = \int_a^b v(t) \, dt\)</span></p></li>
+</ul>
+<p><strong>1. Power Rule</strong></p>
+<p>For <span class="math notranslate nohighlight">\(n \neq -1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\int x^n \, dx = \frac{x^{n+1}}{n+1} + C\]</div>
+<hr class="docutils" />
+<p><strong>2. Exponential Functions</strong></p>
+<div class="math notranslate nohighlight">
+\[\int e^x \, dx = e^x + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int a^x \, dx = \frac{a^x}{\ln(a)} + C, \quad a &gt; 0, a \neq 1\]</div>
+<hr class="docutils" />
+<p><strong>3. Logarithmic Function</strong></p>
+<div class="math notranslate nohighlight">
+\[\int \frac{1}{x} \, dx = \ln|x| + C\]</div>
+<hr class="docutils" />
+<p><strong>4. Sine and Cosine</strong></p>
+<div class="math notranslate nohighlight">
+\[\int \sin(x) \, dx = -\cos(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \cos(x) \, dx = \sin(x) + C\]</div>
+<hr class="docutils" />
+<p><strong>5. Other Trigonometric Functions</strong></p>
+<div class="math notranslate nohighlight">
+\[\int \sec^2(x) \, dx = \tan(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \csc^2(x) \, dx = -\cot(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \sec(x)\tan(x) \, dx = \sec(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \csc(x)\cot(x) \, dx = -\csc(x) + C\]</div>
+<hr class="docutils" />
+<p><strong>6. Linear Combination Rule</strong></p>
+<p>If <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> are integrable and <span class="math notranslate nohighlight">\(a,b\)</span> are constants:</p>
+<div class="math notranslate nohighlight">
+\[\int \big(a f(x) + b g(x)\big) \, dx = a \int f(x)\,dx + b \int g(x)\,dx\]</div>
+<hr class="docutils" />
+<p><strong>7. Integration by Substitution (u-substitution)</strong></p>
+<p>Used for composite functions:</p>
+<div class="math notranslate nohighlight">
+\[\int f(g(x)) g'(x)\, dx = \int f(u)\, du, \quad u = g(x)\]</div>
+<p>Example:</p>
+<div class="math notranslate nohighlight">
+\[\int \sin(3x) \, dx = -\frac{1}{3} \cos(3x) + C\]</div>
+<hr class="docutils" />
+<p><strong>8. Inverse Trigonometric Functions</strong></p>
+<div class="math notranslate nohighlight">
+\[\int \frac{1}{\sqrt{1-x^2}} \, dx = \arcsin(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \frac{1}{1+x^2} \, dx = \arctan(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \frac{1}{x\sqrt{x^2-1}} \, dx = \operatorname{arcsec}(|x|) + C\]</div>
+<hr class="docutils" />
+<p><strong>9. Hyperbolic Functions</strong></p>
+<div class="math notranslate nohighlight">
+\[\int \sinh(x) \, dx = \cosh(x) + C\]</div>
+<div class="math notranslate nohighlight">
+\[\int \cosh(x) \, dx = \sinh(x) + C\]</div>
+<hr class="docutils" />
+<p><strong>10. Special Rules / Tricks</strong></p>
+<ul class="simple">
+<li><p><strong>Constant Multiple Rule</strong>: <span class="math notranslate nohighlight">\(\int a f(x)\, dx = a \int f(x)\, dx\)</span></p></li>
+<li><p><strong>Sum/Difference Rule</strong>: <span class="math notranslate nohighlight">\(\int (f(x) \pm g(x)) \, dx = \int f(x) dx \pm \int g(x) dx\)</span></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="For-functions-made-up-of-two-factors:-Integration-by-Parts">
+<h2>For functions made up of two factors: Integration by Parts<a class="headerlink" href="#For-functions-made-up-of-two-factors:-Integration-by-Parts" title="Link to this heading"></a></h2>
+<p>The <strong>integration by parts formula</strong> states that for functions <span class="math notranslate nohighlight">\(u(x)\)</span> and <span class="math notranslate nohighlight">\(v(x)\)</span> that are differentiable:</p>
+<div class="math notranslate nohighlight">
+\[\int u(x) v'(x) \, dx = u(x)v(x) - \int u'(x) v(x) \, dx\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(u(x)\)</span>: function we differentiate</p></li>
+<li><p><span class="math notranslate nohighlight">\(v'(x)\)</span>: function we integrate</p></li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Suppose we want to compute:</p>
+<div class="math notranslate nohighlight">
+\[\int x \sin(kx) \, dx\]</div>
+<ol class="arabic simple">
+<li><p><strong>Choose parts</strong>:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Let <span class="math notranslate nohighlight">\(u(x) = x \quad \Rightarrow \quad u'(x) = 1\)</span></p></li>
+<li><p>Let <span class="math notranslate nohighlight">\(v'(x) = \sin(kx) \quad \Rightarrow \quad v(x) = -\frac{1}{k} \cos(kx)\)</span></p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Apply the formula</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\int x \sin(kx) \, dx = u(x)v(x) - \int u'(x) v(x) \, dx\]</div>
+<p>Substitute:</p>
+<div class="math notranslate nohighlight">
+\[\left( x \cdot -\frac{1}{k} \cos(kx) \right) - \int 1 \cdot \left( -\frac{1}{k} \cos(kx) \right) dx\]</div>
+<p>Simplify:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{x}{k} \cos(kx) + \frac{1}{k} \int \cos(kx) \, dx\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Integrate remaining term</strong>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\int \cos(kx) \, dx = \frac{1}{k} \sin(kx)\]</div>
+<p>So the final result:</p>
+<div class="math notranslate nohighlight">
+\[-\frac{x}{k} \cos(kx) + \frac{1}{k^2} \sin(kx) + C\]</div>
+</section>
+<section id="Integration-Practice-Problems">
+<h2>Integration Practice Problems<a class="headerlink" href="#Integration-Practice-Problems" title="Link to this heading"></a></h2>
+<p><strong>Question 1:</strong></p>
+<p>Express velocity <span class="math notranslate nohighlight">\(v\)</span> , at time <span class="math notranslate nohighlight">\(t_1\)</span> , in terms of <span class="math notranslate nohighlight">\(v\)</span> at <span class="math notranslate nohighlight">\(t_0\)</span> and acceleration <span class="math notranslate nohighlight">\(a(t)\)</span></p>
+<p><strong>Question 2:</strong></p>
+<p>Find the <strong>mass</strong> <span class="math notranslate nohighlight">\((m)\)</span> of the container described belowe in terms of density (<span class="math notranslate nohighlight">\(\rho\)</span>) using the fact that <span class="math notranslate nohighlight">\(m =\int  \rho  dV\)</span></p>
+<p>The container is:</p>
+<ul class="simple">
+<li><p>1 m long</p></li>
+<li><p>3 m tall</p></li>
+<li><p>Width changes with height (z) as: <span class="math notranslate nohighlight">\(w(z) = (z + 1)^2\)</span></p></li>
+<li><p>The container has a <strong>constant density</strong> (<span class="math notranslate nohighlight">\(\rho\)</span>)</p></li>
+</ul>
+<p><strong>Question 3:</strong></p>
+<p>Calculate:</p>
+<div class="math notranslate nohighlight">
+\[\int x e^x \, dx\]</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Integrals</a><ul>
+<li><a class="reference internal" href="#Introducing-the-Integral">Introducing the Integral</a></li>
+<li><a class="reference internal" href="#For-functions-made-up-of-two-factors:-Integration-by-Parts">For functions made up of two factors: Integration by Parts</a></li>
+<li><a class="reference internal" href="#Integration-Practice-Problems">Integration Practice Problems</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="derivatives.html">
+                    <span class="icon">&lt;</span><span>Limits and Derivatives</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="vector_calculus.html"><span>Vector Calculus</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2025, Tommy Stone.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.3.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

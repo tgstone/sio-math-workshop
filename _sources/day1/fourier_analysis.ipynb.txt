@@ -1,0 +1,244 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "b36fe48a",
+   "metadata": {},
+   "source": [
+    "# Fourier Analysis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "428b95cd",
+   "metadata": {},
+   "source": [
+    "**Instructor:** Austin Green - a7green@ucsd.edu\n",
+    "  \n",
+    "**TAs:** Camilla Marcellini and Kayli Matsuyoshi\n",
+    "\n",
+    "This lecture introduces Fourier Series, Expansion, and Transforms\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ce211e5d",
+   "metadata": {},
+   "source": [
+    "## 1 | Introduction\n",
+    "In previous sections, we were introduced to a few techniques for estimating functions. Fourier Series, and by extension, Fourier Analysis, is a natural extension of the Taylor Expansion. The primary difference is that the Fourier Series is ideal for *Periodic* functions, while Taylor Expansion is usable for any function, around some point.\n",
+    "\n",
+    "From an application standpoint, Fourier Analysis is particularly useful because of the prevalence of periodic signals of many natural phenomena that many of us will encounter. Waves are often the most visible form of periodic signals we see in oceanography, but are not the only ones. Fourier analysis is a fairly content-dense topic that a single 45-minute lecture would have a hard time summarizing well, so for the purposes of this workshop, we will focus on building your intuition for approaching these problems."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f705c794",
+   "metadata": {},
+   "source": [
+    "## 2 | The Fourier Series\n",
+    "\n",
+    "### 2.1 Overview\n",
+    "As mentioned before, the Fourier Series is a way of describing a given function through a linear superposition of sine and cosine components, defined as such: "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f830d261",
+   "metadata": {},
+   "source": [
+    "$$ f(x) = \\frac{1}{2}a_0 + \\sum_{n=1} a_n\\ cos(k_n x) + \\sum_{n=1} b_n\\ sin(k_n x)$$\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "4edd7a11",
+   "metadata": {},
+   "source": [
+    "This is a concise form of the Fourier Series, but let's take a second to think about this. Here are some checkpoint questions to make sure you understand before we go deeper.\n",
+    "\n",
+    "1. **What do the coefficient terms ($a_0$, $a_n$ & $b_n$) describe?**\n",
+    "   \n",
+    "     The coefficients describe the relative weight of each component towards the reconstruction of $f(x)$.\n",
+    "2. **Why do we need a separate cosine and sine term?**\n",
+    "\n",
+    "    This comes from a really useful trig identity. We normally might express a wave like this: $f(x) = cos(kx + \\phi)$ or $f(t) = cos(\\omega t + \\phi)$. This details a wave that is either space ($kx$) or time ($\\omega t$) varying, with a phase offset term. That phase offset is the part that we care about in this instance, and the reason we end up needing both components. If we use the trig identity $cos(A + B) = cos(A)cos(B) - sin(A)sin(B)$, we can accurately represent the phase of a single wave mode, with a zero phase sine and cosine component instead.\n",
+    "3. **What are the bounds of the interval as written?**\n",
+    "\n",
+    "   In this particular case, the bounds are over all values of $0 \\le n \\le \\infty$. However, it is often the case that it is easier, or necessary, to enforce bounds that are relevant to the period of our function."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2a3f9f92",
+   "metadata": {},
+   "source": [
+    "### 2.2 Periodicity\n",
+    "While the Fourier Series can technically be applied to any function, where it really shines is with functions that are periodic over a given interval.\n",
+    "\n",
+    "As a very quick refresher, a function is considered periodic if $ f(x+L) = f(x)$ for all values of x, where L is the period (spatially) or $f(t+T) = f(t)$ for all t, where T is the period (temporally). The period is inversely proportional to the frequency( or wavenumber) of our waves. i.e. $T = \\frac{1}{f}$ or $L = \\frac{1}{x}$.\n",
+    "\n",
+    "**Exercise 1: What is the Period of sin(t)?**\n",
+    "\n",
+    "- **Recall:** we define a time varying wave as $sin(\\omega t)$, where $\\omega = 2\\pi \\ f$\n",
+    "- This means that $sin(t) = sin(\\omega t)$, when $\\omega = 1$. Then $\\omega = 2\\pi \\ f = 1$, so $f = \\frac{1}{2\\pi}$.\n",
+    "- Since the frequency is $\\frac{1}{2\\pi}$, $T = 2\\pi$.\n",
+    "- $sin(t)$ is periodic over a period of $2\\pi$.  \n",
+    "\n",
+    "For higher frequencies, it should then track that our period gets smaller as well. Making a general case for this, we get the expression $cos(\\frac{n\\pi x}{L})$ which has a period of 2L/n.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "9b1d5742",
+   "metadata": {},
+   "source": [
+    "### 2.3 The Fourier Expansion\n",
+    "\n",
+    "\n",
+    "\n",
+    "Within an interval $-L \\le x \\le L$, the general form of the series can be written as:\n",
+    "\n",
+    "$$ f(x) = \\frac{1}{2} a_0 + \\sum_{n=1}^{\\infty}a_n\\ cos(\\frac{n\\pi x}{L})+  \\sum_{n=1}^{\\infty}b_n\\ sin(\\frac{n\\pi x}{L})$$\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0d17516b",
+   "metadata": {},
+   "source": [
+    "### 2.4 Orthogonality\n",
+    "\n",
+    "Now that we have our final form of the series, how do we go about solving for the $a_n$ and $b_n$ terms? We'll start by looking at the orthogonality integrals of one of these Fourier modes. \n",
+    "\n",
+    "$$\\int^L_{-L}cos(\\frac{m\\pi x}{L})cos(\\frac{n\\pi x}{L}) dx = \\left\\{ \n",
+    "\\begin{array}{ll}\n",
+    "    0 & m\\ne n \\\\\n",
+    "    L & m = n \\\\\n",
+    "\\end{array}\n",
+    "\\right.$$\n",
+    "\n",
+    "\n",
+    "$$\\int^L_{-L}sin(\\frac{m\\pi x}{L})sin(\\frac{n\\pi x}{L}) dx = \\left\\{ \n",
+    "\\begin{array}{ll}\n",
+    "    0 & m\\ne n \\\\\n",
+    "    L & m = n \\\\\n",
+    "\\end{array}\n",
+    "\\right.$$\n",
+    "\n",
+    "\n",
+    "$$\\int^L_{-L}cos(\\frac{m\\pi x}{L})sin(\\frac{n\\pi x}{L}) dx = 0$$\n",
+    "\n",
+    "Computing these integrals should be relatively straight forward, and easy to verify. However, incase it doesn't immediately track in your brain as to why this works out here is a handy little demo to visually show you. "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "cef51f42",
+   "metadata": {},
+   "source": [
+    "The final bit of all this is actually solving for those $a_n$ & $b_n$ terms. If we rearrange our original expression, we get something that looks like this\n",
+    "\n",
+    "$$ a_n = \\frac{1}{L} \\int^L_{-L} f(x)\\ cos(\\frac{n\\pi x}{L})dx$$\n",
+    "$$ b_n = \\frac{1}{L} \\int^L_{-L} f(x)\\ sin(\\frac{n\\pi x}{L})dx$$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "58d167b4",
+   "metadata": {},
+   "source": [
+    "**Exercise 2:** find $a_n$ & $b_n$ when $f(x) = 1 + 2sin(kx) + 3 cos(3kx)$\n",
+    "\n",
+    "1. Start with\n",
+    "$$ a_n = \\frac{1}{L} \\int^L_{-L} f(x)\\ cos(\\frac{n\\pi x}{L})dx$$\n",
+    "\n",
+    "2. Plug in $f(x)$\n",
+    "$$ a_n = \\frac{1}{L} \\int^L_{-L} [1 + 2sin(kx) + 3 cos(3kx)] * cos(\\frac{n\\pi x}{L})dx$$\n",
+    "\n",
+    "3. Simplify\n",
+    "\n",
+    "$$ a_n = \\frac{1}{L} \\int^L_{-L} [cos(\\frac{n\\pi x}{L}) + 2sin(kx)*cos(\\frac{n\\pi x}{L}) + 3 cos(3kx)*cos(\\frac{n\\pi x}{L})]dx$$\n",
+    "\n",
+    "$$ a_n = \\frac{1}{L} \\int^L_{-L} [cos(\\frac{n\\pi x}{L}) + 3 cos(3kx)*cos(\\frac{n\\pi x}{L})]dx$$\n",
+    "\n",
+    "$$ a_0 = \\frac{1}{L} \\int^L_{-L} [1]dx = \\frac{2L}{L} = 2$$\n",
+    "\n",
+    "$$ a_6 = \\frac{1}{L} \\int^L_{-L}  3 cos(3kx)*cos(\\frac{n\\pi x}{L})dx = \\frac{3L}{L}  = 3$$\n",
+    "\n",
+    "**Exercise 3:** find $a_n$ & $b_n$ when $f(x) = 4cos(kx) - 4sin(kx) + 6 cos(10kx)$\n",
+    "\n",
+    "**Exercise 4:** find $a_n$ & $b_n$ when $f(x) = L - x$\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1bc482ad",
+   "metadata": {},
+   "source": [
+    "### 2.5 Circling back to Euler's formula\n",
+    "\n",
+    "In the *Complex Numbers* lecture, we introduced the identity: \n",
+    "$$ e^{i\\theta} = cos(\\theta) + i\\ sin(\\theta)$$\n",
+    "\n",
+    "This then gets expanded to the idea of the unit circle, where the x axis (Real axis) is represented by cosine terms, and the y axis (Imag axis) is represented by sine terms. We often use this form to represent circular or wave-like motions. \n",
+    "\n",
+    "If we use this identity, we can redefine our expression of the Fourier series, to something that looks like this.\n",
+    "\n",
+    "$$ x(t) = \\sum_{k = -\\infty}^{\\infty}\\hat{a_k}e^{(i2\\pi kt)/T}$$\n",
+    "\n",
+    "Essentially, this just shifts our from of reference from individual sines and cosines at a specific frequency, and puts it into terms of circles instead. This also transitions us nicely into the next idea, which is the Fourier Transform"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3799caea",
+   "metadata": {},
+   "source": [
+    "## 3 | Fourier Transforms\n",
+    "The Fourier Transform is the next step past the series. There are typically 2 flavors of the FT that exist, and it is dependent on the type of signal you have. The first option is the continuous Fourier transform (CFT), which is reliant on having a continuous data stream that can be broken up into an infinite number of discrete frequencies. The other option is the discrete Fourier transform (DFT), which is tailored toward discrete data and frequencies. In science, we will mostly utilize the DFT, since this is more like how our sampled signals will actually look like a set of discrete data points, spaced by a uniform (ideally) time step that is defined by our sensors."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b576ba5a",
+   "metadata": {},
+   "source": [
+    "### 3.1 The Continuous Fourier Transform\n",
+    "\n",
+    "The Fourier transform operates on much of the same principles as the Fourier series, but instead of the summation of a bunch of discrete frequency values, what if we just integrated over **ALL** frequency values? You would end up with something like this. (which just so happens to be the definition of the CFT)\n",
+    "\n",
+    "$$ x(t) = \\int^{\\infty}_{\\infty} \\tilde{X}(f) e^{i2\\pi ft} df $$\n",
+    "\n",
+    "$$ \\tilde{X}(f) = \\int^{\\infty}_{\\infty} x(t) e^{-i2\\pi ft} dt $$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "bbbbe07e",
+   "metadata": {},
+   "source": [
+    "### 3.2 The Discrete Fourier Transform\n",
+    "Coming Soon"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3861cb0a",
+   "metadata": {},
+   "source": [
+    "## Real World Applications\n",
+    "As mentioned previously, we often come across regularly repeating signals in all parts of oceanogrpahy. We use the FT to get a sense of what sort of frequencies of things we are seeing, and how they contribute to the measured signal as a whole. The FT can be massaged into a more usuable form, that we call the Spectrum. These can exist in many forms, and can be used to track velocity, energy, temeperture, pressure, etc. and is usually in either the wavenumber of frequency domain. Here are a few examples of what that result may look like."
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,1493 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="prev" title="Data Workshop 2" href="data_workshop2.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Data Workshop 2 - Part 2 - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day1/index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day1/algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day2/data_workshop2_pt2.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Data-Workshop-2---Part-2">
+<h1>Data Workshop 2 - Part 2<a class="headerlink" href="#Data-Workshop-2---Part-2" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Jared Brzenski (<a class="reference external" href="mailto:jabrzenski&#37;&#52;&#48;ucsd&#46;edu">jabrzenski<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Tommy Stone (<a class="reference external" href="mailto:thstone&#37;&#52;&#48;ucsd&#46;edu">thstone<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>This script reviews how to:</p>
+<ul class="simple">
+<li><p>import netCDF data</p></li>
+<li><p>Analyze metadata</p></li>
+<li><p>Calculate density of seawater using TEOS-10</p></li>
+<li><p>Check differences</p></li>
+</ul>
+<p>This can be run as MATLAB or Python, depending on the environment chosen.</p>
+<p><a class="reference internal" href="#MATLAB"><span class="std std-ref">MATLAB</span></a> is shown first, with MATLAB code blocks starting with the <strong>% MATLAB</strong> header.</p>
+<p><a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> is shown second, starting from the <a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> header and has <strong># Python</strong> at the beginning of the code blocks. If you want to skip to Python, scroll down to the <a class="reference internal" href="#Python"><span class="std std-ref">Python</span></a> header!</p>
+<p>For MATLAB, run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-matlab-proxy</span></code> in your environment and activate MATLAB in the upper right corner.</p>
+<section id="MATLAB">
+<h2>MATLAB<a class="headerlink" href="#MATLAB" title="Link to this heading"></a></h2>
+<section id="Import-netCDF-data">
+<h3>Import netCDF data<a class="headerlink" href="#Import-netCDF-data" title="Link to this heading"></a></h3>
+<p>We are going to import the same netCDF data “washington_shelf_data.nc” from the previous lessons.</p>
+<p>netCDf is a self-describing data format. Data has associated “metadata” which describes everything a user might want to know about the data. Where it was collected, the units used, expected values, and other relevant details. Let’s read in the file, and check out he global metadata attributes</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">read</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">netCDF</span> <span class="n">file</span>
+<span class="o">%</span> <span class="n">MATLAB</span> <span class="ow">is</span> <span class="n">different</span><span class="p">,</span> <span class="ow">in</span> <span class="n">that</span> <span class="n">it</span> <span class="n">reads</span> <span class="ow">in</span> <span class="n">only</span> <span class="n">the</span> <span class="n">parts</span> <span class="n">you</span> <span class="n">want</span><span class="p">,</span> <span class="ow">not</span> <span class="n">necessarily</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">thing</span><span class="o">.</span>
+<span class="o">%</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">useful</span> <span class="k">for</span> <span class="n">large</span> <span class="n">files</span><span class="o">.</span>
+
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;data/washington_shelf_data.nc&#39;</span><span class="p">;</span>
+
+<span class="o">%</span> <span class="n">Lets</span> <span class="n">see</span> <span class="n">a</span> <span class="n">little</span> <span class="n">information</span> <span class="n">about</span> <span class="n">this</span> <span class="n">file</span>
+<span class="o">%</span> <span class="p">(</span><span class="n">We</span> <span class="n">will</span> <span class="n">need</span> <span class="n">this</span> <span class="n">later</span><span class="o">!)</span>
+<span class="o">%</span> <span class="n">info</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">struct</span> <span class="k">with</span> <span class="n">members</span><span class="o">.</span>
+
+<span class="n">info</span> <span class="o">=</span> <span class="n">ncinfo</span><span class="p">(</span><span class="n">filename</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">Attributes</span><span class="p">)</span>
+    <span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">info</span><span class="o">.</span><span class="n">Attributes</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">string</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">Attributes</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span><span class="p">));</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+title: OOI Washington Shelf Surface-Piercing Profiler CTD
+source: CE02SHSP-SP001-08-CTDPFJ000-recovered_cspp-ctdpf_j_cspp_instrument_recovered
+creation_date: 2024-09-09 19:32:12
+sourceUrl: http://oceanobservatories.org/
+institution: Ocean Observatories Initiative
+Manufacturer: Sea-Bird Electronics
+ModelNumber: SBE 49 Fast CAT
+SerialNumber: 49-0346
+Description: CTD Profiler: CTDPF Series J
+latitude: 44.6350
+longitude: -124.3059
+Owner: Oregon State University
+gridded by: Turner Johnson
+for use in: SIO Math Workshop 2024
+</pre></div></div>
+</div>
+<p>We can read in the different variables in the netCDF file. Additional information about netCDF files can be found using ‘ncdump’, available on any system that has the netCDF library installed. BONUS: Install netCDF on your system!</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">Read</span> <span class="n">each</span> <span class="n">variable</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ncread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;temp&#39;</span><span class="p">);</span>
+<span class="n">sal</span> <span class="o">=</span> <span class="n">ncread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;sal&#39;</span><span class="p">);</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">ncread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rho&#39;</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">Optionally</span> <span class="n">read</span> <span class="n">coordinates</span> <span class="k">if</span> <span class="n">they</span> <span class="n">exist</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">ncread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">);</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">ncread</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;depth&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Show-Temperature-profiles,-and-average-temperature-profile">
+<h3>Show Temperature profiles, and average temperature profile<a class="headerlink" href="#Show-Temperature-profiles,-and-average-temperature-profile" title="Link to this heading"></a></h3>
+<p>We can see the profiles, and quickly find the average profile using “mean”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">Temperature</span> <span class="n">profiles</span>
+<span class="o">%</span> <span class="n">Plot</span> <span class="n">each</span> <span class="n">profile</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">average</span> <span class="n">profile</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">drop</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">(:,</span><span class="n">drop</span><span class="p">),</span> <span class="n">depth</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
+<span class="n">end</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">7</span> <span class="mi">12</span><span class="p">]);</span> <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp [C]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Individual Temperature Profiles&#39;</span><span class="p">);</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">Average</span>
+<span class="n">temp_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">temp_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">7</span> <span class="mi">12</span><span class="p">]);</span> <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp [C]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Temperature Profiles&#39;</span><span class="p">);</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_7_0.png" src="../_images/day2_data_workshop2_pt2_7_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_7_1.png" src="../_images/day2_data_workshop2_pt2_7_1.png" />
+</div>
+</div>
+</section>
+<section id="Show-Salinity-profiles,-and-average-salinity-profile">
+<h3>Show Salinity profiles, and average salinity profile<a class="headerlink" href="#Show-Salinity-profiles,-and-average-salinity-profile" title="Link to this heading"></a></h3>
+<p>We can see the profiles, and quickly find the average profile using “mean”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">Salinity</span> <span class="n">profiles</span>
+<span class="o">%</span> <span class="n">Plot</span> <span class="n">each</span> <span class="n">profile</span><span class="p">,</span> <span class="n">then</span> <span class="n">the</span> <span class="n">average</span> <span class="n">profile</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">drop</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">plot</span><span class="p">(</span><span class="n">sal</span><span class="p">(:,</span><span class="n">drop</span><span class="p">),</span> <span class="n">depth</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span><span class="p">;</span>
+<span class="n">end</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">31</span> <span class="mi">34</span><span class="p">]);</span> <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [gm/cm^3]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Individual Salinity Profiles&#39;</span><span class="p">);</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">%</span> <span class="n">Average</span>
+<span class="n">sal_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sal_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">31</span> <span class="mi">34</span><span class="p">]);</span>  <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [gm/cm^3]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Slinity Profiles&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_9_0.png" src="../_images/day2_data_workshop2_pt2_9_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_9_1.png" src="../_images/day2_data_workshop2_pt2_9_1.png" />
+</div>
+</div>
+</section>
+<section id="Calculate-Density">
+<h3>Calculate Density<a class="headerlink" href="#Calculate-Density" title="Link to this heading"></a></h3>
+<p>Calculate Density using the <a class="reference external" href="https://www.teos-10.org/software.htm#1">Gibbs-Seawater Oceanographic Toolbox (GSW)</a> Include the downloaded files in the MATLAB path, and restart MATLAB. You can also type ‘userpath’ into the command line to see where that is.</p>
+<p>TEOS needs “Absolute Salinity” and “Conservative Temperature”.</p>
+<p>The values for lat and lon are taken from the info.attributes of the netCDF file</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">Calculate</span> <span class="n">Density</span>
+<span class="o">%</span> <span class="n">Calculate</span> <span class="n">Density</span> <span class="n">using</span> <span class="n">the</span> <span class="p">[</span><span class="n">Gibbs</span><span class="o">-</span><span class="n">Seawater</span> <span class="n">Oceanographic</span> <span class="n">Toolbox</span> <span class="p">(</span><span class="n">GSW</span><span class="p">)]</span>
+
+<span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">124.3059</span><span class="p">;</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">44.6350</span><span class="p">;</span>
+
+<span class="o">%</span> <span class="o">---</span> <span class="n">Convert</span> <span class="n">depth</span> <span class="n">to</span> <span class="n">pressure</span> <span class="o">---</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">gsw_p_from_z</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">lat</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">TEOS</span> <span class="n">needs</span> <span class="s2">&quot;Absolute Salinity&quot;</span> <span class="ow">and</span> <span class="s2">&quot;Conservative Temperature&quot;</span><span class="o">.</span>
+<span class="o">%</span> <span class="n">We</span> <span class="n">can</span> <span class="n">convert</span> <span class="kn">from</span><span class="w"> </span><span class="nn">Practical</span> <span class="n">Salinity</span> <span class="ow">and</span> <span class="ow">in</span><span class="o">-</span><span class="n">situ</span> <span class="n">temperature</span>
+<span class="o">%</span> <span class="n">to</span> <span class="n">Absolute</span> <span class="n">Salinity</span> <span class="ow">and</span> <span class="n">Conservative</span> <span class="n">Temperature</span>
+<span class="o">%</span> <span class="n">using</span> <span class="n">the</span> <span class="n">GSW</span> <span class="n">functions</span>
+<span class="n">SA</span> <span class="o">=</span> <span class="n">gsw_SA_from_SP</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">);</span>
+<span class="n">CT</span> <span class="o">=</span> <span class="n">gsw_CT_from_t</span><span class="p">(</span><span class="n">SA</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">Now</span> <span class="n">we</span> <span class="n">can</span> <span class="n">calculate</span> <span class="ow">in</span><span class="o">-</span><span class="n">situ</span> <span class="n">density</span>
+<span class="n">rho_calc</span> <span class="o">=</span> <span class="n">gsw_rho</span><span class="p">(</span><span class="n">SA</span><span class="p">,</span> <span class="n">CT</span><span class="p">,</span> <span class="n">p</span><span class="p">);</span>  <span class="o">%</span> <span class="p">[</span><span class="n">kg</span><span class="o">/</span><span class="n">m</span><span class="o">^</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Checking-and-viewing-our-answer">
+<h3>Checking and viewing our answer<a class="headerlink" href="#Checking-and-viewing-our-answer" title="Link to this heading"></a></h3>
+<p>Lets compare our calculation to the value in the netCDF file, to see if our calculation is equivalent to theirs ( or close enough ).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">MATLAB</span>
+<span class="o">%</span> <span class="n">Lets</span> <span class="n">check</span> <span class="n">against</span> <span class="n">what</span> <span class="n">the</span> <span class="n">netCDF</span> <span class="n">file</span> <span class="n">says</span> <span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">rho_calc</span> <span class="o">-</span> <span class="n">rho</span><span class="p">;</span>
+<span class="n">max_diff</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">diff</span><span class="p">),</span> <span class="p">[],</span> <span class="s1">&#39;all&#39;</span><span class="p">);</span>
+<span class="n">fprintf</span><span class="p">(</span><span class="s1">&#39;Max difference between calculated and netCDF density: </span><span class="si">%f</span><span class="s1"> kg/m^3</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">max_diff</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">Plot</span> <span class="n">the</span> <span class="n">difference</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="n">pcolor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">diff</span><span class="p">);</span> <span class="n">shading</span> <span class="n">interp</span><span class="p">;</span> <span class="n">colorbar</span>
+
+<span class="o">%</span> <span class="n">Plotting</span> <span class="n">full</span> <span class="n">densities</span>
+<span class="n">figure</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="o">%</span> <span class="n">Make</span> <span class="n">a</span> <span class="n">filled</span> <span class="n">contour</span> <span class="n">plot</span> <span class="p">(</span><span class="n">depth</span> <span class="n">vs</span><span class="o">.</span> <span class="n">time</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">Time</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">since</span> <span class="mi">1900</span><span class="p">,</span> <span class="n">lets</span> <span class="n">just</span> <span class="n">call</span> <span class="n">them</span> <span class="s2">&quot;drops 1-19&quot;</span>
+<span class="n">drops</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">time</span><span class="p">)];</span>
+<span class="n">contourf</span><span class="p">(</span><span class="n">drops</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">rho</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;LineColor&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">);</span>
+
+<span class="n">colorbar</span>
+<span class="n">cmocean</span><span class="p">(</span><span class="s1">&#39;dense&#39;</span><span class="p">)</span>
+<span class="n">caxis</span><span class="p">([</span><span class="mi">1023</span> <span class="mi">1027</span><span class="p">])</span>            <span class="o">%</span> <span class="n">adjust</span> <span class="n">to</span> <span class="n">a</span> <span class="n">nice</span> <span class="n">density</span> <span class="nb">range</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Drop Number&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth (m)&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Density Section [kg/m^3]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Max difference between calculated and netCDF density: 0.005115 kg/m^3
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_13_1.png" src="../_images/day2_data_workshop2_pt2_13_1.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_13_2.png" src="../_images/day2_data_workshop2_pt2_13_2.png" />
+</div>
+</div>
+</section>
+<section id="Compare-the-three-profiles">
+<h3>Compare the three profiles<a class="headerlink" href="#Compare-the-three-profiles" title="Link to this heading"></a></h3>
+<p>We can compare the average temperature, salinity, and density in one plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rho_mean</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">rho_calc</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="o">%</span> <span class="n">First</span> <span class="n">axes</span>
+<span class="n">px</span> <span class="o">=</span> <span class="n">tiledlayout</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span>
+<span class="n">nexttile</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">temp_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">7</span> <span class="mi">12</span><span class="p">]);</span> <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp [C]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Temperature Profiles&#39;</span><span class="p">);</span>
+
+<span class="n">nexttile</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">sal_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">31</span> <span class="mi">34</span><span class="p">]);</span>  <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [PSU]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Salinity Profiles&#39;</span><span class="p">);</span>
+
+<span class="n">nexttile</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">rho_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">);</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mi">1023</span> <span class="mi">1027</span><span class="p">]);</span>  <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Density [kg/m^3]&#39;</span><span class="p">);</span>
+<span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span> <span class="mi">0</span><span class="p">]);</span> <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Density Profiles&#39;</span><span class="p">);</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_15_0.png" src="../_images/day2_data_workshop2_pt2_15_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Python">
+<h2>Python<a class="headerlink" href="#Python" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Import netCDF data<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>We are going to import the same netCDF data “washington_shelf_data.nc” from the previous lessons.</p>
+<p>netCDf is a self-describing data format. Data has associated “metadata” which describes everything a user might want to know about the data. Where it was collected, the units used, expected values, and other relevant details. Let’s read in the file, and check out he global metadata attributes</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Import libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmocean</span>    <span class="c1"># Colormaps for Oceanography</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">gsw</span>        <span class="c1"># Gibbs-Seawater Oceanographic Toolbox (GSW)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Specify the NetCDF file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;data/washington_shelf_data.nc&#39;</span>
+
+<span class="c1"># Open the dataset using xarray</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># Print global attributes, just show ds</span>
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base rgba(0, 0, 0, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(0, 0, 0, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, white)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, white) h s calc(l - 15))
+  );
+}
+
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
+body.vscode-dark {
+  --xr-font-color0: var(
+    --jp-content-font-color0,
+    var(--pst-color-text-base, rgba(255, 255, 255, 1))
+  );
+  --xr-font-color2: var(
+    --jp-content-font-color2,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.54))
+  );
+  --xr-font-color3: var(
+    --jp-content-font-color3,
+    var(--pst-color-text-base, rgba(255, 255, 255, 0.38))
+  );
+  --xr-border-color: var(
+    --jp-border-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 10))
+  );
+  --xr-disabled-color: var(
+    --jp-layout-color3,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 40))
+  );
+  --xr-background-color: var(
+    --jp-layout-color0,
+    var(--pst-color-on-background, #111111)
+  );
+  --xr-background-color-row-even: var(
+    --jp-layout-color1,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 5))
+  );
+  --xr-background-color-row-odd: var(
+    --jp-layout-color2,
+    hsl(from var(--pst-color-on-background, #111111) h s calc(l + 15))
+  );
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: inline-block;
+  opacity: 0;
+  height: 0;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+  border: 2px solid transparent !important;
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0) !important;
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: "►";
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: "▼";
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: "(";
+}
+
+.xr-dim-list:after {
+  content: ")";
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ",";
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  border-color: var(--xr-background-color-row-odd);
+  margin-bottom: 0;
+  padding-top: 2px;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+  border-color: var(--xr-background-color-row-even);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  border-top: 2px dotted var(--xr-background-color);
+  padding-bottom: 20px !important;
+  padding-top: 10px !important;
+}
+
+.xr-var-attrs-in + label,
+.xr-var-data-in + label,
+.xr-index-data-in + label {
+  padding: 0 1px;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-data > pre,
+.xr-index-data > pre,
+.xr-var-data > table > tbody > tr {
+  background-color: transparent !important;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.xr-var-attrs-in:checked + label > .xr-icon-file-text2,
+.xr-var-data-in:checked + label > .xr-icon-database,
+.xr-index-data-in:checked + label > .xr-icon-database {
+  color: var(--xr-font-color0);
+  filter: drop-shadow(1px 1px 5px var(--xr-font-color2));
+  stroke-width: 0.8px;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 49kB
+Dimensions:  (time: 19, depth: 105)
+Coordinates:
+  * time     (time) datetime64[ns] 152B 1900-01-09T13:04:54 ... 1900-01-09T13...
+  * depth    (depth) float64 840B -3.0 -3.5 -4.0 -4.5 ... -54.0 -54.5 -55.0
+Data variables:
+    rho      (time, depth) float64 16kB ...
+    sal      (time, depth) float64 16kB ...
+    temp     (time, depth) float64 16kB ...
+Attributes: (12/14)
+    title:          OOI Washington Shelf Surface-Piercing Profiler CTD
+    source:         CE02SHSP-SP001-08-CTDPFJ000-recovered_cspp-ctdpf_j_cspp_i...
+    creation_date:  2024-09-09 19:32:12
+    sourceUrl:      http://oceanobservatories.org/
+    institution:    Ocean Observatories Initiative
+    Manufacturer:   Sea-Bird Electronics
+    ...             ...
+    Description:    CTD Profiler: CTDPF Series J
+    latitude:       44.6350
+    longitude:      -124.3059
+    Owner:          Oregon State University
+    gridded by:     Turner Johnson
+    for use in:     SIO Math Workshop 2024</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-37fe5d75-93ca-406c-a37f-2319bb0ca070' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-37fe5d75-93ca-406c-a37f-2319bb0ca070' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 19</li><li><span class='xr-has-index'>depth</span>: 105</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-41993b84-91ad-4ca9-9069-36b59e3aa74f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-41993b84-91ad-4ca9-9069-36b59e3aa74f' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1900-01-09T13:04:54 ... 1900-01-...</div><input id='attrs-0c9acfe4-58c1-4bfc-a689-47d26a871861' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0c9acfe4-58c1-4bfc-a689-47d26a871861' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-711db8e7-0f3a-49b2-8d46-8cff2ce3966b' class='xr-var-data-in' type='checkbox'><label for='data-711db8e7-0f3a-49b2-8d46-8cff2ce3966b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1900-01-09T13:04:54.000000000&#x27;, &#x27;1900-01-09T13:04:54.444444444&#x27;,
+       &#x27;1900-01-09T13:04:54.888888888&#x27;, &#x27;1900-01-09T13:04:55.333333333&#x27;,
+       &#x27;1900-01-09T13:04:55.777777777&#x27;, &#x27;1900-01-09T13:04:56.222222222&#x27;,
+       &#x27;1900-01-09T13:04:56.666666666&#x27;, &#x27;1900-01-09T13:04:57.111111111&#x27;,
+       &#x27;1900-01-09T13:04:57.555555555&#x27;, &#x27;1900-01-09T13:04:58.000000000&#x27;,
+       &#x27;1900-01-09T13:04:58.444444444&#x27;, &#x27;1900-01-09T13:04:58.888888888&#x27;,
+       &#x27;1900-01-09T13:04:59.333333333&#x27;, &#x27;1900-01-09T13:04:59.777777777&#x27;,
+       &#x27;1900-01-09T13:05:00.222222222&#x27;, &#x27;1900-01-09T13:05:00.666666666&#x27;,
+       &#x27;1900-01-09T13:05:01.111111111&#x27;, &#x27;1900-01-09T13:05:01.555555555&#x27;,
+       &#x27;1900-01-09T13:05:02.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>depth</span></div><div class='xr-var-dims'>(depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.0 -3.5 -4.0 ... -54.5 -55.0</div><input id='attrs-9fcbe1da-708e-4931-a61a-ac255309d662' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9fcbe1da-708e-4931-a61a-ac255309d662' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ba40c067-15f4-42b8-bcbc-86053301398f' class='xr-var-data-in' type='checkbox'><label for='data-ba40c067-15f4-42b8-bcbc-86053301398f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Depth (m) calculated from pressure (dbar) and latitude.</dd><dt><span>precision :</span></dt><dd>3</dd><dt><span>long_name :</span></dt><dd>depth calculated from pressure</dd><dt><span>units :</span></dt><dd>meters</dd><dt><span>positive :</span></dt><dd>up</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([ -3. ,  -3.5,  -4. ,  -4.5,  -5. ,  -5.5,  -6. ,  -6.5,  -7. ,  -7.5,
+        -8. ,  -8.5,  -9. ,  -9.5, -10. , -10.5, -11. , -11.5, -12. , -12.5,
+       -13. , -13.5, -14. , -14.5, -15. , -15.5, -16. , -16.5, -17. , -17.5,
+       -18. , -18.5, -19. , -19.5, -20. , -20.5, -21. , -21.5, -22. , -22.5,
+       -23. , -23.5, -24. , -24.5, -25. , -25.5, -26. , -26.5, -27. , -27.5,
+       -28. , -28.5, -29. , -29.5, -30. , -30.5, -31. , -31.5, -32. , -32.5,
+       -33. , -33.5, -34. , -34.5, -35. , -35.5, -36. , -36.5, -37. , -37.5,
+       -38. , -38.5, -39. , -39.5, -40. , -40.5, -41. , -41.5, -42. , -42.5,
+       -43. , -43.5, -44. , -44.5, -45. , -45.5, -46. , -46.5, -47. , -47.5,
+       -48. , -48.5, -49. , -49.5, -50. , -50.5, -51. , -51.5, -52. , -52.5,
+       -53. , -53.5, -54. , -54.5, -55. ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bc9054bd-0291-41a1-808b-9b86c481a1d4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bc9054bd-0291-41a1-808b-9b86c481a1d4' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rho</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-60709cf1-cc6f-4083-bd9e-12cb46666040' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-60709cf1-cc6f-4083-bd9e-12cb46666040' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-11f45acb-07f2-48ee-8526-6c28c4ccc7d8' class='xr-var-data-in' type='checkbox'><label for='data-11f45acb-07f2-48ee-8526-6c28c4ccc7d8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Seawater Density is defined as mass per unit volume and is calculated from the conductivity, temperature and depth of a seawater sample using the TEOS-10 equation.</dd><dt><span>long_name :</span></dt><dd>seawater density</dd><dt><span>standard_name :</span></dt><dd>sea_water_density</dd><dt><span>units :</span></dt><dd>kg/m^3</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sal</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1ac3a1ea-1d89-48c7-93ca-a12b39fdd8c2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1ac3a1ea-1d89-48c7-93ca-a12b39fdd8c2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0502b062-0fba-4f5a-beed-f29b7cfb35b1' class='xr-var-data-in' type='checkbox'><label for='data-0502b062-0fba-4f5a-beed-f29b7cfb35b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Salinity is generally defined as the concentration of dissolved salt in a parcel of seawater. Practical Salinity is a more specific unitless quantity calculated from the conductivity of seawater and adjusted for temperature and pressure. It is approximately equivalent to Absolute Salinity (the mass fraction of dissolved salt in seawater) but they are not interchangeable.</dd><dt><span>long_name :</span></dt><dd>practical salinity</dd><dt><span>standard_name :</span></dt><dd>sea_water_practical_salinity</dd><dt><span>units :</span></dt><dd>1</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>temp</span></div><div class='xr-var-dims'>(time, depth)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c4d6411a-52f0-44b6-ac1c-b8dd700118cc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c4d6411a-52f0-44b6-ac1c-b8dd700118cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dd0a40e0-e802-4055-af0d-d616fb4e508d' class='xr-var-data-in' type='checkbox'><label for='data-dd0a40e0-e802-4055-af0d-d616fb4e508d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>comment :</span></dt><dd>Seawater temperature near the sensor.</dd><dt><span>long_name :</span></dt><dd>temperature</dd><dt><span>standard_name :</span></dt><dd>sea_water_temperature</dd><dt><span>units :</span></dt><dd>degrees_Celsius</dd></dl></div><div class='xr-var-data'><pre>[1995 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7e8533ee-1099-4b81-a821-441dc32db63e' class='xr-section-summary-in' type='checkbox'  ><label for='section-7e8533ee-1099-4b81-a821-441dc32db63e' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a84f4cc9-1ba9-4baf-9524-413ed5c6c290' class='xr-index-data-in' type='checkbox'/><label for='index-a84f4cc9-1ba9-4baf-9524-413ed5c6c290' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([          &#x27;1900-01-09 13:04:54&#x27;,
+               &#x27;1900-01-09 13:04:54.444444444&#x27;,
+               &#x27;1900-01-09 13:04:54.888888888&#x27;,
+               &#x27;1900-01-09 13:04:55.333333333&#x27;,
+               &#x27;1900-01-09 13:04:55.777777777&#x27;,
+               &#x27;1900-01-09 13:04:56.222222222&#x27;,
+               &#x27;1900-01-09 13:04:56.666666666&#x27;,
+               &#x27;1900-01-09 13:04:57.111111111&#x27;,
+               &#x27;1900-01-09 13:04:57.555555555&#x27;,
+                         &#x27;1900-01-09 13:04:58&#x27;,
+               &#x27;1900-01-09 13:04:58.444444444&#x27;,
+               &#x27;1900-01-09 13:04:58.888888888&#x27;,
+               &#x27;1900-01-09 13:04:59.333333333&#x27;,
+               &#x27;1900-01-09 13:04:59.777777777&#x27;,
+               &#x27;1900-01-09 13:05:00.222222222&#x27;,
+               &#x27;1900-01-09 13:05:00.666666666&#x27;,
+               &#x27;1900-01-09 13:05:01.111111111&#x27;,
+               &#x27;1900-01-09 13:05:01.555555555&#x27;,
+                         &#x27;1900-01-09 13:05:02&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>depth</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-26357c24-6815-4af1-abd9-933d3ddd8eb0' class='xr-index-data-in' type='checkbox'/><label for='index-26357c24-6815-4af1-abd9-933d3ddd8eb0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ -3.0,  -3.5,  -4.0,  -4.5,  -5.0,  -5.5,  -6.0,  -6.5,  -7.0,  -7.5,
+       ...
+       -50.5, -51.0, -51.5, -52.0, -52.5, -53.0, -53.5, -54.0, -54.5, -55.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;depth&#x27;, length=105))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-98fdcf5c-e6b1-4c72-bb7b-59db1aa9a10a' class='xr-section-summary-in' type='checkbox'  ><label for='section-98fdcf5c-e6b1-4c72-bb7b-59db1aa9a10a' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>OOI Washington Shelf Surface-Piercing Profiler CTD</dd><dt><span>source :</span></dt><dd>CE02SHSP-SP001-08-CTDPFJ000-recovered_cspp-ctdpf_j_cspp_instrument_recovered</dd><dt><span>creation_date :</span></dt><dd>2024-09-09 19:32:12</dd><dt><span>sourceUrl :</span></dt><dd>http://oceanobservatories.org/</dd><dt><span>institution :</span></dt><dd>Ocean Observatories Initiative</dd><dt><span>Manufacturer :</span></dt><dd>Sea-Bird Electronics</dd><dt><span>ModelNumber :</span></dt><dd>SBE 49 Fast CAT</dd><dt><span>SerialNumber :</span></dt><dd>49-0346</dd><dt><span>Description :</span></dt><dd>CTD Profiler: CTDPF Series J</dd><dt><span>latitude :</span></dt><dd>44.6350</dd><dt><span>longitude :</span></dt><dd>-124.3059</dd><dt><span>Owner :</span></dt><dd>Oregon State University</dd><dt><span>gridded by :</span></dt><dd>Turner Johnson</dd><dt><span>for use in :</span></dt><dd>SIO Math Workshop 2024</dd></dl></div></li></ul></div></div></div>
+</div>
+<p>We can read in the different variables in the netCDF file. Additional information about netCDF files can be found using ‘ncdump’, available on any system that has the netCDF library installed. BONUS: Install netCDF on your system!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Read variables</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>    <span class="c1"># shape: depth x time</span>
+<span class="n">sal</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">rho</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Optionally read coordinates</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">depth</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;depth&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">depth</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([ -3. ,  -3.5,  -4. ,  -4.5,  -5. ,  -5.5,  -6. ,  -6.5,  -7. ,
+        -7.5,  -8. ,  -8.5,  -9. ,  -9.5, -10. , -10.5, -11. , -11.5,
+       -12. , -12.5, -13. , -13.5, -14. , -14.5, -15. , -15.5, -16. ,
+       -16.5, -17. , -17.5, -18. , -18.5, -19. , -19.5, -20. , -20.5,
+       -21. , -21.5, -22. , -22.5, -23. , -23.5, -24. , -24.5, -25. ,
+       -25.5, -26. , -26.5, -27. , -27.5, -28. , -28.5, -29. , -29.5,
+       -30. , -30.5, -31. , -31.5, -32. , -32.5, -33. , -33.5, -34. ,
+       -34.5, -35. , -35.5, -36. , -36.5, -37. , -37.5, -38. , -38.5,
+       -39. , -39.5, -40. , -40.5, -41. , -41.5, -42. , -42.5, -43. ,
+       -43.5, -44. , -44.5, -45. , -45.5, -46. , -46.5, -47. , -47.5,
+       -48. , -48.5, -49. , -49.5, -50. , -50.5, -51. , -51.5, -52. ,
+       -52.5, -53. , -53.5, -54. , -54.5, -55. ])
+</pre></div></div>
+</div>
+</section>
+<section id="id2">
+<h3>Show Temperature profiles, and average temperature profile<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>We can see the profiles, and quickly find the average profile using “mean”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># --- Figure 1: Individual Temperature Profiles ---</span>
+<span class="c1"># All values are (time, depth)</span>
+<span class="c1"># We want to plot depth on y-axis, temp on x-axis)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">drop</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp</span><span class="p">[</span><span class="n">drop</span><span class="p">,:],</span> <span class="n">depth</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp [C]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Individual Temperature Profiles&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Depth increasing downward</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Figure 2: Average Temperature Profile ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="c1"># Average across time axis (axis=0) to get mean profile</span>
+<span class="n">temp_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temp [C]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Temperature Profile&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_22_0.png" src="../_images/day2_data_workshop2_pt2_22_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_22_1.png" src="../_images/day2_data_workshop2_pt2_22_1.png" />
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Show Salinity profiles, and average salinity profile<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>We can see the profiles, and quickly find the average profile using “mean”</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># --- Figure 2 Individual salinity Profiles ---</span>
+<span class="c1"># All values are (time, depth)</span>
+<span class="c1"># We want to plot depth on y-axis, salinity on x-axis)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">drop</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sal</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sal</span><span class="p">[</span><span class="n">drop</span><span class="p">,:],</span> <span class="n">depth</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">31</span><span class="p">,</span> <span class="mi">34</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [PSU]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Individual Salinity Profiles&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>  <span class="c1"># Depth increasing downward</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># --- Figure 2: Average Salinity Profile ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="c1"># Average across time axis (axis=0) to get mean profile</span>
+<span class="n">sal_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sal_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">31</span><span class="p">,</span> <span class="mi">34</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">60</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [PSU]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mean Salinity Profile&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_24_0.png" src="../_images/day2_data_workshop2_pt2_24_0.png" />
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_24_1.png" src="../_images/day2_data_workshop2_pt2_24_1.png" />
+</div>
+</div>
+</section>
+<section id="id4">
+<h3>Calculate Density<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<p>Calculate Density using the Gibbs-Seawater Oceanographic Toolbox (GSW), which we installed in Python with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">gsw</span></code></p>
+<p>TEOS needs “Absolute Salinity” and “Conservative Temperature”.</p>
+<p>The values for lat and lon are taken from the global attributes of the netCDF file.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># Calculate Density</span>
+<span class="c1"># Calculate Density using the [Gibbs-Seawater Oceanographic Toolbox (GSW)]</span>
+
+<span class="c1"># --- location (from netCDF file)---</span>
+<span class="n">lon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">124.3059</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">44.6350</span>
+
+<span class="c1"># --- Convert depth to pressure ---</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">gsw</span><span class="o">.</span><span class="n">p_from_z</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>  <span class="c1"># pressure in dbar</span>
+
+<span class="c1"># TEOS needs &quot;Absolute Salinity&quot; and &quot;Conservative Temperature&quot;.</span>
+<span class="c1"># We can convert from Practical Salinity and in-situ temperature</span>
+<span class="c1"># to Absolute Salinity and Cons</span>
+<span class="c1">#</span>
+<span class="c1"># --- Convert Practical Salinity to Absolute Salinity ---</span>
+<span class="n">SA</span> <span class="o">=</span> <span class="n">gsw</span><span class="o">.</span><span class="n">SA_from_SP</span><span class="p">(</span><span class="n">sal</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">)</span>
+
+<span class="c1"># --- Convert in-situ temperature to Conservative Temperature ---</span>
+<span class="n">CT</span> <span class="o">=</span> <span class="n">gsw</span><span class="o">.</span><span class="n">CT_from_t</span><span class="p">(</span><span class="n">SA</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+
+<span class="c1"># --- Compute in-situ density [kg/m^3] ---</span>
+<span class="n">rho_calc</span> <span class="o">=</span> <span class="n">gsw</span><span class="o">.</span><span class="n">rho</span><span class="p">(</span><span class="n">SA</span><span class="p">,</span> <span class="n">CT</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h3>Checking and viewing our answer<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>Lets compare our calculation to the value in the netCDF file, to see if our calculation is equivalent to theirs ( or close enough ).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># --- Compare with NetCDF density ---</span>
+<span class="n">diff</span> <span class="o">=</span> <span class="n">rho_calc</span> <span class="o">-</span> <span class="n">rho</span>
+
+<span class="c1"># --- Plot the difference ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolor</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">diff</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>  <span class="c1"># diff.T if needed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density difference [kg/m^3]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Difference between calculated density and NetCDF rho&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_28_0.png" src="../_images/day2_data_workshop2_pt2_28_0.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># --- Plotting full densities ---</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="c1"># Make a filled contour plot (depth vs. time)</span>
+<span class="c1"># Time is in seconds since 1900, lets just call them &quot;drops 1-19&quot;</span>
+<span class="n">drops</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">drops</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">rho</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;cmo.dense&#39;</span><span class="p">)</span>  <span class="c1"># rho.T if needed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density [kg/m^3]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clim</span><span class="p">(</span><span class="mi">1023</span><span class="p">,</span> <span class="mi">1027</span><span class="p">)</span>  <span class="c1"># same as vmin/vmax</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (drops)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Density Profile over Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_29_0.png" src="../_images/day2_data_workshop2_pt2_29_0.png" />
+</div>
+</div>
+</section>
+<section id="id6">
+<h3>Compare the three profiles<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>We can compare the average temperature, salinity, and density in one plot.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Python</span>
+<span class="c1"># --- Plotting Average Profiles of Temp, Sal, Density ---</span>
+<span class="c1"># We will use twinx to make multiple x-axes</span>
+<span class="n">rho_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="s1">&#39;r-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temp [°C]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature [°C]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Depth [m]&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="c1"># Second x-axis for salinity</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sal_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="s1">&#39;b-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Salinity [PSU]&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Salinity [PSU]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+
+<span class="c1"># Third x-axis for density (trick: offset it)</span>
+<span class="n">ax3</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;outward&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">))</span>  <span class="c1"># move axis outward</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rho_mean</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="s1">&#39;g-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density [kg/m³]&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Density [kg/m³]&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Average Temperature, Salinity, Density Profiles&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_data_workshop2_pt2_31_0.png" src="../_images/day2_data_workshop2_pt2_31_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          <a class="prev-page" href="data_workshop2.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Data Workshop 2</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Data Workshop 2 - Part 2</a><ul>
+<li><a class="reference internal" href="#MATLAB">MATLAB</a><ul>
+<li><a class="reference internal" href="#Import-netCDF-data">Import netCDF data</a></li>
+<li><a class="reference internal" href="#Show-Temperature-profiles,-and-average-temperature-profile">Show Temperature profiles, and average temperature profile</a></li>
+<li><a class="reference internal" href="#Show-Salinity-profiles,-and-average-salinity-profile">Show Salinity profiles, and average salinity profile</a></li>
+<li><a class="reference internal" href="#Calculate-Density">Calculate Density</a></li>
+<li><a class="reference internal" href="#Checking-and-viewing-our-answer">Checking and viewing our answer</a></li>
+<li><a class="reference internal" href="#Compare-the-three-profiles">Compare the three profiles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Python">Python</a><ul>
+<li><a class="reference internal" href="#id1">Import netCDF data</a></li>
+<li><a class="reference internal" href="#id2">Show Temperature profiles, and average temperature profile</a></li>
+<li><a class="reference internal" href="#id3">Show Salinity profiles, and average salinity profile</a></li>
+<li><a class="reference internal" href="#id4">Calculate Density</a></li>
+<li><a class="reference internal" href="#id5">Checking and viewing our answer</a></li>
+<li><a class="reference internal" href="#id6">Compare the three profiles</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

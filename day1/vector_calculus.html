@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Taylor Expansions and Series Solutions" href="taylor_expansion.html"><link rel="prev" title="Integrals" href="integrals.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Vector Calculus - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrals.html">Integrals</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day2/index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day2/intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra1.html">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day2/data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day1/vector_calculus.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Vector-Calculus">
+<h1>Vector Calculus<a class="headerlink" href="#Vector-Calculus" title="Link to this heading"></a></h1>
+<p><strong>Instructor</strong> Argen Smith (<a class="reference external" href="mailto:argen&#37;&#52;&#48;ucsd&#46;edu">argen<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Lauren Harvey (<a class="reference external" href="mailto:lrharvey&#37;&#52;&#48;ucsd&#46;edu">lrharvey<span>&#64;</span>ucsd<span>&#46;</span>edu</a>) and Sophie Wynn (<a class="reference external" href="mailto:srwynn&#37;&#52;&#48;ucsd&#46;edu">srwynn<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p>The notes go through each topic with a small number of examples. We will work through some of these during lecture, and the rest can be used for further familiarity. I also mention a few useful wikipedia articles and outside notes for topics not directly covered here.</p>
+<p>Sometimes the formatting isn’t great- it’s converted from latex. For the full experience, download the vector calc notes from the math workshop google drive.</p>
+<section id="What’s-a-vector?">
+<h2>What’s a vector?<a class="headerlink" href="#What’s-a-vector?" title="Link to this heading"></a></h2>
+<p>A vector is a mathematical object that has a magnitude and a direction. A vector can be placed in a coordinate system to define a magnitude and direction at a point in space. Some examples of vectors you’ve probably used before are velocities. A particle at a point in space (e.g. (x, y)) can have a velocity pointing in a direction, at a speed (e.g. (u, v)).</p>
+<section id="Different-vector-notations">
+<h3>Different vector notations<a class="headerlink" href="#Different-vector-notations" title="Link to this heading"></a></h3>
+<p>In typed text, a vector is typically denoted either in bold (<strong>U</strong>) or under an arrow (<span class="math notranslate nohighlight">\(\vec{U}\)</span>).</p>
+<p>A vector in a number in n dimensions will require n parameters to be fully described. For a 2d vector, there are three common ways to describe a vector:</p>
+<ul class="simple">
+<li><p>Components, <span class="math notranslate nohighlight">\((a, b)\)</span>, where a and b describe the length of the vector on two orthogonal axes, typically x and y. Here ’orthogonal’</p></li>
+<li><p>Unit vector, <span class="math notranslate nohighlight">\(a\hat{i} + b\hat{j}\)</span>, where again a and b describe the length of the vector on the x and y axes. Here, <span class="math notranslate nohighlight">\(\hat{i}\)</span> and <span class="math notranslate nohighlight">\(\hat{j}\)</span> are <em>unit vectors</em>, vectors with length 1, along the x and y axes.</p></li>
+<li><p>Spherical, <span class="math notranslate nohighlight">\((r, \theta)\)</span>, where r is the total length of the vector and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle from the origin.</p></li>
+</ul>
+<figure id="fig:2dvecdef" data-latex-placement="h"><p><img alt="c8b68e93812a4de7ab3d5bc1deb37251" src="../_images/vecdef.png" /></p>
+<figcaption><p>Different descriptions fo a 2d vector, link</p>
+</figcaption></figure><p>The first and second only require a notation change, but to convert between the first and third we use a bit of trig.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    (a,\ b)\rightarrow (r,\ \theta):\\
+    r = \sqrt{a^2 + b^2}\\
+    \theta = \tan^{-1}\frac{b}{a}\\
+\end{gather*}\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    (r,\ \theta)\rightarrow (a,\ b):\\
+    a = r \cos{\theta}\\
+    b = r \sin{\theta}
+\end{gather*}\end{split}\]</div>
+</div>
+</section>
+<section id="Examples">
+<h3>Examples<a class="headerlink" href="#Examples" title="Link to this heading"></a></h3>
+<p>Convert from component form, <span class="math notranslate nohighlight">\((a, b)\)</span> to spherical form, <span class="math notranslate nohighlight">\((r, \theta)\)</span>:</p>
+<ul class="simple">
+<li><p>(1, 3)</p></li>
+<li><p>(5, -10)</p></li>
+<li><p>(2, 2)</p></li>
+</ul>
+<p>Convert from spherical form, <span class="math notranslate nohighlight">\((r, \theta)\)</span> to component form, <span class="math notranslate nohighlight">\((a, b)\)</span>:</p>
+<ul class="simple">
+<li><p>(1, <span class="math notranslate nohighlight">\(\pi\)</span>)</p></li>
+<li><p>(5, <span class="math notranslate nohighlight">\(3\pi/2\)</span>)</p></li>
+<li><p>(2, <span class="math notranslate nohighlight">\(\pi/2\)</span>)</p></li>
+</ul>
+<p>For a 3d vector, there are a few more options:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((a, b, c)\)</span>, where a, b, and c describe the length of the vector on three right handed, orthogonal axes, typically x, y, and z. (’right-handed’ meaning that if you curl the fingers from the first axis towards the second, your thumb will point in the positive direction of the third axis. This will be important later for the definition of the cross product.)</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\hat{i} + b\hat{j} + c\hat{k}\)</span>, where a, b, and c describe the length of the vector on the x, y, and z axes, and <span class="math notranslate nohighlight">\(\hat{i},\ \hat{j},\ \hat{k}\)</span> are the unit vectors in the x, y, and z directions.</p></li>
+<li><p>Spherical coordinates, <span class="math notranslate nohighlight">\((r, \theta, \phi)\)</span>, where r is the total length of the vector, <span class="math notranslate nohighlight">\(\theta\)</span> is the angle from the origin, and <span class="math notranslate nohighlight">\(\phi\)</span> is the angle from ().</p></li>
+<li><p>Cylindrical coordinates, <span class="math notranslate nohighlight">\((\rho, \phi, z)\)</span>, where <span class="math notranslate nohighlight">\(\rho\)</span> is the magnitude from the z axis, <span class="math notranslate nohighlight">\(\phi\)</span> is the angle between the vector and the z-x plane, and z is the magnitude from the plane at z=0.</p></li>
+</ul>
+<figure id="fig:placeholder" data-latex-placement="h"><p><img alt="b7285bb1b91a49f3a05eda6ccf442036" src="../_images/3dsys.png" /></p>
+<figcaption><p>3d vector definitions. link</p>
+</figcaption></figure><p>The trig to convert between these is more tedious, but not more difficult.</p>
+<p><span class="math notranslate nohighlight">\((a,\ b,\ c) \rightarrow (r,\ \theta,\ \phi):\)</span> <span class="math notranslate nohighlight">\(a = r\sin{\theta} \cos{\phi}\)</span> <span class="math notranslate nohighlight">\(b = r \sin{\theta} \sin{\phi}\)</span> <span class="math notranslate nohighlight">\(c = r \cos{\theta}\)</span></p>
+<p><span class="math notranslate nohighlight">\((a,\ b,\ c) \rightarrow (\rho,\ \phi,\ z):\)</span> <span class="math notranslate nohighlight">\(a = \rho \cos{\phi}\)</span> <span class="math notranslate nohighlight">\(b = \rho \sin{\phi}\)</span> <span class="math notranslate nohighlight">\(c = z\)</span></p>
+<p><span class="math notranslate nohighlight">\((\rho,\ \phi,\ z) \rightarrow (r,\ \theta,\ \phi):\)</span> <span class="math notranslate nohighlight">\(\rho = r \sin{\theta}\)</span> <span class="math notranslate nohighlight">\(\phi=\phi\)</span> <span class="math notranslate nohighlight">\(z = r \cos{\theta}\)</span></p>
+</section>
+<section id="examples-1">
+<span id="id1"></span><h3>Examples<a class="headerlink" href="#examples-1" title="Link to this heading"></a></h3>
+<p>Complete the table by converting the vectors between formats.</p>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>(a, b, c)</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(a\hat{i} + b\hat{j} + c\hat{j}\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\((r, \theta, \phi)\)</span></p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\((\rho, \phi, z)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>(1, 2, 3)</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p><span class="math notranslate nohighlight">\(-5\hat{i} + 3\hat{j} + 0.1\hat{k}\)</span></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>(3, <span class="math notranslate nohighlight">\(\pi\)</span>, <span class="math notranslate nohighlight">\(5\pi/6\)</span>)</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td></td>
+<td><p>(2, <span class="math notranslate nohighlight">\(\pi/2\)</span>, -10)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Vector-vocab">
+<h3>Vector vocab<a class="headerlink" href="#Vector-vocab" title="Link to this heading"></a></h3>
+<p>These words will be explained in more depth in the linear algebra section or in your classes, but for reference:</p>
+<ul class="simple">
+<li><p><em>Orthogonal:</em> The dot product of the two vectors is 0, similar to ’perpendicular’ but a bit clearer in 3d (or more dimensions…).</p></li>
+<li><p><em>Norm, magnitude, or length:</em> The norm, magnitude, and length all refer to the total size of a vector, r in spherical coordinates.</p></li>
+<li><p><em>Orthonormal:</em> Orthonormal vectors are orthogonal and have length 1.</p></li>
+</ul>
+</section>
+</section>
+<section id="Vector-addition-and-scaling">
+<h2>Vector addition and scaling<a class="headerlink" href="#Vector-addition-and-scaling" title="Link to this heading"></a></h2>
+<p>Some simple things we can do with vectors is to add them and multiply them by scalars. Visually, adding two vectors looks like drawing them out, arrow to tail; the resulting vector extends from their origin to this point. This is shown in figure 3.</p>
+<figure id="fig:vecadd"><p><img alt="9e7090a92af144a7afb8ceaf628e064d" src="../_images/vector_sum-001.png" /></p>
+<figcaption><p>Visualization of vector addition, from here</p>
+</figcaption></figure><p>Written out, addition looks like:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A} = (a_1,\ a_2,\ a_3)\\
+    \mathbf{B} = (b_1,\ b_2,\ b_3)\\
+    \mathbf{A} + \mathbf{B} = (a_1 + b_1,\ a_2 + b_2,\ a_3 + b_3)
+\end{gather*}\end{split}\]</div>
+</div>
+<p>or using another vector definition,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A} = (r_a, \theta_a)\\
+    \mathbf{B} = (r_b, \theta_b)\\
+    \mathbf{A} + \mathbf{B} = \mathbf{C} = (r_c,\ \theta_c)\\
+    r_c = \sqrt{(r_a\cos(\theta_a) + r_b\cos(\theta_b))^2 + (r_a\sin(\theta_a) + r_b\sin(\theta_b))^2} \\
+    \theta_c = \tan^{-1}\left( \frac{r_a\sin(\theta_a) + r_b\sin(\theta_b)}{r_a\cos(\theta_a) + r_b\cos(\theta_b)}\right)
+\end{gather*}\end{split}\]</div>
+</div>
+<p>From this 2d case, you can see that certain vector operations are easier to compute in certain vector formulations. From here on we’ll focus on vectors written out by component.</p>
+<p>Multiplying a vector by a scalar changes its length but not its direction. Mathematically, this is accomplished by multiplying all components by the scalar:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A} = (a_1,\ a_2,\ a_3)\\
+    s \text{ is a scalar.}\\
+    s\mathbf{A} = (sa_1,\ sa_2,\ sa_3)
+\end{gather*}\end{split}\]</div>
+</div>
+<section id="examples-2">
+<span id="id2"></span><h3>Examples<a class="headerlink" href="#examples-2" title="Link to this heading"></a></h3>
+<p>Define <strong>A</strong>, <strong>B</strong>, and <strong>C</strong> as</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A} = (1, 2, 3)\\
+    \mathbf{B} = (-5, 0, 10)\\
+    \mathbf{C} = (3, 8, 1)\\
+\end{gather*}\end{split}\]</div>
+</div>
+<ul class="simple">
+<li><p>What is <strong>A</strong> + <strong>B</strong>?</p></li>
+<li><p>What is 2<strong>B</strong> + 5<strong>C</strong>?</p></li>
+<li><p>For arbitrary <strong>V</strong> = (x, y, z), find coefficients <span class="math notranslate nohighlight">\(s_1\)</span>, <span class="math notranslate nohighlight">\(s_2\)</span>, <span class="math notranslate nohighlight">\(s_3\)</span> such that <span class="math notranslate nohighlight">\(s_1\mathbf{A} + s_2\mathbf{B} + s_3\mathbf{C} = \mathbf{V}\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="What’s-a-vector-field?">
+<h2>What’s a vector field?<a class="headerlink" href="#What’s-a-vector-field?" title="Link to this heading"></a></h2>
+<div class="line-block">
+<div class="line">A vector itself requires a magnitude and direction. In the real world, we often use vectors to reference a many-dimensional field which exists in the three-dimensional world. An easy example in velocity. At any point in space (e.g. at a point (x, y, z)) there can be Northward, Eastward, and Upward velocity. What results is a vector <em>field</em> which can be described as:</div>
+<div class="line"><br /></div>
+</div>
+<blockquote>
+<div><div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \mathbf{U}(x, y, z) = (u(x, y, z),\ v(x, y, z),\ w(x, y, z))
+\end{gather*}\]</div>
+</div>
+</div></blockquote>
+<p>A nice way to visualize a vector field is by drawing the vectors on a grid, which can be done with plt.quiver() in python:</p>
+<figure id="fig:placeholder" data-latex-placement="h"><p><img alt="cce2eb4d2d9d4c99beb9043bdbbeb216" src="../_images/vectorfield_examples.png" /></p>
+<figcaption><p>Some example vector fields. The code to make these is in the ’vector_calculus’ Jupyter Notebook</p>
+</figcaption></figure><section id="examples-3">
+<span id="id3"></span><h3>Examples<a class="headerlink" href="#examples-3" title="Link to this heading"></a></h3>
+<p>Draw the vector fields by hand, then check with python/your language of choice</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(U = (3x,\ 0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U = (1,\ 3x)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U = (0,\ x + y)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(U = (xy,\ x^2)\)</span></p></li>
+</ul>
+<div class="line-block">
+<div class="line">For this 3d vector field, draw frames (x, z) at y=-1, y=0, y=1 (hint: v=0 at all points, don’t worry about arrows into/out of the page.):</div>
+<div class="line"><span class="math notranslate nohighlight">\(U = (yz, 0,\ -yx)\)</span></div>
+</div>
+</section>
+</section>
+<section id="The-dot-product">
+<h2>The dot product<a class="headerlink" href="#The-dot-product" title="Link to this heading"></a></h2>
+<p>The dot product takes two vectors and returns a scalar, describing the vectors’ magnitude and alignment. For two of our definitions of 2d vectors, the dot product is written:</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{U_1} = (u_1,\ v_1)\)</span> <span class="math notranslate nohighlight">\(\mathbf{U_2} = (u_2,\ v_2)\)</span> <span class="math notranslate nohighlight">\(\mathbf{U_1} \cdot \mathbf{U_2} = u_1u_2+ v_1v_2\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathbf{U_1} = (r_1,\ \theta_1)\)</span> <span class="math notranslate nohighlight">\(\mathbf{U_2} = (r_2,\ \theta_2)\)</span> <span class="math notranslate nohighlight">\(\mathbf{U_1} \cdot \mathbf{U_2} = r_1r_2\cos{|\theta_1 - \theta_2|}\)</span></p>
+<p>These different formulae are useful to think about the geometric meaning of the dot product, though they are equivalent. From the component description, we get that a dot product is large when the same component of both input vectors is large. From the spherical formula, we get that the dot product is large when the input vectors are large and aligned. As two vectors can only ever span two dimensions (even if they describe more dimensions), this geometric intuition holds for infinite dimensions
+(or more usefully, three).</p>
+<p>For arbitrary dimensions, the dot product of two vectors is equal to the sum of the products of their components,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A} = (a_1,\ a_2,\ \ldots a_n)\\
+    \mathbf{B} = (b_1,\ b_2,\ \ldots b_n)\\
+    \mathbf{A}\cdot \mathbf{B} = a_1b_1 + a_2b_2 + \ldots a_nb_n
+\end{gather*}\end{split}\]</div>
+</div>
+<section id="examples-4">
+<span id="id4"></span><h3>Examples<a class="headerlink" href="#examples-4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Given vectors <span class="math notranslate nohighlight">\(\mathbf{A} = (1, 3)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B} = (12, 4)\)</span>, how can you rotate B to maximize <span class="math notranslate nohighlight">\(A\cdot B\)</span>?</p></li>
+<li><p>What is a vector whose dot product with A is 0? 10?</p></li>
+<li><p>What is the dot product of 5d vectors <span class="math notranslate nohighlight">\(\mathbf{A} = (3, 5, 6, 2, 7)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B} = (-10, 50, 2, 8, 3)\)</span>?</p></li>
+</ul>
+</section>
+</section>
+<section id="The-cross-product">
+<h2>The cross product<a class="headerlink" href="#The-cross-product" title="Link to this heading"></a></h2>
+<p>The cross product takes two 3d vectors and returns an orthogonal vector describing the inputs’ magnitude and spread. Geometrically, the cross product is an orthogonal vector from the two inputs whose magnitude is the area of the parallelogram formed by the reflection of the two vectors, and whose direction is determined by the right hand rule. It’s useful to use the determinant to calculate a cross product. The cross product is only defined in a 3d space.</p>
+<figure id="fig:placeholder" data-latex-placement="h"><p><img alt="7a3d11ba879e4949a7e418fb2c4122e2" src="../_images/rhr.png" /></p>
+<figcaption><p>The right hand rule, from Wikipedia</p>
+</figcaption></figure><div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \mathbf{A}  = (a_1,\ a_2,\ a_3)\\
+    \mathbf{B} = (b_1,\ b_2,\ b_3)\\
+    \mathbf{A} \times \mathbf{B} = \left|
+    \begin{matrix}
+        \hat{i}&amp;\hat{j}&amp;\hat{k}\\
+        a_1&amp;a_2&amp;a_3\\
+        b_1&amp;b_2&amp;b_3
+    \end{matrix}
+    \right| = (a_2b_3 - a_3b_2,\ -a_1b_3 + a_3b_1,\ a_1b_2 - a_2b_1)
+    \text{or, equivalently}\\\
+    \mathbf{A} \times \mathbf{B} = ||\mathbf{A}||\ ||\mathbf{B}|| \sin(\theta) \hat{n}
+\end{gather*}\end{split}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <strong>A</strong> and <strong>B</strong> and n is normal to the inputs, sign determined by the right hand rule.</p>
+<section id="examples-5">
+<span id="id5"></span><h3>Examples<a class="headerlink" href="#examples-5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>What is the cross product of vectors <span class="math notranslate nohighlight">\(\mathbf{A} = (1, 3, 2)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B} = (12, 4, 8)\)</span>?</p></li>
+<li><p>Given the vectors above, how can you rotate B to maximize <span class="math notranslate nohighlight">\(A\times B\)</span>?</p></li>
+<li><p>What is a vector whose cross product with A is 0? <span class="math notranslate nohighlight">\(10\hat{j}\)</span>? <span class="math notranslate nohighlight">\(5\hat{i}\)</span>?</p></li>
+</ul>
+</section>
+</section>
+<section id="Gradient">
+<h2>Gradient<a class="headerlink" href="#Gradient" title="Link to this heading"></a></h2>
+<p>The gradient takes a derivative of a scalar or vector field. Given a vector field <span class="math notranslate nohighlight">\(\mathbf{U}(x, y, z) = (u,\ v,\ w)\)</span>, the gradient is written:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \nabla \mathbf{U} = ({\frac{\partial (u, v, w)}{\partial x}},\ {\frac{\partial (u, v, w)}{\partial y}},\ {\frac{\partial (u, v, w)}{\partial z}})\\
+    = \left( \begin{matrix}
+        {\frac{\partial u}{\partial x}} &amp; {\frac{\partial v}{\partial x}} &amp; {\frac{\partial w}{\partial x}}\\
+        {\frac{\partial u}{\partial y}} &amp; {\frac{\partial v}{\partial y}} &amp; {\frac{\partial w}{\partial y}}\\
+        {\frac{\partial u}{\partial z}} &amp; {\frac{\partial v}{\partial z}} &amp; {\frac{\partial w}{\partial z}}
+    \end{matrix} \right)
+\end{gather*}\end{split}\]</div>
+</div>
+<section id="examples-6">
+<span id="id6"></span><h3>Examples<a class="headerlink" href="#examples-6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>How many rows/columns does the gradient of a 3D vector field have? 5D? 10?</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla (xy, y + x^2 + \sin(z), 0)\)</span></p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla f(x, y)\)</span> where <span class="math notranslate nohighlight">\(f(x, y) = x^2 + y^2 + xy\)</span></p></li>
+</ul>
+</section>
+<section id="Two-notes:">
+<h3>Two notes:<a class="headerlink" href="#Two-notes:" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Using these operators, there are lots of useful identities that we don’t have time to cover in this class. Proving each is a fun exercise, but once you’ve done that I’d highly recommend just bookmarking the <a class="reference external" href="https://en.wikipedia.org/wiki/Vector_calculus_identities">Wikipedia page</a></p></li>
+<li><p>Here, I’ve written the gradient with <em>partial</em> derivatives, <span class="math notranslate nohighlight">\({\frac{\partial f}{\partial x}}\)</span> instead of total derivatives, <span class="math notranslate nohighlight">\(\frac{\mathrm{d}f}{\mathrm{d}x}\)</span>. You do not need a full understanding of partial derivatives to understand the topics covered here, but if you run into them in the future, I’ve linked a set of notes from an old physics course that are a useful reference.</p></li>
+</ul>
+</section>
+</section>
+<section id="Divergence">
+<h2>Divergence<a class="headerlink" href="#Divergence" title="Link to this heading"></a></h2>
+<p>The divergence combines two of our topics, being the dot product of the gradient operator with a vector,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \nabla \cdot \mathbf{U} = {\frac{\partial u}{\partial x}} + {\frac{\partial v}{\partial y}} + {\frac{\partial w}{\partial z}}
+\end{gather*}\]</div>
+</div>
+<p>The divergence describes the balance of vectors pointing into or out of a point. In physical terms, if our vector field is velocity of water, the divergence would describe how much water is being removed from- or piling up at- at point.</p>
+<figure id="fig:placeholder" data-latex-placement="h"><p><img alt="d65db1c6a02248edb6fd2160e627d26c" src="../_images/showdiv.png" /></p>
+<figcaption><p>Some simple divergence examples</p>
+</figcaption></figure><section id="examples-7">
+<span id="id7"></span><h3>Examples<a class="headerlink" href="#examples-7" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Draw two flow fields with zero divergence.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla \cdot (xy, y + x^2 + \sin(z), 0)\)</span></p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla \cdot f(x, y)\)</span> where <span class="math notranslate nohighlight">\(f(x, y) = x^2 + y^2 + xy\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="Laplacian">
+<h2>Laplacian<a class="headerlink" href="#Laplacian" title="Link to this heading"></a></h2>
+<p>The Laplace operator evaluates the curvature of a vector field, like the second derivative. The Laplacian of a function <span class="math notranslate nohighlight">\(\mathbf{F} = (f_1, f_2, ... f_n)\)</span> is written</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \Delta \mathbf{F} = \nabla ^2 \mathbf{F} = \nabla \cdot \nabla \mathbf{F} = \Sigma_N \frac{\partial^2 \mathbf{f_n}}{\partial x_n^2}
+\end{gather*}\]</div>
+</div>
+<section id="examples-8">
+<span id="id8"></span><h3>Examples<a class="headerlink" href="#examples-8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla^2 \times (xy, y + x^2 + \sin(z), 0)\)</span></p></li>
+<li><p>What is the most general function <strong>F</strong> whose laplacian is always 0? Whose laplacian is constant?</p></li>
+</ul>
+</section>
+</section>
+<section id="Curl">
+<h2>Curl<a class="headerlink" href="#Curl" title="Link to this heading"></a></h2>
+<p>The curl is the cross product of the gradient operator and a vector,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{gather*}
+    \nabla \times \mathbf{U} = \left|
+    \begin{matrix}
+        \hat{i}&amp;\hat{j}&amp;\hat{k}\\
+        {\frac{\partial }{\partial x}}&amp;{\frac{\partial }{\partial y}}&amp;{\frac{\partial }{\partial z}}\\
+        u&amp;v&amp;w
+    \end{matrix}
+    \right| = ({\frac{\partial w}{\partial y}}-{\frac{\partial v}{\partial z}},\ -{\frac{\partial w}{\partial x}} + {\frac{\partial x}{\partial z}},\ {\frac{\partial v}{\partial x}} - {\frac{\partial u}{\partial y}})
+\end{gather*}\end{split}\]</div>
+</div>
+<p>The curl describes the circulation at a point. For some intuition, here are a few examples:</p>
+<figure id="fig:placeholder" data-latex-placement="h"><p><img alt="6d82539c18e14f67901d42bf697a1fe5" src="../_images/curl_vis.png" /></p>
+<figcaption><p>Some simple curl examples.</p>
+</figcaption></figure><section id="examples-9">
+<span id="id9"></span><h3>Examples<a class="headerlink" href="#examples-9" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Draw two flow fields with zero curl.</p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla \times (xy, y + x^2 + \sin(z), 0)\)</span></p></li>
+<li><p>Calculate <span class="math notranslate nohighlight">\(\nabla \times f(x, y)\)</span> where <span class="math notranslate nohighlight">\(f(x, y) = x^2 + y^2 + xy\)</span></p></li>
+</ul>
+</section>
+</section>
+<section id="Multivariate-Integrals">
+<h2>Multivariate Integrals<a class="headerlink" href="#Multivariate-Integrals" title="Link to this heading"></a></h2>
+<p>Multivariate integrals can be evaluated as a series of single variable integrals, computed from inside out.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \iint f(x, y)\ \mathrm{d}x\mathrm{d}y = \int \left[\int  f(x, y)\ \mathrm{d}x \right] \mathrm{d}y
+\end{gather*}\]</div>
+</div>
+<section id="Example">
+<h3>Example<a class="headerlink" href="#Example" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Evaluate</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+\iint_0^{5} x^2 + y^2 \mathrm{d}x\mathrm{d}y
+\end{gather*}\]</div>
+</div>
+</li>
+</ul>
+<p>An example of a multivariate integral that we evaluate often is the mass integral. With <span class="math notranslate nohighlight">\(\rho\)</span> as density, <span class="math notranslate nohighlight">\(V\)</span> as a volume, and x, y, and z as the cardinal directions, mass, <span class="math notranslate nohighlight">\(M\)</span>, is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    M = \iiint \rho(x, y, z)\ \mathrm{d}x\mathrm{d}y\mathrm{d}z
+\end{gather*}\]</div>
+</div>
+</section>
+<section id="examples-10">
+<span id="id10"></span><h3>Examples<a class="headerlink" href="#examples-10" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(\rho = 2x^2 + y^2 + 3z^2\)</span>, calculate the mass within the 2x2x2 cube centered around the origin.</p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\rho = 2x^2 + y^2 + 3z^2\)</span>, calculate the mass within the unit sphere centered around the origin.</p></li>
+</ul>
+</section>
+</section>
+<section id="Surface-Integrals">
+<h2>Surface Integrals<a class="headerlink" href="#Surface-Integrals" title="Link to this heading"></a></h2>
+<p>Surface integrals find the continuous sum of a function on a surface. A surface is the shell which contains a 3d shape. For a scalar function <span class="math notranslate nohighlight">\(f(x, y)\)</span> and surface <span class="math notranslate nohighlight">\(S\)</span>, a surface integral is written</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \oint_S f(x, y)\ \mathrm{d}S
+\end{gather*}\]</div>
+</div>
+<p>To evaluate this, you simply evaluate the function at all points on the surface as usual. For a vector function <span class="math notranslate nohighlight">\(\mathbf{f}(x, y)\)</span>, the surface integral is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \oint_S \mathbf{f}(x, y)\ \cdot \ \mathrm{d}S = \oint_S \mathbf{f}(x, y)\ \cdot \mathbf{\hat{n}} \ \mathrm{d}S
+\end{gather*}\]</div>
+</div>
+<p>So you instead evaluate the dot product of the vector function with the unit (length 1) vector <em>normal</em> to the surface.</p>
+<section id="examples-11">
+<span id="id11"></span><h3>Examples<a class="headerlink" href="#examples-11" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>An example of a common surface integral of a scalar function is surface area. Surface area is the surface integral with an integrand of 1. Using this concept, calculate the surface area of a unit cube.</p></li>
+<li><p>Surface integrals with vector functions are usually used to compute a flux, the amount of a quantity leaving or entering through a surface. Compute the flux of water through a pipe which is 2 units wide and 2 units tall, with water velocity <span class="math notranslate nohighlight">\(u=(2z + y, 0, 0)\)</span> and density <span class="math notranslate nohighlight">\(\rho\)</span>.</p></li>
+</ul>
+</section>
+</section>
+<section id="Divergence-Theorem">
+<h2>Divergence Theorem<a class="headerlink" href="#Divergence-Theorem" title="Link to this heading"></a></h2>
+<p>The divergence theorem states that, for a conservative quantity, the divergence integrated over a volume is equal to the flux through the volume’s surface. In plain language, it states that a change in the quantity inside of a volume has to be equal to the amount that left or entered through the surface. In equations,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \iiint_V \mathbf{F}\ \mathrm{d}V\ = \oint_S \mathbf{F} \cdot \mathbf{\hat{n}} \mathrm{d} S
+\end{gather*}\]</div>
+</div>
+<p>The divergence theorem becomes especially useful when we can say that the change in a quantity is zero. In oceanography, we can usually treat water as incompressible. This means that the total mass of water in a volume will not change. This leads to a useful form of mass continuity,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{gather*}
+    \nabla \cdot \mathbf{U} = 0
+\end{gather*}\]</div>
+</div>
+<section id="Note">
+<h3>Note<a class="headerlink" href="#Note" title="Link to this heading"></a></h3>
+<p>You will also run into Stokes’ theorem, which we don’t have time to cover here. Once again the <a class="reference external" href="https://en.wikipedia.org/wiki/Stokes%27_theorem">Wikipedia article</a> is quite useful.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="taylor_expansion.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Taylor Expansions and Series Solutions</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="integrals.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Integrals</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Vector Calculus</a><ul>
+<li><a class="reference internal" href="#What’s-a-vector?">What’s a vector?</a><ul>
+<li><a class="reference internal" href="#Different-vector-notations">Different vector notations</a></li>
+<li><a class="reference internal" href="#Examples">Examples</a></li>
+<li><a class="reference internal" href="#examples-1">Examples</a></li>
+<li><a class="reference internal" href="#Vector-vocab">Vector vocab</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Vector-addition-and-scaling">Vector addition and scaling</a><ul>
+<li><a class="reference internal" href="#examples-2">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#What’s-a-vector-field?">What’s a vector field?</a><ul>
+<li><a class="reference internal" href="#examples-3">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#The-dot-product">The dot product</a><ul>
+<li><a class="reference internal" href="#examples-4">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#The-cross-product">The cross product</a><ul>
+<li><a class="reference internal" href="#examples-5">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Gradient">Gradient</a><ul>
+<li><a class="reference internal" href="#examples-6">Examples</a></li>
+<li><a class="reference internal" href="#Two-notes:">Two notes:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Divergence">Divergence</a><ul>
+<li><a class="reference internal" href="#examples-7">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Laplacian">Laplacian</a><ul>
+<li><a class="reference internal" href="#examples-8">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Curl">Curl</a><ul>
+<li><a class="reference internal" href="#examples-9">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Multivariate-Integrals">Multivariate Integrals</a><ul>
+<li><a class="reference internal" href="#Example">Example</a></li>
+<li><a class="reference internal" href="#examples-10">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Surface-Integrals">Surface Integrals</a><ul>
+<li><a class="reference internal" href="#examples-11">Examples</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Divergence-Theorem">Divergence Theorem</a><ul>
+<li><a class="reference internal" href="#Note">Note</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

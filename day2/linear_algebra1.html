@@ -1,0 +1,1298 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html"><link rel="search" title="Search" href="../search.html"><link rel="next" title="Linear Algebra 2" href="linear_algebra2.html"><link rel="prev" title="Data Workshop 1" href="data_workshop1.html">
+
+    <link rel="shortcut icon" href="../_static/math-workshop-logo.png"><!-- Generated with Sphinx 8.1.3 and Furo 2025.09.25 -->
+        <title>Linear Algebra 1 - SIO Math Workshop</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=580074bf" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">SIO Math Workshop</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
+  
+  <span class="sidebar-brand-text">SIO Math Workshop</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Workshop Materials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../schedule.html">Schedule</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../day1/index.html">Day 1</a><input aria-label="Toggle navigation of Day 1" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../day1/algebra.html">Algebra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/geometry_trig.html">Units/Geometry/Trig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/complex_numbers.html">Complex Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/derivatives.html">Limits and Derivatives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/integrals.html">Integrals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/vector_calculus.html">Vector Calculus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/taylor_expansion.html">Taylor Expansions and Series Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/fourier_analysis.html">Fourier Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../day1/ode.html">Ordinary Differential Equations</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="index.html">Day 2</a><input aria-label="Toggle navigation of Day 2" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="intro_to_stats.html">Intro to Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="distribution_functions.html">Distribution Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop1.html">Data Workshop 1</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Linear Algebra 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linear_algebra2.html">Linear Algebra 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats_in_practice.html">Statistics in Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2.html">Data Workshop 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_workshop2_pt2.html">Data Workshop 2 - Part 2</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../_sources/day2/linear_algebra1.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="Linear-Algebra-1">
+<h1>Linear Algebra 1<a class="headerlink" href="#Linear-Algebra-1" title="Link to this heading"></a></h1>
+<p><strong>Instructor:</strong> Tommy Stone, Applied Ocean Science (AOS) PhD student (<a class="reference external" href="mailto:thstone&#37;&#52;&#48;ucsd&#46;edu">thstone<span>&#64;</span>ucsd<span>&#46;</span>edu</a>)</p>
+<p><strong>TAs:</strong> Sam Schulz (<a class="reference external" href="mailto:s1schulz&#37;&#52;&#48;ucsd&#46;edu">s1schulz<span>&#64;</span>ucsd<span>&#46;</span>edu</a>), Camilla Marcellini (<a class="reference external" href="mailto:cmarcellini&#37;&#52;&#48;ucsd&#46;edu">cmarcellini<span>&#64;</span>ucsd<span>&#46;</span>edu</a> )</p>
+<p>Linear algebra is a branch of mathematics that studies vectors, vector spaces, linear transformations, and systems of linear equations. At its core, it provides a framework for understanding and working with quantities that have both magnitude and direction, as well as the relationships between them. The subject focuses on operations with matrices and vectors, making it a powerful language for expressing and solving mathematical problems.</p>
+<p>Lecture notes adapted from</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://drive.google.com/drive/u/0/folders/1_u2dI7ji43XYKnbOKjp2eArOeWUBOlMT">David Vishny 2022 lecture notes</a> for the SIO Math Workshop</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=fNk_zzaMoSs&amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra</a> By 3Blue1Brown</p></li>
+<li><p><a class="reference external" href="https://math.mit.edu/~gs/">Linear Algebra and Its Applications</a> by Gilbert Strang, 4th Edition</p></li>
+<li><p><a class="reference external" href="https://search-library.ucsd.edu/permalink/01UCS_SDI/ld412s/alma991000027069706535">Mathematical Methods for Physics and Engineering</a> By K.R Riely, M.P Hobson, S. J. Bence</p></li>
+</ol>
+<section id="1-|-Why-Linear-Algebra?">
+<h2>1 | Why Linear Algebra?<a class="headerlink" href="#1-|-Why-Linear-Algebra?" title="Link to this heading"></a></h2>
+<p>The first question we must ask is why is Linear Algebra important in Earth Sciences?</p>
+<section id="1.1-Application-of-Linear-Algebra">
+<h3>1.1 Application of Linear Algebra<a class="headerlink" href="#1.1-Application-of-Linear-Algebra" title="Link to this heading"></a></h3>
+<p>Linear Algebra is essential because it provides the mathematical foundation for analysis of large datasets, solving a system of equations as well as identifying patterns in complex systems. Earth Science disciplines use Linear Algebra with General Circulation Models (CGM), Wave Dynamics, Eigenvalues, Singular Value Decomposition (SVD), Least Squares Fitting, Neural Networks and many more. In order to go into these advanced topics we need to first to learrn the basis of Linear Algebra which are
+vectors and matrices.</p>
+</section>
+</section>
+<section id="2-|-Review---Scalars,-Vectors,-Matrices,-Tensors-and-Dimensions-(Oh-my!)">
+<h2>2 | Review - Scalars, Vectors, Matrices, Tensors and Dimensions (Oh my!)<a class="headerlink" href="#2-|-Review---Scalars,-Vectors,-Matrices,-Tensors-and-Dimensions-(Oh-my!)" title="Link to this heading"></a></h2>
+<p>In this first section we will review our definitions of</p>
+<ol class="arabic simple">
+<li><p>Scalars</p></li>
+<li><p>Vectors</p></li>
+<li><p>Matrices</p></li>
+<li><p>Tensors</p></li>
+</ol>
+<section id="2.1-Notation">
+<h3>2.1 Notation<a class="headerlink" href="#2.1-Notation" title="Link to this heading"></a></h3>
+<p>Typical notation you will find for scalars, vectors and matrices</p>
+<ol class="arabic simple">
+<li><p>Scalars are indicated by lower case letters.</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[c\]</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Vectors will have an arrow above a lower case letter</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{u} = \begin{bmatrix}u \\ v\end{bmatrix}\end{split}\]</div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Another way to represent a vector is by multiplying the scalar values of <span class="math notranslate nohighlight">\(u_x,u_y,u_z\)</span> by their basis vectors <span class="math notranslate nohighlight">\(\hat{i}, \hat{j}, \hat{k}\)</span></p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\vec{u} = u_x \hat{i} + u_y \hat{j} + u_z \hat{k}\]</div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Matrices are indicated by capital letters and/or also indicated in <strong>bold</strong></p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\end{split}\]</div>
+</div>
+</section>
+<section id="2.2-Scalars">
+<h3>2.2 Scalars<a class="headerlink" href="#2.2-Scalars" title="Link to this heading"></a></h3>
+<p>A scalar is a quantity that can be fully described by a number. Examples of scalars are</p>
+<ul class="simple">
+<li><p>Temperature (T)</p></li>
+<li><p>Salinity (S)</p></li>
+<li><p>Mass (m)</p></li>
+</ul>
+</section>
+<section id="2.3-Vectors">
+<h3>2.3 Vectors<a class="headerlink" href="#2.3-Vectors" title="Link to this heading"></a></h3>
+<p>A vector is an object that has both a magnitude (length) and a direction. The components (or elements) of a vector are scalars.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{v} = \begin{bmatrix} v_x \\ v_y \\ v_z \end{bmatrix}\end{split}\]</div>
+</div>
+<p>Where <span class="math notranslate nohighlight">\(v_x, v_y\)</span> and <span class="math notranslate nohighlight">\(v_z\)</span> are scalar components of the vector <span class="math notranslate nohighlight">\(\vec{v}\)</span>. Examples of vectors are</p>
+<ul class="simple">
+<li><p>Force</p></li>
+<li><p>Acceleration</p></li>
+<li><p>Momentum</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Define the vector</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vector Representation&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_linear_algebra1_6_0.png" src="../_images/day2_linear_algebra1_6_0.png" />
+</div>
+</div>
+<p>We also know that we can add vectors</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+c = 2, \vec{v} &amp;= \begin{bmatrix} 1 \\ 3 \end{bmatrix}, \vec{w} &amp;= \begin{bmatrix} 2 \\ -1 \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{v} + \vec{w} = \begin{bmatrix} 1 \\ 3 \end{bmatrix} + \begin{bmatrix} 2 \\ -1 \end{bmatrix} = \begin{bmatrix} 3 \\ 2 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>and we can also multiply vectors by a constant, or <strong>scale</strong> the vector</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}c \vec{v} = 2 \begin{bmatrix} 1 \\ 3 \end{bmatrix} = \begin{bmatrix} 2 \\ 6 \end{bmatrix}\end{split}\]</div>
+</div>
+</section>
+<section id="2.4-Linear-Combinations-and-Spans">
+<h3>2.4 Linear Combinations and Spans<a class="headerlink" href="#2.4-Linear-Combinations-and-Spans" title="Link to this heading"></a></h3>
+<p>A linear combination of two vectors is defined as</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[a \vec{u} + b \vec{v}\]</div>
+</div>
+<p>Where a and b are scalar values. We call the span of a set of vectors to be a linear combination of those two vectors given an adjustable parameter which are the scalars. The below plot shows an example of the span of vectors <span class="math notranslate nohighlight">\(\vec{u}\)</span> and <span class="math notranslate nohighlight">\(\vec{v}\)</span>. The span is of all 2D space indicated by the red dots (imagine these as the end points of vectors)</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define two vectors</span>
+<span class="n">vector_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">vector_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># Create a grid of scalar values for the linear combination</span>
+<span class="n">scalars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Plot the span of the vectors</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">scalars</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">scalars</span><span class="p">:</span>
+        <span class="n">linear_combination</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vector_u</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">vector_v</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linear_combination</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linear_combination</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Plot the original vectors</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector_u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vector u&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vector v&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Span of Two Linearly Independent Vectors&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_linear_algebra1_9_0.png" src="../_images/day2_linear_algebra1_9_0.png" />
+</div>
+</div>
+<p>Not all vectors will span 2D space. If both vectors are zero vectors then they will remain at the origin</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{u} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}, \vec{v} = \begin{bmatrix} 0 \\ 0 \end{bmatrix} \\
+a\vec{u} + b \vec{v} = \begin{bmatrix} 0 \\ 0 \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>Or, if two vectors are parallel, then the span will only be on the line of the two vectors (as shown below).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define two linearly dependent vectors</span>
+<span class="n">vector_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">vector_v</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">vector_u</span>  <span class="c1"># Scalar multiple of vector_u</span>
+
+<span class="c1"># Create a grid of scalar values for the linear combination</span>
+<span class="n">scalars</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Plot the span of the vectors</span>
+<span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">scalars</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">scalars</span><span class="p">:</span>
+        <span class="n">linear_combination</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">vector_u</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">vector_v</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">linear_combination</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linear_combination</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Plot the original vectors</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector_u</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vector u&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">vector_v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">vector_v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angles</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale_units</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Vector v&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Span of Linearly Dependent Vectors in 2D&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_linear_algebra1_11_0.png" src="../_images/day2_linear_algebra1_11_0.png" />
+</div>
+</div>
+<p><strong>Review</strong></p>
+<hr class="docutils" />
+<p>If you have a set of vectors which does not add dimensionality to the span (i.e. the vectors are parallel in 2D) then it is said that these vectors are <strong>linearly dependent</strong>. For all other vectors they will be <strong>linearly independent</strong>. You will see the topic of linear dependence/independence come up when describing a matrix. This description of span and linear dependence/independence also applies to 3D and higher dimensions.</p>
+</section>
+<section id="2.5-Matrices">
+<h3>2.5 Matrices<a class="headerlink" href="#2.5-Matrices" title="Link to this heading"></a></h3>
+<p>A matrix is a rectangular array of scalar values arranged in <strong>rows</strong> and <strong>columns</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{bmatrix}a_{i,j} &amp; a_{i,j + 1}  &amp; ... &amp; a_{i,j + N}\\ a_{i + 1,j} &amp; a_{i + 1,j + 1} &amp; ... &amp; a_{i + 1,j + N} \\ . &amp; . &amp; . \\ . &amp; . &amp; . \\ . &amp; . &amp; . \\ a_{i + M,j} &amp; a_{i + M,j + 1} &amp; ... &amp; a_{i + M,j + N} \end{bmatrix}\end{split}\]</div>
+</div>
+<p>Where <span class="math notranslate nohighlight">\(i\)</span> is the <strong>row</strong> index and <span class="math notranslate nohighlight">\(j\)</span> is the <strong>column</strong> index for each element in the matrix. A matrix will have two dimensions listed as MxN. M is the number of rows and N is the number of columns. This will be important when we go into the algebra side. An example of a matrix will be a list or temperature values described by their latitude and longitude position</p>
+<img alt="Example Matrix" src="../_images/matrix.jpg" />
+<p><strong>Questions</strong></p>
+<hr class="docutils" />
+<p><strong>Q1</strong>: From the above example, what are the dimensions of the 2D matrix (i.e. What is the value for M and N)?</p>
+<p>Solution: 4 x 4. <em>Note: A matrix does not have to be a square, it can also be a MxN matrix where M &gt; N or N &lt; M</em></p>
+<hr class="docutils" />
+<p>There are many ways that we can view matrices. We can see them as a method to solve a system of equations</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+2x + 3y = 5 \\
+-x + 5y = 2
+\end{align*}\end{split}\]</div>
+</div>
+<p>Viewing these as a system of equations with a unique solution, we can transform this into vectors and a matrix</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+x\begin{bmatrix} 2 \\ -1 \end{bmatrix} + y \begin{bmatrix}3 \\ 5 \end{bmatrix} &amp;= \begin{bmatrix} 5 \\ 2 \end{bmatrix} \\
+\begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 5 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} &amp;= \begin{bmatrix} 5 \\ 2 \end{bmatrix} \\
+Ax &amp;= b
+\end{align*}\end{split}\]</div>
+</div>
+<p>We will go more into this form of solving systems of equations but also how matrices can be used to transform vectors into another space.</p>
+</section>
+<section id="2.6-Tensors">
+<h3>2.6 Tensors<a class="headerlink" href="#2.6-Tensors" title="Link to this heading"></a></h3>
+<p>Scalars, Vectors and Matrices are all different order <strong>Tensors</strong>. Tensors are described by their order where the order is the description on the number of the dimensions of the object</p>
+<ul class="simple">
+<li><p><strong>Scalars</strong> are <strong>0th order tensor</strong> (a single number)</p></li>
+<li><p><strong>Vectors</strong> are <strong>1st order tensors</strong> (a list of numbers [x y z])</p></li>
+<li><p><strong>Matrices</strong> are <strong>2nd order tensors</strong> ([M] rows and [N] columns)</p></li>
+</ul>
+<p>There are also 3rd order tensors. An example of this is a tensor with dimensions <strong>Latitude x Longitude x Time</strong>.</p>
+<img alt="Example Tensor" src="../_images/tensor.jpg" />
+<p>There can also be higher order tensors but for our purposes we will only be using 2nd order tensors (a matrix).</p>
+<p><em>Note: The definition of the word tensor is a bit confusing because it depends on the field you are in to determine it’s definition.</em></p>
+</section>
+</section>
+<section id="3-|-The-Algebra-in-Linear-Algebra">
+<h2>3 | The Algebra in Linear Algebra<a class="headerlink" href="#3-|-The-Algebra-in-Linear-Algebra" title="Link to this heading"></a></h2>
+<p>In order to move forward we must now go over how matrices are added, multiplied which will then move us towards performing linear operations to solve system of equations</p>
+<section id="3.1-|-Vector-and-Matrix-Addition">
+<h3>3.1 | Vector and Matrix Addition<a class="headerlink" href="#3.1-|-Vector-and-Matrix-Addition" title="Link to this heading"></a></h3>
+<p>Vectors have dimensions, if we are referring to a 3D coordinate system for each component we would expect a vector to have three components</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{v_1} = \begin{bmatrix} x_1 \\ y_1 \\ z_1 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>By counting the number of rows and columns we can obtain the dimensions for the vector. In the above example we have a 3x1 (3 rows, 1 column). All vectors will be some number by 1. Vectors typically are in the form Nx1 but, we can <strong>transpose</strong> the vector to give it dimensions of 1xN</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\vec{v_1}^T = \begin{bmatrix} x_1 &amp; y_1 &amp; z_1 \end{bmatrix}\]</div>
+</div>
+<p><strong>Transposing</strong> is the process of changing the columns to rows. This becomes important when we start using multiplication or addition to make sure the dimensions match. To sum two vectors we add each component</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{v_1} + \vec{v_2} = \begin{bmatrix} x_1 \\ y_1 \\ z_1 \end{bmatrix} + \begin{bmatrix} x_2 \\ y_2 \\ z_2 \end{bmatrix} = \begin{bmatrix} x_1 + x_2 \\ y_1 + y_2 \\ z_1 + z_2 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>A matrix can be seen as a set of vectors.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \begin{bmatrix} a_{1,1} \\ a_{2,1} \\ a_{3,1} \end{bmatrix} &amp; \begin{bmatrix} a_{1,2} \\ a_{2,2} \\ a_{3,2} \end{bmatrix} &amp; \begin{bmatrix} a_{1,3} \\ a_{2,3} \\ a_{3,3} \end{bmatrix} \end{bmatrix}\end{split}\]</div>
+</div>
+<p>Given that a matrix can be seen as a set of vectors, we can then also add the matrix in a similar method. If we have two matrices, A and B, then we can add the matrices by adding each component if their dimensions are the same (i.e. <span class="math notranslate nohighlight">\(M_A == M_B, N_A == N_B\)</span>)</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;A + B = C \\
+&amp;\begin{bmatrix} a_{1,1} &amp; a_{1,2} \\ a_{2,1} &amp; a_{2,2} \end{bmatrix} + \begin{bmatrix} b_{1,1} &amp; b_{1,2} \\ b_{2,1} &amp; b_{2,2} \end{bmatrix} = \begin{bmatrix} a_{1,1} + b_{1,1} &amp; a_{1,2} + b_{1,2} \\ a_{2,1} + b_{2,1} &amp; a_{2,2} + b_{2,2} \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>From the above it is clear that, since <span class="math notranslate nohighlight">\(a_{1,1} + b_{1,1} = b_{1,1} + a_{1,1}\)</span> then addition in linear algebra is <strong>commutative</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A + B &amp;= B + A \\
+A + B + C &amp;= C + B + A
+\end{align*}\end{split}\]</div>
+</div>
+<p>There are several other properties for matrices which I will list down in the cheat sheet below. One item to note is that, unlike scalars, the order in which multiplication occurs is important for matrices but does not matter for scalar values (matrices are not associative). In other words</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{align*}
+AB \ne BA \text{ even if they are square matrices}
+\end{align*}\]</div>
+</div>
+<p>If <span class="math notranslate nohighlight">\(AB = BA\)</span> then we say that A and B <strong>commute.</strong> The dimensions of the vector and matrix also matter when adding or multiplying.</p>
+</section>
+<section id="3.2-|-The-Dot-Product">
+<h3>3.2 | The Dot Product<a class="headerlink" href="#3.2-|-The-Dot-Product" title="Link to this heading"></a></h3>
+<p>As shown in the vector calculus class, the dot product (also called the inner product) takes two vectors of the same length and combines them into a single scalar number. The dot product is indicate by a dot between two vectors $ <span class="math">\vec{u}</span> <span class="math">\cdot `:nbsphinx-math:</span>vec{v}`$. Below shows the operation of the dot product</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;\vec{u} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix},
+\vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \\
+&amp;\vec{u} \cdot \vec{v} = \begin{bmatrix} u_1 &amp; u_2 &amp; u_3 \end{bmatrix} \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} = u_1 v_1 + u_2 v_2 + u_3 v_3
+\end{align*}\end{split}\]</div>
+</div>
+<p>A question that might come up is why did we take the transpose of <span class="math notranslate nohighlight">\(\vec{u}\)</span>? When performing vector, matrix multiplication we are transforming the objects and the output will have a new dimension. If we have a vector, <span class="math notranslate nohighlight">\(\vec{u}\)</span>, which is an Nx1, and a vector, <span class="math">\vec{v}</span>, which is a Nx1, we can determine what the dimensions are of the new product</p>
+<ol class="arabic simple">
+<li><p>The number of <em>columns</em> of the vector on the left vector must equal the number of <em>rows</em> on the right vector. The new object (maybe a scalar, maybe a vector, maybe a matrix) will have the dimensions as the number of <em>rows</em> from the left vector and the number of <em>columns</em> on the right vector.</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{u} = \begin{bmatrix} u_1 \\ u_2 \\ u_3 \end{bmatrix},
+\vec{v} = \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \\
+\end{align*}\end{split}\]</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\vec{u}\)</span> is a Nx1 and <span class="math notranslate nohighlight">\(\vec{v}\)</span> is a Nx1. Multiplying the vectors gives us</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[(N_u \text{ x } 1) \cdot (N_v \text{ x } 1)\]</div>
+</div>
+<p>This is not possible because <span class="math notranslate nohighlight">\(1 \ne N_v\)</span>. However, if we take the transpose of <span class="math notranslate nohighlight">\(\vec{u}\)</span>, this changes the dimensions</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{u}^T &amp;\vec{v} \\
+(1 \text{ x } N_u) &amp;\cdot (N_v \text{ x } 1)
+\end{align*}\end{split}\]</div>
+</div>
+<p>Because <span class="math notranslate nohighlight">\(N_u = N_v\)</span> we can multiply each component to get a scalar value. The new dimensions of the resultant object are a 1x1 tensor or a scalar!</p>
+<hr class="docutils" />
+<p><strong>Question</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>What is the dot product of the following vectors?</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;\vec{u} = \begin{bmatrix} 3 \\ 2 \\ 1 \end{bmatrix}, \vec{v} = \begin{bmatrix} 2 \\ -9 \\ 4 \end{bmatrix} \\
+&amp;\vec{u} \cdot \vec{v} = ?
+\end{align*}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<hr class="docutils" />
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{u}^T \vec{v} = \begin{bmatrix} 3 &amp; 2 &amp; 1 \end{bmatrix}, \vec{v} = \begin{bmatrix} 2 \\ -9 \\ 4 \end{bmatrix} = 3\times2 - 2 \times 9 + 1 \times 4 = -8
+\end{align*}\end{split}\]</div>
+</div>
+</section>
+<section id="3.3-|-Matrix-Vector-Multiplication">
+<h3>3.3 | Matrix Vector Multiplication<a class="headerlink" href="#3.3-|-Matrix-Vector-Multiplication" title="Link to this heading"></a></h3>
+<p>Previously we had mentioned that linear algebra allows us to solve a system of equations. We had previously listed the following two equations</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+2x + 3y = 5 \\
+-x + 5y = 2
+\end{align*}\end{split}\]</div>
+</div>
+<p>Let’s ignore now what the two equations equal</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+2x + 3y  \\
+-x + 5y
+\end{align*}\end{split}\]</div>
+</div>
+<p>If we now factor out x from the first column vector, and y from the second column vector our system of equations looks like the following</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+x\begin{bmatrix}2 \\ -2\end{bmatrix} + y \begin{bmatrix} 3 \\ 5 \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>This is exactly how matrix vector multiplication works, given a matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and a vector <span class="math notranslate nohighlight">\(\vec{x}\)</span>, we can take the components of <span class="math notranslate nohighlight">\(\vec{x}\)</span> and multiply each column.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A &amp;= \begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 5 \end{bmatrix}, \vec{x} = \begin{bmatrix} x \\ y \end{bmatrix} \\
+Ax &amp;= \begin{bmatrix} 2 &amp; 3 \\ -1 &amp; 5 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = x \begin{bmatrix} 2 \\ -1 \end{bmatrix} + y\begin{bmatrix} 3 \\ 5 \end{bmatrix} = \begin{bmatrix} 2x + 3y \\ -x + 5y \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>Note that this also works because of the dimensions, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is a 2x2 matrix and <span class="math notranslate nohighlight">\(\vec{x}\)</span> is a 2x1</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[(2 \times [2) \cdot (2] \times 1) = 2 \times 1\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Question</strong></p>
+<hr class="docutils" />
+<p>In the algebra class we worked on water mixing (you will also encounter this in SIOC 210). Let’s say that we have two water masses, AntArctic Bottom Water (AABW) and the North Atlantic Deep Water (NADW). Both water masses have mixed due to turbulence but we have readings of their measurements before mixing. The temperature and salinity for the AABW are <span class="math notranslate nohighlight">\(T_{AABW} = 2 ^\circ C, S_{AABW} = 35 \text{ psu}\)</span>. The temperature and salinity for the NADW are
+<span class="math notranslate nohighlight">\(T_{NADW} = 5^\circ C, S_{NADW} = 34 \text{ psu}\)</span>. We know that the new water mass has is 60% AABW and 40% NADW. Assuming that mixing follows a linear relationship, what is the temparture and salinity of the mixed water mass?</p>
+<p><strong>Solution</strong></p>
+<p>We can treat this as a system of equations. We know that we must sum the temperature values and multiply by their ratio in order to determine the new temperature value. We will also do the same for the salinity values. Setting up the system of equations we have</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+T_{A} x + T_{N} y &amp;= T_{new} \\
+S_{A} x + S_{N} y &amp;= S_{new}
+\end{align*}\end{split}\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} 2^\circ \text{ C} &amp; 5^\circ \text{ C} \\ 35 \text{ psu}  &amp; 34 \text{ psu} \end{bmatrix} \begin{bmatrix} 0.6 \\ 0.4 \end{bmatrix} = 0.6 \begin{bmatrix} 2 \\ 35 \end{bmatrix} + 0.4 \begin{bmatrix} 5 \\ 34 \end{bmatrix} = \begin{bmatrix} 3.2^\circ \text{ C} \\ 34.6 \text{ psu} \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>What I listed above was redundant, but I just wanted to emphasize how matrix vector multiplication relates to solving a system of equations. A geographic way to think about this is if there was a linear relationship between salinity and temperature, we could</p>
+</section>
+<section id="3.4-|-Matrix-Matrix-Multiplication">
+<h3>3.4 | Matrix Matrix Multiplication<a class="headerlink" href="#3.4-|-Matrix-Matrix-Multiplication" title="Link to this heading"></a></h3>
+<p>Matrix matrix multiplication is fundamental in solving linear algebra equations. If we have two matrices, <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, we can multiply to obtain a new matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>.</p>
+<section id="Dimensions">
+<h4>Dimensions<a class="headerlink" href="#Dimensions" title="Link to this heading"></a></h4>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is an <span class="math notranslate nohighlight">\(M \times N\)</span> matrix and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> is an <span class="math notranslate nohighlight">\(N \times P\)</span> matrix, then the resulting matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> will have dimensions <span class="math notranslate nohighlight">\(M \times P\)</span>.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[AB = (M \times N) \cdot (N \times P) = M \times P\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} = \begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; \cdots &amp; a_{1,N} \\ a_{2,1} &amp; a_{2,2} &amp; \cdots &amp; a_{2,N} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ a_{M,1} &amp; a_{M,2} &amp; \cdots &amp; a_{M,N} \end{bmatrix}, \quad
+\mathbf{B} = \begin{bmatrix} b_{1,1} &amp; b_{1,2} &amp; \cdots &amp; b_{1,P} \\ b_{2,1} &amp; b_{2,2} &amp; \cdots &amp; b_{2,P} \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ b_{N,1} &amp; b_{N,2} &amp; \cdots &amp; b_{N,P} \end{bmatrix}\end{split}\]</div>
+</div>
+</section>
+<section id="Multiplying-two-matrices">
+<h4>Multiplying two matrices<a class="headerlink" href="#Multiplying-two-matrices" title="Link to this heading"></a></h4>
+<p>If we now think of this as a vector matrix multiplication then we are simply multiplying the matrix A times the column vectors of B</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \begin{bmatrix} \begin{bmatrix} b_{1,1} \\ b_{2,1} \\ b_{3,1} \end{bmatrix} &amp; \begin{bmatrix} b_{1,2} \\ b_{2,2} \\ b_{3,2} \end{bmatrix} &amp; \begin{bmatrix} b_{1,3} \\ b_{2,3} \\ b_{3,3} \end{bmatrix} \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>Taking matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and multiplying by the first column vector of <span class="math notranslate nohighlight">\(\mathbf{B}\)</span></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \begin{bmatrix} b_{1,1} \\ b_{2,1} \\ b_{3,1} \end{bmatrix} = b_{1,1} \begin{bmatrix} a_{1,1} \\ a_{2,1} \\ a_{3,1} \end{bmatrix} +  b_{2,1} \begin{bmatrix} a_{1,2} \\ a_{2,2} \\ a_{3,2} \end{bmatrix} + b_{3,1} \begin{bmatrix} a_{1,3} \\ a_{2,3} \\ a_{3,3} \end{bmatrix}
+= \begin{bmatrix} c_{1,1} \\ c_{2,1} \\ c_{3,1} \end{bmatrix}\end{split}\]</div>
+</div>
+<p>Notice that this long operation only gave us the first column of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span>. We now need to take matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> and multiply by the second column of <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> to then obtain the second column of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> and so on</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \begin{bmatrix} b_{1,2} \\ b_{2,2} \\ b_{3,2} \end{bmatrix} = \begin{bmatrix} c_{1,2} \\ c_{2,2} \\ c_{3,2} \end{bmatrix} \\
+\begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \begin{bmatrix} b_{1,3} \\ b_{2,3} \\ b_{3,3} \end{bmatrix} = \begin{bmatrix} c_{1,3} \\ c_{2,3} \\ c_{3,3} \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>After all that arithmetic we finally have each of the column vectors for <span class="math notranslate nohighlight">\(\mathbf{C}\)</span></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} a_{1,1} &amp; a_{1,2} &amp; a_{1,3} \\ a_{2,1} &amp; a_{2,2} &amp; a_{2,3} \\ a_{3,1} &amp; a_{3,2} &amp; a_{3,3} \end{bmatrix} \begin{bmatrix}  b_{1,1} &amp; b_{1,2} &amp; b_{1,3} \\ b_{2,1} &amp; b_{2,2} &amp; b_{2,3} \\ b_{3,1} &amp; b_{3,2} &amp; b_{3,3} \end{bmatrix} = \begin{bmatrix} c_{1,1} &amp; c_{1,2} &amp; c_{1,3} \\ c_{2,1} &amp; c_{2,2} &amp; c_{2,3} \\ c_{3,1} &amp; c_{3,2} &amp; c_{3,3} \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Question</strong></p>
+<hr class="docutils" />
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> be a <span class="math notranslate nohighlight">\(3 \times 2\)</span> matrix:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \end{bmatrix}, \quad
+\mathbf{B} = \begin{bmatrix} 7 &amp; 8 \\ 9 &amp; 10 \\ 11 &amp; 12 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>If we multiply <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, what are the dimensions of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> ?</p>
+<p><strong>Solution</strong></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[(2 \times 3) \cdot (3 \times 2) = 2 \times 2\]</div>
+</div>
+<p><strong>Question</strong> Try to determine the values for matrix <span class="math notranslate nohighlight">\(\mathbf{C}\)</span></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{C} = \begin{bmatrix} 58 &amp; 64 \\ 139 &amp; 154 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>As mentioned previously, matrix matrix multiplication is not commutative, meaning <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{B} \neq \mathbf{B} \mathbf{A}\)</span> in general. However, it is associative, so <span class="math notranslate nohighlight">\((\mathbf{A} \mathbf{B}) \mathbf{C} = \mathbf{A} (\mathbf{B} \mathbf{C})\)</span>.</p>
+</section>
+</section>
+<section id="3.5-|-Solving-a-System-of-Equations">
+<h3>3.5 | Solving a System of Equations<a class="headerlink" href="#3.5-|-Solving-a-System-of-Equations" title="Link to this heading"></a></h3>
+<p>In section 3.3 we discussed matrix vector multiplication by showing an example of mixed water masses. We knew in advanced what the ratio of each water mass was which allowed us to use matrix-vector multiplication determine the properties of the mixed water mass. What if we didn’t know what the ratios were, but we knew what the temperature and salinity were? In other words</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[A\vec{x} = \vec{b}\]</div>
+</div>
+<p>Where A is a matrix of our coefficients for temperature (T) and salinity (S)</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{bmatrix} T_{A} &amp; T_{N} \\ S_{A} &amp; S_{N}\end{bmatrix}\end{split}\]</div>
+</div>
+<p><span class="math notranslate nohighlight">\(\vec{x}\)</span> is our ratio of unknowns</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{x} = \begin{bmatrix} r_{A} \\ r_{N} \end{bmatrix}\end{split}\]</div>
+</div>
+<p>and <span class="math notranslate nohighlight">\(\vec{b}\)</span> is the temperature and salinity for the mixed water maxx</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{b} = \begin{bmatrix} T_{b} \\ S_{b} \end{bmatrix}\end{split}\]</div>
+</div>
+<p>If we knew the components of A and <span class="math notranslate nohighlight">\(\vec{B}\)</span>, how could we solve for <span class="math notranslate nohighlight">\(\vec{x}\)</span> ?</p>
+<section id="3.5.1-|-The-Visual-Solution">
+<h4>3.5.1 | The Visual Solution<a class="headerlink" href="#3.5.1-|-The-Visual-Solution" title="Link to this heading"></a></h4>
+<p>We have a linear system of equations, in a 2D plane what we are geographically trying to solve is the point where the two lines intersect. Let’s say we have the below system of equations</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>The below plot shows that graphically the solution is the intersection of both lines. We could trace this and count the points to the solution but this becomes difficult in three dimensions or when dealing with more than 2 equations.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the x values</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Define the y values for the equations</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Solving the system of equations</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">solution</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">solution</span><span class="p">)</span>
+
+<span class="c1"># Create the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;2x - y = 0&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;-x + 2y = 3&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">solution</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">solution</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Intersection Point&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Line Plot for 2x - y = 0 and -x + 2y = 3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;X-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Y-axis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1. 2.]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/day2_linear_algebra1_21_1.png" src="../_images/day2_linear_algebra1_21_1.png" />
+</div>
+</div>
+</section>
+<section id="3.5.2-|-Row-Reduction-(Gaussian-Elimination)">
+<h4>3.5.2 | Row Reduction (Gaussian Elimination)<a class="headerlink" href="#3.5.2-|-Row-Reduction-(Gaussian-Elimination)" title="Link to this heading"></a></h4>
+<p>Row reduction is a method for solving systems of equations by transforming the augmented matrix of the system into a simpler form (usually called a row echelon or reduced row echelon form). The idea is to use elementary row operations that don’t change the solution by</p>
+<ol class="arabic simple">
+<li><p>Swapping rows</p></li>
+<li><p>Multiplying a row by a nonzero constant (scaling an equation)</p></li>
+<li><p>Add or subtract a multiple of one row from another</p></li>
+</ol>
+<p>From our example</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} 0 \\ 3 \end{bmatrix} = \begin{bmatrix} 2x - y \\ -x + 2y \end{bmatrix} = \begin{bmatrix} 0 \\ 3\end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>If we divide the first row by <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> which is only scaling our first equation and not changing it’s properties</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\begin{bmatrix} \frac{1}{2}(2x - y) \\ -x + 2y \end{bmatrix} &amp;= \begin{bmatrix} \frac{1}{2} \times 0 \\ 3\end{bmatrix} \\
+\begin{bmatrix} x - \frac{1}{2}y \\ -x + 2y \end{bmatrix} &amp;= \begin{bmatrix} 0 \\ 3\end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>We can now add row 1 and row 2 together to create a new output for row 2</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+x - \frac{1}{2}y = 0 \\ -x + 2y = 3 \\
+\hline
+0 + \frac{3}{2}y = 3
+\end{align*}\end{split}\]</div>
+</div>
+<p>With this new equation we can solve for <span class="math notranslate nohighlight">\(y\)</span></p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;\frac{3}{2} y = 3 \\
+&amp;y = 2
+\end{align*}\end{split}\]</div>
+</div>
+<p>Now, substituting <span class="math notranslate nohighlight">\(y = 2\)</span> into our first equation</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+x - \frac{1}{2}y &amp;= 0 \rightarrow x - \frac{1}{2}2 = 0 \rightarrow x - 1 = 0 \\
+x &amp;= 1
+\end{align*}\end{split}\]</div>
+</div>
+<p>Our solution is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{x} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\end{split}\]</div>
+</div>
+</section>
+</section>
+<section id="3.5-|-The-Determinant-and-Inverse-Matrix">
+<h3>3.5 | The Determinant and Inverse Matrix<a class="headerlink" href="#3.5-|-The-Determinant-and-Inverse-Matrix" title="Link to this heading"></a></h3>
+<p>We’ve gone over matrix addition, subtraction and multiplication. When solving algebraic problems we often see them in the form of</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[2x = 5 \rightarrow x = 5/2\]</div>
+</div>
+<p>In the above equation we can divide by 2 in order to get the value of x. In linear algebra our most basic equation is of the form</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[A\vec{x} = \vec{b}\]</div>
+</div>
+<p>We want to establish a method so that we can perform a type of “division” of matrix A, which will then become a one on the left-hand side of the equation and then that value can be used, with some operation, to solve the equation. This method is known as the <strong>inverse</strong> of A, represented by <span class="math notranslate nohighlight">\(A^{-1}\)</span>. If we can determine the inverse then</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A \vec{x} &amp;= \vec{b} \\
+A^{-1} A \vec{x} &amp;= A^{-1} \vec{b} \\
+I \vec{x} &amp;= A^{-1} \vec{b} \\
+\vec{x} &amp;= A^{-1} \vec{b}
+\end{align*}\end{split}\]</div>
+</div>
+<p>Where <span class="math notranslate nohighlight">\(I\)</span> is known as the <strong>identity matrix</strong>. Any vector or matrix multiplied by the identity matrix equals itself</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+I \vec{x} = \vec{x} I = \vec{x} \\
+I A =  A I = A
+\end{align*}\end{split}\]</div>
+</div>
+<p>The identity matrix is all zeros except across the diagonal, which is a value of ones</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{x} &amp;= \begin{bmatrix} x \\ y \end{bmatrix}, I = \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \\
+\begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} &amp;= x \begin{bmatrix} 1 \\ 0 \end{bmatrix} + y \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} x \\ y \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>To determine the inverse matrix of A we must first find the <strong>determinant</strong>.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \\
+\text{det}(A) = ad - bc
+\end{align*}\end{split}\]</div>
+</div>
+<p>If the determinant is equal to 0 then the matrix is said to be <strong>singular</strong> and we cannot find the inverse of the matrix using this method (don’t worry, there are other methods such as Gauss-Jorden or using Matrix minors, cofactors etc. etc.). Next, after finding the determinant we then switch the order of matrix A by switching positions of the components in position a and d, then also switching the positions of the components b and c and making them negative</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A_{new} = \begin{bmatrix} d &amp; -c \\ -b &amp; a\end{bmatrix}\end{split}\]</div>
+</div>
+<p>Now, we divide by the determinant and this becomes the inverse matrix</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{1}{\text{det}(A)} \begin{bmatrix} d &amp; -c \\ -b &amp; a\end{bmatrix} = A^{-1}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Question</strong></p>
+<hr class="docutils" />
+<ol class="arabic simple">
+<li><p>Find the inverse of matrix A and use it to solve for vector <span class="math notranslate nohighlight">\(\vec{x}\)</span>.</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A = \begin{bmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{bmatrix} \vec{x} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}\end{split}\]</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Show that <span class="math notranslate nohighlight">\(A^{-1}\)</span> is the inverse of A by computing <span class="math notranslate nohighlight">\(A A^{-1} = I\)</span></p></li>
+</ol>
+<hr class="docutils" />
+<p><strong>Solution (1)</strong></p>
+<hr class="docutils" />
+<ol class="loweralpha simple">
+<li><p>Compute the determinant:</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\text{det}(A) = (2)(2) - (-1)(-1) = 4 - 1 = 3\]</div>
+</div>
+<ol class="loweralpha simple" start="2">
+<li><p>Since the determinant is non-zero, the matrix is invertible.</p></li>
+<li><p>Compute the inverse:</p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A^{-1} = \frac{1}{3} \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\end{split}\]</div>
+</div>
+<ol class="loweralpha simple" start="4">
+<li><p>Multiplying <span class="math notranslate nohighlight">\(A^{-1}\)</span> by <span class="math notranslate nohighlight">\(\vec{b}\)</span></p></li>
+</ol>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A^{-1} \vec{b} = \frac{1}{3} \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix} \begin{bmatrix} 0 \\ 3 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Solution (2)</strong></p>
+<hr class="docutils" />
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+A A^{-1} &amp;= \begin{bmatrix} 2 &amp; -1 \\ -1 &amp; 2 \end{bmatrix} \frac{1}{3} \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix} \\
+&amp;= \frac{1}{3} \begin{bmatrix} (2 \begin{bmatrix} 2 \\ -1 \end{bmatrix} + 1 \begin{bmatrix} -1 \\ 2 \end{bmatrix}) &amp; (1 \begin{bmatrix} 2 \\ -1 \end{bmatrix} + 2 \begin{bmatrix} -1 \\ 2 \end{bmatrix}) \end{bmatrix} \\
+&amp;= \frac{1}{3} \begin{bmatrix} 4 - 1 &amp; 2 - 2 \\ -2 + 2 &amp; -1 + 4 \end{bmatrix} = \frac{1}{3} \begin{bmatrix} 3 &amp; 0 \\ 0 &amp; 3 \end{bmatrix} \\
+A A^{-1} &amp;= \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} = I
+\end{align*}\end{split}\]</div>
+</div>
+<p><em>Note:</em> You do not have to do these by hand! Matlab and Python have methods to find the inverse of a determinant as well as a matrix</p>
+<p><strong>Python</strong></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>import numpy as np
+
+A = np.array([[2,-1], [-1,2]])
+
+# find determinant
+d = np.linalg.det(A)
+
+# find inverse
+A_inv = np.linalg.inv(A)
+</pre></div>
+</div>
+<p>Matlab</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>A = [2 -1;-1 2];
+d = det(A);
+A_inv = inv(A);
+</pre></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Example matrix</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
+
+<span class="c1"># Calculate determinant</span>
+<span class="c1"># Calculate determinant</span>
+<span class="n">determinant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">A_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Determinant: </span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">determinant</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inverse Matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A_inv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Product of A and its Inverse:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span> <span class="o">@</span> <span class="n">A_inv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Determinant: 3.00
+Inverse Matrix:
+[[0.66666667 0.33333333]
+ [0.33333333 0.66666667]]
+Product of A and its Inverse:
+[[1. 0.]
+ [0. 1.]]
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="4-|-Linear-Transformations">
+<h2>4 | Linear Transformations<a class="headerlink" href="#4-|-Linear-Transformations" title="Link to this heading"></a></h2>
+<p>The inverse of a matrix may seem like a random operation, however, there is intuition behind what we are doing. In order to understand this we must first understand linear transformations. Linear transformations are a special kind of function between vector spaces that preserve the basic operations of vector addition and scalar multiplication. The below picture shows an image of data taken from the Surface Water Ocean and Topography (SWOT) satellite mission for the Cal/Val orbit. By applying the
+equation for geostrophic velocities we can determine the horizontal and vertical velocities from Sea Surface Height (SSH). There is one issue, by taking the horizontal and vertical gradeient we are actually calculating the along track and across track gradient, not the zonal (East to West) and meridional (North to South) gradient.</p>
+<img alt="swot velocities" src="../_images/swot_velocities.png" />
+<p>In order to perform this we must transform the velocities from across track and along track to zonal and meridional. First, let’s demonstrate exactly what we are trying to do with this transformation. We have a vector with elements <span class="math notranslate nohighlight">\(\vec{x'} = \begin{bmatrix} 0 \\ 2 \end{bmatrix}\)</span>. Looking at this in component form we have</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\vec{x'} = 0 \hat{i}' + 2 \hat{j}'\]</div>
+</div>
+<img alt="Across Track Example" src="../_images/at_velocity_1.png" />
+<p>We see that our coordinate system is facing the along track direction (approximately 45 <span class="math notranslate nohighlight">\(^\circ\)</span>) from the meridional line. We want to rotate the vector so that it’s magnitude does not change, only it’s direction, which requires a mapping (aka linear transformation) onto a new coordinate system. The black/gray lines are our old coordinate system and the red/orange lines are the new coordinate system.</p>
+<img alt="new coordinate" src="../_images/new_coordinate.png" />
+<p>We can see that the new basis vectors, <span class="math notranslate nohighlight">\(\hat{i} \text{ and } \hat{j}\)</span> have new coordinates</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\hat{i} = \begin{bmatrix} 1 \\ 0.5 \end{bmatrix}, \hat{j} = \begin{bmatrix} -0.5 \\ 1 \end{bmatrix}\end{split}\]</div>
+</div>
+<p>If we now take our vector, <span class="math notranslate nohighlight">\(\vec{x}'\)</span>, and replace the old basis vectors <span class="math notranslate nohighlight">\(\hat{i}', \hat{j}'\)</span> with the new basis vectors we can see where the coordinates lands.</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+\vec{x}' &amp;= 0 \hat{i}' + 2 \hat{j}' \\
+\vec{x} &amp;= 0 \hat{i} + 2 \hat{j} \\
+\vec{x} &amp;= 0 \begin{bmatrix} 1 \\ 0.5 \end{bmatrix} + 2 \begin{bmatrix} -0.5 \\ 1 \end{bmatrix} = \begin{bmatrix} -1 \\ 2 \end{bmatrix}
+\end{align*}\end{split}\]</div>
+</div>
+<p>We can generalize this from the basis vectors to apply and linear transformation</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}x \begin{bmatrix} 1 \\ 0.5 \end{bmatrix} + y \begin{bmatrix} -0.5 \\ 1 \end{bmatrix} \\
+\begin{bmatrix} 1 &amp; -0.5 \\ 0.5 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}\end{split}\]</div>
+</div>
+<p>Where this is our new transformation matrix</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A' = \begin{bmatrix} 1 &amp; -0.5 \\ 0.5 &amp; 1 \end{bmatrix}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p><strong>Question</strong></p>
+<hr class="docutils" />
+<p>If we wanted to rotate our coordinate system counter-clockwise by 90 degrees, what would be the transformation matrix?</p>
+<hr class="docutils" />
+<p><strong>Solution</strong></p>
+<hr class="docutils" />
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A' = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p>Question</p>
+<hr class="docutils" />
+<p>If we want to rotate by any angle in the counter-clockwise direction, how could we generalize this matrix?</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A(\theta)' = \begin{bmatrix} f(\theta) &amp; g(\theta) \\ h(\theta) &amp; l(\theta) \end{bmatrix}\end{split}\]</div>
+</div>
+<hr class="docutils" />
+<p>Solution</p>
+<hr class="docutils" />
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}A(\theta)' = \begin{bmatrix} \cos(\theta) &amp; -\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) \end{bmatrix}\end{split}\]</div>
+</div>
+</section>
+<section id="5-|-Linear-Algebra-I-Cheat-Sheet">
+<h2>5 | Linear Algebra I Cheat Sheet<a class="headerlink" href="#5-|-Linear-Algebra-I-Cheat-Sheet" title="Link to this heading"></a></h2>
+<section id="5.1-|-Matrix-Properties">
+<h3>5.1 | Matrix Properties<a class="headerlink" href="#5.1-|-Matrix-Properties" title="Link to this heading"></a></h3>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+A + B &amp;= B + A \\
+(A + B) + C &amp;= A + (B + C) \\
+A + 0 &amp;= A \\
+c(A + B) &amp;= cA + cB \\
+(c + d)A &amp;= cA + dA \\
+c(dA) &amp;= (cd)A \\
+A(BC) &amp;= (AB)C \\
+A(B + C) &amp;= AB + AC \\
+(B + C)A &amp;= BA + CA \\
+r(AB) &amp;= (rA)B = A(rB) \\
+I_{M} A &amp;= A = A I_{N} \\
+(A^T)^T &amp;= A \\
+(A + B)^T &amp;= A^T + B^T \\
+(rA)^T &amp;= rA^T \\
+(AB)^T &amp;= B^T A^T \\
+(I_{N})^T &amp;= I_{N} \\
+A A^{-1} &amp;= A^{-1} A = I_{N} \\
+(rA)^{-1} &amp;= \frac{1}{r} A^{-1}, r \ne 0 \\
+(AB)^{-1} &amp;= B^{-1} A^{-1} \\
+I_{N}^{-1} &amp;= I_{N} \\
+(A^T)^{-1} &amp;= (A^{-1})^T \\
+(A^{-1})^{-1} &amp;= A
+\end{align}\end{split}\]</div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="linear_algebra2.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Linear Algebra 2</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="data_workshop1.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Data Workshop 1</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2025, Tommy Stone
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Linear Algebra 1</a><ul>
+<li><a class="reference internal" href="#1-|-Why-Linear-Algebra?">1 | Why Linear Algebra?</a><ul>
+<li><a class="reference internal" href="#1.1-Application-of-Linear-Algebra">1.1 Application of Linear Algebra</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#2-|-Review---Scalars,-Vectors,-Matrices,-Tensors-and-Dimensions-(Oh-my!)">2 | Review - Scalars, Vectors, Matrices, Tensors and Dimensions (Oh my!)</a><ul>
+<li><a class="reference internal" href="#2.1-Notation">2.1 Notation</a></li>
+<li><a class="reference internal" href="#2.2-Scalars">2.2 Scalars</a></li>
+<li><a class="reference internal" href="#2.3-Vectors">2.3 Vectors</a></li>
+<li><a class="reference internal" href="#2.4-Linear-Combinations-and-Spans">2.4 Linear Combinations and Spans</a></li>
+<li><a class="reference internal" href="#2.5-Matrices">2.5 Matrices</a></li>
+<li><a class="reference internal" href="#2.6-Tensors">2.6 Tensors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3-|-The-Algebra-in-Linear-Algebra">3 | The Algebra in Linear Algebra</a><ul>
+<li><a class="reference internal" href="#3.1-|-Vector-and-Matrix-Addition">3.1 | Vector and Matrix Addition</a></li>
+<li><a class="reference internal" href="#3.2-|-The-Dot-Product">3.2 | The Dot Product</a></li>
+<li><a class="reference internal" href="#3.3-|-Matrix-Vector-Multiplication">3.3 | Matrix Vector Multiplication</a></li>
+<li><a class="reference internal" href="#3.4-|-Matrix-Matrix-Multiplication">3.4 | Matrix Matrix Multiplication</a><ul>
+<li><a class="reference internal" href="#Dimensions">Dimensions</a></li>
+<li><a class="reference internal" href="#Multiplying-two-matrices">Multiplying two matrices</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3.5-|-Solving-a-System-of-Equations">3.5 | Solving a System of Equations</a><ul>
+<li><a class="reference internal" href="#3.5.1-|-The-Visual-Solution">3.5.1 | The Visual Solution</a></li>
+<li><a class="reference internal" href="#3.5.2-|-Row-Reduction-(Gaussian-Elimination)">3.5.2 | Row Reduction (Gaussian Elimination)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#3.5-|-The-Determinant-and-Inverse-Matrix">3.5 | The Determinant and Inverse Matrix</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#4-|-Linear-Transformations">4 | Linear Transformations</a></li>
+<li><a class="reference internal" href="#5-|-Linear-Algebra-I-Cheat-Sheet">5 | Linear Algebra I Cheat Sheet</a><ul>
+<li><a class="reference internal" href="#5.1-|-Matrix-Properties">5.1 | Matrix Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=29a6c3e3"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
