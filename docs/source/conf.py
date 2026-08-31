@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 
 project = 'sio_math_workshop'
-copyright = '2025, Tommy Stone'
+copyright = '2025-2026, Tommy Stone'
 author = 'Tommy Stone'
 release = '1'
 

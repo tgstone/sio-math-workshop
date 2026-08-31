@@ -23,11 +23,10 @@ By the end of the program, participants will have:
 
 
 .. toctree::
-   :maxdepth: 5
-   :caption: Workshop Materials 
-   
-   
-   schedule
-   day1/index.rst
-   day2/index.rst
+   :maxdepth: 2
+   :caption: Workshops by Year
+
+
+   2026/index.rst
+   2025/index.rst
 
