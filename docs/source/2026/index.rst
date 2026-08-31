@@ -1,7 +1,7 @@
-2025 Workshop (Archive)
+2026 Workshop
 ========================
 
-This is an archived snapshot of the 2025 SIO Math Workshop materials.
+Materials for the 2026 SIO Math Workshop.
 
 .. toctree::
    :maxdepth: 5
@@ -11,3 +11,4 @@ This is an archived snapshot of the 2025 SIO Math Workshop materials.
    schedule
    day1/index.rst
    day2/index.rst
+   day3/index.rst
