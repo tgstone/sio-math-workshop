@@ -15,9 +15,8 @@ the pier) and walk down the ramp to the beach.
    
    intro_to_stats.ipynb
    distribution_functions.ipynb
-   data_workshop1.ipynb
    linear_algebra1.ipynb
    linear_algebra2.ipynb
    stats_in_practice.ipynb
-   data_workshop2.ipynb
-   data_workshop2_pt2.ipynb
+   
+   
