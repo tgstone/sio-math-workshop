@@ -1,11 +1,7 @@
 Day 2
 ======
 
-Welcome to the second day of the math workshop! Lunch today will be provided right
-outside NH101 by the Dollar Lunch Club (Lunch costs 1$ if you are able; they have Venmo!).
-After the workshop, there will be a pizza party on the beach! We will walk everyone down
-after the last class, but if you are meeting us there: go to the CCS building (directly right of
-the pier) and walk down the ramp to the beach.
+Welcome to the second day of the math workshop! We will be meeting in Revelle 4301 and the list of classes are below
 
 
 .. toctree::
