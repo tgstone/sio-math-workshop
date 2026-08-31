@@ -16,4 +16,5 @@ venv/
 **.vscode/
 
 # docs/build directory
-docs/build/
+docs/build/*
+
