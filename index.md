@@ -9,7 +9,7 @@ This site hosts notebooks and materials shared by workshop participants.
 
 ## 🔗 Available Notebooks
 - [Example Notebook](https://nbviewer.org/github/USERNAME/math-workshop/blob/main/notebooks/example_notebook.ipynb)
-- [Intro to Physical Oceanography](https://nbviewer.org/github/tgstone/sio-math-workshop/blob/main/docs/source/classes/intro_to_po.ipynb)
+- [Intro to Physical Oceanography](https://nbviewer.org/github/tgstone/sio-math-workshop/blob/main/docs/source/2026/day1/intro_to_po.ipynb)
 - [Limits & Derivatives](https://nbiewer.org/github/tgstone/sio-math-workshop/blob/main/docs/source/classes/derivatives.ipynb)
 
 ---
