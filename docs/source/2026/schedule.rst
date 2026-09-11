@@ -1,10 +1,20 @@
 Schedule
 =========
-All of our courses will be taught in Nierenberg Hall 101. Snacks and coffee will be provided on both days, and lunch and dinner 
-will be provided on the second day. See below for details.
+The courses will be taught in Revelle 4301 (Monday, Tuesday) and Munk 303 (Friday) at SIO. Snacks and coffee will be provided for all three days. 
+At the end of Friday there will be a Pier Tour and the teachers will be hosting TG. 
 
-NH101 directions: From the NH parking lot, walk south toward the building (past the rose
-garden). Go down the stairs on the right of the building, and you will see the open door of NH101.
+**Revelle 4301 directions**: From the NH parking lot, walk south toward the building (past the rose
+garden). Go down the stairs on the right of the building and keep walking past the rose garden 
+and lunch tables. You will see another set of stairs, go down the first set of stairs and turn left.
+You will see a bridge on your right hand side, cross the bridge. After crossing the bridge Revelle 4301
+will be the first set of doors to your right.
+
+**Munk Lab 303 directions**: Follow the same directions as Revelle 4301. Now, head down to bottom of the stairs (or
+take the elevator). After you walk straight you will see another set of stairs, at the bottom of the stairs 
+is walking straight is Munk Lab. We will have someone at the front of the door to let people in if it is locked.
+The north side of the lab also has a door which is always open during business hours. 
+
+`IGPP Map (Revelle and Munk) <https://igpp.ucsd.edu/about/directions>`_
 
 Day 1 - 09/14 - Revelle 4301
 ----------------------------
