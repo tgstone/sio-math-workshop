@@ -1,0 +1,327 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "b36fe48a",
+   "metadata": {},
+   "source": [
+    "# Units/Geometry/Trig \n",
+    "\n",
+    "**Instructor:** Lauren Harvey (lrharvey@ucsd.edu)\n",
+    "\n",
+    "**TAs:** Kathryn Chen (ksc005@ucsd.edu) and Joey Carter (j6carter@ucsd.edu)\n",
+    "\n",
+    "This lesson will review units and dimensional analysis (specifically applications to Earth sciences), and trigonometry (the unit circle; trig functions). **Sections to be covered based on attendees' interest.**\n",
+    "\n",
+    "Lecture notes inspired by Wikipedia and Ishwari Mulkalwar's 2024 Geometry notes."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ad525453",
+   "metadata": {},
+   "source": [
+    "## 1 | Dimensional Analysis\n",
+    "\n",
+    "Dimensional analysis is the process of tracking the base dimensions and their units in the different quantities in a mathematical expression as we do calculations with them. This can be as simple as converting a quantity from one unit to another, but gets more complicated when we have multiple quantities, sometimes in uncompatible units, within an expression."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "b0d7ba3a",
+   "metadata": {},
+   "source": [
+    "### 1.1 Base Quantities and Units\n",
+    "\n",
+    "There are [7 base quantites](https://www.bipm.org/en/measurement-units/si-base-units) in the International System of Units (SI). __Time__, __length__, and __mass__ are likely the most familiar and show up frequently in Earth Sciences, along with __temperature__, and __amount of substance__ (more for biology and chemistry applications)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "86924425",
+   "metadata": {},
+   "source": [
+    "| Base quantity              | Typical symbol | Base unit | Symbol | Alternate Units |\n",
+    "|----------------------------|----------------|-----------|--------|-----------------|\n",
+    "|   time                   | *t*            | second    | s      | minute, hour, day, year |\n",
+    "| length                     | *l, x, r, etc.*| meter     | m      | foot, mile |\n",
+    "| mass                       | *m*            | kilogram  | kg     | pound |\n",
+    "| electric current           | *I, i*         | ampere    | A      | |\n",
+    "| thermodynamic temperature  | *T*            | kelvin    | K      | celcius (ºC), fahrenheit (ºF) |\n",
+    "| amount of substance        | *n*            | mole      | mol    | |\n",
+    "| luminous intensity         | *Iᵥ*           | candela   | cd     | |\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f5548e83",
+   "metadata": {},
+   "source": [
+    "#### 1.1.1 SI Prefixes\n",
+    "\n",
+    "The SI system has a helpful system of prefixes that expands upon base units (and others), allowing us to easily express something like \"thousands of meters\" without having to pull out scientific notation or extra words. You are likely familiar with a few common ones: \"kilo-\" for thousands (a kilometer is a thousand meters, a kilogram is a thousand grams), \"centi-\" for hundredths (a centimeter is a hundredth of a meter), etc. Below is a shortened version of [this table](https://www.nist.gov/pml/owm/metric-si-prefixes) with the prefixes I've seen in Earth sciences, but the table extends on both sides if you need very small or very large units."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fea1458e",
+   "metadata": {},
+   "source": [
+    "| Factor      | Name     | Symbol |\n",
+    "|-------------|----------|--------|\n",
+    "| \\(10^{12}\\) | tera     | T      |\n",
+    "| \\(10^{9}\\)  | giga     | G      |\n",
+    "| \\(10^{6}\\)  | mega     | M      |\n",
+    "| \\(10^{3}\\)  | kilo     | k      |\n",
+    "| \\(10^{2}\\)  | hecto    | h      |\n",
+    "| \\(10^{1}\\)  | deca     | da     |\n",
+    "| \\(10^{-1}\\) | deci     | d      |\n",
+    "| \\(10^{-2}\\) | centi    | c      |\n",
+    "| \\(10^{-3}\\) | milli    | m      |\n",
+    "| \\(10^{-6}\\) | micro    | µ      |\n",
+    "| \\(10^{-9}\\) | nano     | n      |\n",
+    "| \\(10^{-12}\\)| pico     | p      |"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "77c6671d",
+   "metadata": {},
+   "source": [
+    "#### 1.1.2 Time\n",
+    "\n",
+    "Time conversions are the simplest, as people typically have the relationship between different units memorized. We know there are 60 seconds in a minute, 60 minutes in an hour, 24(ish) hours in a day, and 365 (ish) days in a year. Be aware that it gets more complicated when we work with data and need to be more exact in our conversions (not ignoring leap years and such). Programming languages typically have built-in functions to help with working with date/time data, as described [here for Matlab](https://www.mathworks.com/help/matlab/date-and-time-operations.html) and [here for Python](https://docs.python.org/3/library/datetime.html)\n",
+    "\n",
+    "##### 1.1.2a Some Common Considerations\n",
+    "\n",
+    "Depending on when the data was recorded and what instrament it comes from, the __epoch__, aka the time that is considered \"time 0\" in your timeseries, can vary. It is easiest if you are given this information with the dataset, but in a worst-case scenario you can do some quick calculations or try a few common epochs in your data analysis to see which produces the correct result."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "48774e22",
+   "metadata": {},
+   "source": [
+    "#### 1.1.3 Length\n",
+    "\n",
+    "In science, length is almost always measured in meters or some order of meters (millimeters, kilometers) which makes our lives easier! However, we sometimes need to convert/estimate distances in kilometers from latitude or longitude, which we will discuss later."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fb7aee8f",
+   "metadata": {},
+   "source": [
+    "####  1.1.4 Temperature\n",
+    "\n",
+    "The base SI unit is Kelvin, which is measured in the same increments as degrees Celsius, but with 0 K as absolute zero (no thermal energy). Because it is an absolute scale, we don't say \"degrees Kelvin\" or \"ºK\" as we do with ºC or ºF. Despite K being the base SI unit, Celsius is used more frequently in many fields.\n",
+    "\n",
+    "To convert between Celsius and Kelvin, we simply add or subtract 273.15: __temp_C = temp_K - 273.25__\n",
+    "\n",
+    "Fahrenheit is a bit more complicated since 100ºF was defined approximately at human body temperature (making it good for day to day use, but messy for science), instead of Celsius' more concrete 0ºC and 100ºC as where water melts and evaporates. \n",
+    "\n",
+    "However, we still have an exact conversion: __temp_C = 5/9 * (temp_F - 32)__\n",
+    "\n",
+    "If you're from the US or another Fahrenheit-using country, you may find it difficult to conceptualize what temperatures in Celcius mean. I find it useful to look at plots where temperature is labeled in both units, such as the one below of Scripps Pier water temperature in 2025."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "61932f22",
+   "metadata": {},
+   "source": [
+    "<img src=\"https://shorestations.ucsd.edu/plots/SIO_surf_daily.png\" alt=\"Scripps Pier 2025 Surface Temp\" width=\"800\"/>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "aba27910",
+   "metadata": {},
+   "source": [
+    "### 1.2 Derived Quanities\n",
+    "\n",
+    "Derived quantities are formed from combinations of the base quantities. Some common ones are:\n",
+    "\n",
+    "__Geometric Quantities: Only length__\n",
+    "\n",
+    "\\[Area] =  length^2  = $m^2$\n",
+    "\n",
+    "\\[Volume] =  length^3  = $m^3$\n",
+    "\n",
+    "__Kinematic Quantities: Only length and time__\n",
+    "\n",
+    "\\[Velocity/Speed] =  length / time  = $m/s$\n",
+    "\n",
+    "\\[Acceleration] =  length / time^2  = $m/s^2$\n",
+    "\n",
+    "__Dynamic Quantites: Only length, time, and mass__\n",
+    "\n",
+    "\\[Force] =  mass * length / time^2  = $kg*m/s^2$ = $N$ (Newtons)\n",
+    "\n",
+    "\\[Pressure] =  force / area  = $N / m^2$ = $Pa$ (Pascals)\n",
+    "\n",
+    "_(In this notation, the brackets \\[ ] in \\[quantity] means \"units of\" or \"dimensions of\" that quantity. Use of this notation varies, see [here](https://physics.stackexchange.com/a/77691) for an in-depth discussion and examples of other ways you may see dimensions indicated in your courses)_ "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "144adf92",
+   "metadata": {},
+   "source": [
+    "### 1.3 Common Quanitities in Earth Sciences\n",
+    "\n",
+    "Here we'll discuss some quantities you'll run into in Earth sciences and their units. You will be introduced to all of these in SIO 210.\n",
+    "\n",
+    "#### 1.3.1 Density\n",
+    "Density is defined as mass per unit volume, typically written as $\\rho$ (rho) and given in $kg/m^3$. It is highly relevant in atmosphere and ocean dynamics, and will be discussed at length in SIO 210. Density can be calculated from an empirical \"equation of state\" (EOS), which looks something like this: $\\rho = \\rho (S,T,p)$ (aka density is a function of the quantites in parenthesis). \n",
+    "\n",
+    "For oceanography, seawater density typically has values ranging from $1020$ to $1030$ $kg/m^3$ (freshwater has density $1000 kg/m^3$ at $4ºC$ by definition, and dissolved salts in the ocean increase density slightly). You may also see density values ranging from 20 to 30 instead, when the density of freshwater (1000) has been subtracted. Density in the ocean is a function of salinity, temperature, and pressure ($\\rho = \\rho (S,T,p)$).\n",
+    "\n",
+    "For atmospheric science, density near sea level is around $1 kg/m^3$, and falls off with increasing altitude. \n",
+    "Density in the atmosphere is a function of salinity, temperature, pressure, and moisture.\n",
+    "\n",
+    "#### 1.3.2 Pressure\n",
+    "\n",
+    "Pressure, as mentioned above, is force per unit area.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "282c467f",
+   "metadata": {},
+   "source": [
+    "### Unit Conversion Examples\n",
+    "\n",
+    "#### A Common Distance Approximation\n",
+    "It is very useful to be able to calculate, or at least approximate, distance in kilometers in a plot showing latitude (north-south) and longitude (east-west), as you will see in SIO 210 and beyond. A complication is that, while longitude circles are always the same size, latitude circles get smaller as you move away from the equator, as seen below.\n",
+    "\n",
+    "<img src=\"https://sciencenotes.org/wp-content/uploads/2022/06/Latitude-and-Longitude-1024x683.png\" alt=\"Latitude and longitude diagram and explanation\" width=\"400\"/>\n",
+    "\n",
+    "We'll handle this complication later when we discuss trigonometry, but a decent approximation for your 210 homework problems (or whenever a quick approximation is helpful) is that **one degree in latitude or longitude is about 111 km.** This is the value for all longitude circles and the 0º latitude circle (aka the equator) (we'll actually do this calculation shortly!) but is a decent approximation anywhere.\n",
+    "\n",
+    "**Example:** Convert 2º to kilometers."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "3a6e0e90",
+   "metadata": {},
+   "source": [
+    "### 1.4 Dimensionless Numbers\n",
+    "\n",
+    "In several courses, you will come across so called \"dimensionless numbers\". These are important ratios who's values can tell us about a system we are looking at. A common example is the Rossby number."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fa8ae5ae",
+   "metadata": {},
+   "source": [
+    "## 2 | Trigonometry\n",
+    "\n",
+    "Trigonometry deals with the relationships between sides and angles in a triangle. As a reminder, we commonly measure angles in either radians or degrees, and the relationship between them is \n",
+    "$$180º= \\pi \\text{ radians}$$\n",
+    "So, for example, (in the style of our dimensional analysis/unit conversion problems):\n",
+    "$$\\frac{3\\pi}{2} \\text{ radians} * \\frac{180º}{\\pi \\text{ radians}} = 270º$$\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "37ee9b93",
+   "metadata": {},
+   "source": [
+    "### 2.1 Right Triangles and Trigonometric Functions\n",
+    "\n",
+    "We define our trig functions using the ratios in a right triangle (a triangle with one 90º angle).\n",
+    "\n",
+    "\n",
+    "A useful mnemonic for remembering which side ratios correspond to which trig function of an angle is **SOH CAH TOA**:\n",
+    "\n",
+    "$$\\textbf{s}\\text{in}(\\theta) = \\frac{\\textbf{O}\\text{pposite}}{\\textbf{H}\\text{ypotenuse}}$$\n",
+    "$$\\textbf{c}\\text{os}(\\theta) = \\frac{\\textbf{A}\\text{djacent}}{\\textbf{H}\\text{ypotenuse}}$$\n",
+    "$$\\textbf{t}\\text{an}(\\theta) = \\frac{\\textbf{O}\\text{pposite}}{\\textbf{A}\\text{djacent}}$$\n",
+    "\n",
+    "The other three basic trig functions, cosecant, secant, and cotangent, are defined by the reciprocals of these ratios:\n",
+    "\n",
+    "$$\\text{csc}(\\theta) = \\frac{\\text{Hypotenuse}}{\\text{Opposite}}$$\n",
+    "$$\\text{sec}(\\theta) = \\frac{\\text{Hypotenuse}}{\\text{Adjacent}}$$\n",
+    "$$\\text{cot}(\\theta) = \\frac{\\text{Adjacent}}{\\text{Opposite}}$$\n",
+    "\n",
+    "#### 2.1.1 Trigonometric Ratios Example\n",
+    "\n",
+    "\n",
+    "What are sine, cosine, and tangent of $\\theta$ in a 3-4-5 triangle?\n",
+    "\n",
+    "\n",
+    "### 2.1.2 Inverse Trig Functions\n",
+    "\n",
+    "All 6 of these trig functions have an inverse function, typically written either as $\\text{arcsin} \\theta$ or $\\sin^{-1} \\theta$ . We use these when we know the value of the trig function and need to find the angle at which this value occurs. The inverse functions have agreed-upon ranges, since otherwise they would repeat:\n",
+    "\n",
+    "<img src=\"https://mathmonks.com/wp-content/uploads/2025/03/Domain-and-Range-of-Inverse-Trigonometric-Functions.jpg\">"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "595847b9",
+   "metadata": {},
+   "source": [
+    "### 2.2 The Unit Circle\n",
+    "\n",
+    "The unit circle is a circle with radius 1 (hence \"unit\") centered at the origin (0,0). It is very helpful for basic usage of trig ratios (and beyond) because any triangle drawn in the unit circle:\n",
+    "\n",
+    "<img src=\"https://content.nroc.org/DevelopmentalMath/COURSE_TEXT2_RESOURCE/U19_L1_T3_text_final_3_files/image022.gif\">\n",
+    "\n",
+    "will have a hypotenuse of length 1, so the values of cosine and sine are equal to the x and y coordinates. As you may remember, there are a range of angles' trig function values you probably had to memorize at some point; those shown in the image below. \n",
+    "\n",
+    "<img src=\"https://blog.collegevine.com/wp-content/uploads/2019/06/UC2.png\">\n",
+    "\n",
+    "If you need to re-memorize these (which is rarely necessary but often helpful, like in our next section), it helps to notice that the values for 30º and 60º (and equivalents) are the same except with x and y flipped, and that the only change between quadrants is the signs."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "c51bdfbc",
+   "metadata": {},
+   "source": [
+    "### 2.3 Trig Function Graphs\n",
+    "\n",
+    "Let's put our unit circle to use to graph sine:\n",
+    "\n",
+    "<img src=\"https://media.opencurriculum.org/articles_manual/michael_corral_trigonometry/graphic-the-trigonometric-functions/3.png\">\n",
+    "\n",
+    "Here are the graphs of all 6 trig functions:\n",
+    "\n",
+    "<img src=\"https://cdn1.byjus.com/wp-content/uploads/2020/09/Trigonometry-functions-graphs.png\">\n",
+    "\n",
+    "#### 2.3.1 Problems: Working with Trig Functions\n",
+    "\n",
+    "1. Plot $\\eta = 3 \\cos(2 \\theta)$\n",
+    "\n",
+    "2. A time series: Plot $\\eta = \\cos(\\omega t)$ for $\\omega = 1, \\pi$\n",
+    "\n",
+    "3. Space and time: Plot $\\eta = \\cos(kx- \\omega t)$ at $t=0 with $k= \\pi$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a2a8d138",
+   "metadata": {},
+   "source": [
+    "## 3 | Vectors\n",
+    "\n",
+    "Vectors are quantities with both magnitude and direction. \n",
+    "\n",
+    "### 3.1 Vector Addition\n",
+    "\n",
+    "<img src=\"https://www.grc.nasa.gov/WWW/K-12/airplane/Images/vectadd.gif\">"
+   ]
+  }
+ ],
+ "metadata": {
+  "language_info": {
+   "name": "python"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
