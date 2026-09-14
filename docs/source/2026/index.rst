@@ -4,7 +4,7 @@
 Materials for the 2026 SIO Math Workshop.
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 3
    :caption: Workshop Materials
 
 
