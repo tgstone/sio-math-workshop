@@ -1,7 +1,7 @@
 Day 2
 ======
 
-Welcome to the second day of the math workshop! We will be meeting in Revelle 4301 and the list of classes are below
+Welcome to the second day of the math workshop! We will be meeting in Revelle 4301 and the list of classes is below
 
 
 .. toctree::
